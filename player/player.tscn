@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cseafge3dgstr"]
+
+[ext_resource type="Script" path="res://player/player_controller.gd" id="1_m4mlw"]
+[ext_resource type="Script" path="res://player/camera.gd" id="2_jmyep"]
+[ext_resource type="Shader" path="res://player/player.gdshader" id="3_m7gp4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kebce"]
+shader = ExtResource("3_m7gp4")
+shader_parameter/pixelSize = 6
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rce24"]
+margin = 0.1
+radius = 0.25
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+script = ExtResource("1_m4mlw")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+script = ExtResource("2_jmyep")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Camera3D"]
+material = SubResource("ShaderMaterial_kebce")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Camera3D/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Camera3D/SubViewportContainer/SubViewport"]
+current = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_rce24")
