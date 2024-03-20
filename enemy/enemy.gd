@@ -6,7 +6,7 @@ var target:CharacterBody3D
 
 var pos_target:Vector3
 
-const SPEED = 5.0
+var speed: float = 5.0
 const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -24,7 +24,7 @@ func _physics_process(delta):
 	pos_target = nav_agent.get_next_path_position()
 	
 	look_at(pos_target)
-	velocity = transform.basis * Vector3(0,0,-SPEED)
+	velocity = transform.basis * Vector3(0,0,-speed)
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	move_and_slide()

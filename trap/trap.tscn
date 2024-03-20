@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm7e00ielghem"]
+
+[ext_resource type="Script" path="res://trap/trap.gd" id="1_kt7k4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nig73"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_80m22"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dowoj"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.247059)
+
+[node name="Trap" type="StaticBody3D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_kt7k4")
+place_offset = Vector3(0, 0.3, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_nig73")
+
+[node name="TriggerArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerArea"]
+shape = SubResource("BoxShape3D_nig73")
+
+[node name="PlaceArea" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlaceArea"]
+shape = SubResource("BoxShape3D_nig73")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_80m22")
+skeleton = NodePath("../PlacementGuide")
+
+[node name="PlacementGuide" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_dowoj")
+mesh = SubResource("BoxMesh_80m22")
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
