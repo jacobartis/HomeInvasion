@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjjsaw024qjse"
-path.s3tc="res://.godot/imported/woodFloor.jpg-c920792c7701889dd0f24074602ad025.s3tc.ctex"
+uid="uid://cl73230bdgot7"
+path.s3tc="res://.godot/imported/concrete.jpg-e9bcbf730981a5e2d69a46c0f149cea3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://qodot_resources/textures/woodFloor.jpg"
-dest_files=["res://.godot/imported/woodFloor.jpg-c920792c7701889dd0f24074602ad025.s3tc.ctex"]
+source_file="res://qodot_resources/textures/concrete.jpg"
+dest_files=["res://.godot/imported/concrete.jpg-e9bcbf730981a5e2d69a46c0f149cea3.s3tc.ctex"]
 
 [params]
 
