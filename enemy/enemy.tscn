@@ -16,3 +16,10 @@ shape = SubResource("CapsuleShape3D_spugt")
 mesh = SubResource("CapsuleMesh_7iw3y")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="StunTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PlayerRay" type="RayCast3D" parent="."]
+
+[connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]

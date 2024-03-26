@@ -34,7 +34,7 @@ func activate():
 func _on_trigger_area_body_entered(body):
 	if !body.is_in_group("enemy") or !placed:
 		return
-	body.speed /= 2
+	body.stun(2)
 	queue_free()
 
 func duration_timeout():

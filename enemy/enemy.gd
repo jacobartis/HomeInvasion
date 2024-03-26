@@ -1,11 +1,14 @@
 extends CharacterBody3D
 
 @onready var nav_agent = $NavigationAgent3D
+@onready var stun_timer = $StunTimer
+@onready var player_ray = $PlayerRay
 
 var target:CharacterBody3D
 
 var pos_target:Vector3
 
+var stunned: bool = false
 var speed: float = 5.0
 const JUMP_VELOCITY = 4.5
 
@@ -14,6 +17,9 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
 func _physics_process(delta):
+	if stunned:
+		return
+	
 	velocity.x = 0
 	velocity.z = 0
 	if !target:
@@ -32,3 +38,11 @@ func _physics_process(delta):
 func find_target():
 	target = get_tree().get_first_node_in_group("player")
 	return
+
+func stun(duration:float):
+	stunned = true
+	stun_timer.start(duration)
+
+
+func _on_stun_timer_timeout():
+	stunned = false
