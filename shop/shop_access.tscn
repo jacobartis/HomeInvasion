@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://di85fy0lxuci3"]
+
+[ext_resource type="Script" path="res://shop/shop_access.gd" id="1_nr7uu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_grpux"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tid0q"]
+
+[node name="ShopAccess" type="StaticBody3D"]
+script = ExtResource("1_nr7uu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_grpux")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_tid0q")

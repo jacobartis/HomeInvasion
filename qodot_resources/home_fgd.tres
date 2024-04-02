@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="QodotFGDFile" load_steps=6 format=3 uid="uid://duthk5xwly5wd"]
+
+[ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="1_88x8d"]
+[ext_resource type="Resource" uid="uid://cs0xf7xc4hf8h" path="res://map_resources/entry_point/entry_point.tres" id="2_4gflm"]
+[ext_resource type="Script" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_file.gd" id="3_oobcl"]
+[ext_resource type="Resource" uid="uid://ps6voyfqxsl3" path="res://map_resources/door/door.tres" id="3_vgk01"]
+[ext_resource type="Resource" uid="uid://qfwsncinkxde" path="res://map_resources/room/room.tres" id="4_4uvfc"]
+
+[resource]
+script = ExtResource("3_oobcl")
+export_file = false
+target_folder = "A:/Game dev/TrenchBroom/games/HomeInvasion"
+fgd_name = "HomeInvasion"
+base_fgd_files = Array[Resource]([ExtResource("1_88x8d")])
+entity_definitions = Array[Resource]([ExtResource("2_4gflm"), ExtResource("3_vgk01"), ExtResource("4_4uvfc")])

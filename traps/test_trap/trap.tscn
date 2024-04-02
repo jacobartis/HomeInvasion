@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dm7e00ielghem"]
 
-[ext_resource type="Script" path="res://trap/trap.gd" id="1_kt7k4"]
+[ext_resource type="Script" path="res://traps/test_trap/trap.gd" id="1_hy2xm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nig73"]
 size = Vector3(1, 0.5, 1)
@@ -15,7 +15,7 @@ albedo_color = Color(1, 1, 1, 0.247059)
 [node name="Trap" type="StaticBody3D"]
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("1_kt7k4")
+script = ExtResource("1_hy2xm")
 place_offset = Vector3(0, 0.3, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="QodotFGDPointClass" load_steps=3 format=3 uid="uid://dipqh4v4553ah"]
+
+[ext_resource type="PackedScene" uid="uid://crritpnpjdgy6" path="res://map_resources/entry_point/entry_point.tscn" id="1_5gswg"]
+[ext_resource type="Script" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" id="2_ip6oc"]
+
+[resource]
+script = ExtResource("2_ip6oc")
+scene_file = ExtResource("1_5gswg")
+apply_rotation_on_map_build = true
+classname = "EntryPoint"
+description = "Enemy spawn point"
+qodot_internal = false
+base_classes = Array[Resource]([])
+class_properties = {}
+class_property_descriptions = {}
+meta_properties = {}
+node_class = "Node3D"
+transient_node = false

@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cseafge3dgstr"]
+[gd_scene load_steps=10 format=3 uid="uid://cseafge3dgstr"]
 
 [ext_resource type="Script" path="res://player/player_controller.gd" id="1_m4mlw"]
 [ext_resource type="Script" path="res://player/camera.gd" id="2_jmyep"]
 [ext_resource type="Shader" path="res://player/player.gdshader" id="3_m7gp4"]
-[ext_resource type="PackedScene" uid="uid://b5rdsrxbne3ud" path="res://player/trap_placer.tscn" id="4_rytv5"]
+[ext_resource type="PackedScene" uid="uid://dnnngowg8tmg0" path="res://timer_display/timer_display.tscn" id="4_33to0"]
+[ext_resource type="PackedScene" uid="uid://b1ksb6ajy6naa" path="res://player/trap_placer.tscn" id="4_rytv5"]
+[ext_resource type="Script" path="res://player/interact_handler.gd" id="5_o87el"]
+[ext_resource type="Script" path="res://player/inventory_manager.gd" id="6_60koo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kebce"]
 shader = ExtResource("3_m7gp4")
@@ -18,26 +21,57 @@ script = ExtResource("1_m4mlw")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
-script = ExtResource("2_jmyep")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Camera3D"]
-material = SubResource("ShaderMaterial_kebce")
+[node name="UI" type="Control" parent="Camera3D"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Camera3D/UI"]
+visible = false
+material = SubResource("ShaderMaterial_kebce")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="Camera3D/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="Camera3D/UI/SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(1152, 648)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
-[node name="Camera3D" type="Camera3D" parent="Camera3D/SubViewportContainer/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="Camera3D/UI/SubViewportContainer/SubViewport" node_paths=PackedStringArray("follower_cam")]
 current = true
+script = ExtResource("2_jmyep")
+follower_cam = NodePath("../../../..")
+
+[node name="TimerDisplay" parent="Camera3D/UI" instance=ExtResource("4_33to0")]
+layout_mode = 1
+offset_left = 508.0
+offset_top = 19.0
+offset_right = -508.0
+offset_bottom = -590.0
 
 [node name="TrapPlacer" parent="Camera3D" instance=ExtResource("4_rytv5")]
+visible = false
+
+[node name="InventoryManager" type="Node" parent="Camera3D/TrapPlacer" groups=["InventoryManager"]]
+script = ExtResource("6_60koo")
+
+[node name="InteractHandler" type="RayCast3D" parent="Camera3D" node_paths=PackedStringArray("body")]
+visible = false
+target_position = Vector3(0, 0, -5)
+debug_shape_custom_color = Color(0, 0, 0.32549, 1)
+script = ExtResource("5_o87el")
+body = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_rce24")

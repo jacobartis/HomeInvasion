@@ -1,8 +1,8 @@
 extends Node3D
 
 @onready var ray_cast = $RayCast3D
+@onready var inventory_manager = $InventoryManager
 
-const TRAP = preload("res://trap/trap.tscn")
 
 var placing: bool = false
 var current_trap
@@ -23,6 +23,7 @@ func _input(event):
 		current_trap = null
 		placing = false
 	else:
-		current_trap = TRAP.instantiate()
+		current_trap = inventory_manager.get_selected_item()
+		if !current_trap:return
 		get_tree().get_first_node_in_group("world").add_child(current_trap)
 		placing = true

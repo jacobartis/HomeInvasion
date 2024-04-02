@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5rdsrxbne3ud"]
+[gd_scene load_steps=2 format=3 uid="uid://b1ksb6ajy6naa"]
 
 [ext_resource type="Script" path="res://player/trap_placer.gd" id="1_6axs2"]
 
@@ -6,4 +6,5 @@
 script = ExtResource("1_6axs2")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
+visible = false
 target_position = Vector3(0, 0, -5)

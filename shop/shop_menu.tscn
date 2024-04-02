@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7xxaueat0hb6"]
+
+[ext_resource type="Script" path="res://shop/shop_menu.gd" id="1_k3k7a"]
+
+[node name="ShopMenu" type="Control"]
+z_index = 1
+layout_mode = 3
+anchor_left = 0.0928819
+anchor_top = 0.101852
+anchor_right = 0.907118
+anchor_bottom = 0.898148
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k3k7a")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buy" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Buy Buy Buy!"
+
+[node name="Close" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "This is a shop
+Close"
+
+[connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="hidden" from="." to="." method="_on_hidden"]
+[connection signal="pressed" from="VBoxContainer/Buy" to="." method="_on_buy"]
+[connection signal="pressed" from="VBoxContainer/Close" to="." method="hide"]
