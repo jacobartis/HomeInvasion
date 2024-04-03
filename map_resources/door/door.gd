@@ -1,4 +1,7 @@
+@tool
 extends StaticBody3D
+
+var closed:bool = false
 
 @export var properties: Dictionary :
 	get:
@@ -9,5 +12,27 @@ extends StaticBody3D
 			update_properties()
 
 func update_properties():
-	if 'test' in properties:
-		print(properties['test'])
+	if 'closed' in properties:
+		if properties["closed"]:
+			close()
+		else:
+			open()
+
+func _ready():
+	add_to_group("door")
+
+func interact(body):
+	if closed:
+		open()
+	else:
+		close()
+
+func open():
+	collision_layer = 2
+	hide()
+	closed = false
+
+func close():
+	collision_layer = 3
+	show()
+	closed = true

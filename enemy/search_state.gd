@@ -35,16 +35,12 @@ func next_spot():
 	target_spot = target_room.get_hiding_spots().get_random()
 
 func next_room():
-	print("next_room")
 	var rooms = get_tree().get_nodes_in_group("room")
 	index += 1
 	spots_checked = 0
 	target_room = rooms[index%rooms.size()]
 	if state_controller:
 		state_controller.nav_agent.set_target_position(target_room.global_position)
-	if state_controller.body.current_room:
-		print(state_controller.body.current_room.room_name)
-	print(target_room.room_name)
 
 func _on_cool_down_timeout():
 	next_room()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cseafge3dgstr"]
+[gd_scene load_steps=11 format=3 uid="uid://cseafge3dgstr"]
 
 [ext_resource type="Script" path="res://player/player_controller.gd" id="1_m4mlw"]
 [ext_resource type="Script" path="res://player/camera.gd" id="2_jmyep"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dnnngowg8tmg0" path="res://timer_display/timer_display.tscn" id="4_33to0"]
 [ext_resource type="PackedScene" uid="uid://b1ksb6ajy6naa" path="res://player/trap_placer.tscn" id="4_rytv5"]
 [ext_resource type="Script" path="res://player/interact_handler.gd" id="5_o87el"]
+[ext_resource type="Script" path="res://player/inventory_display.gd" id="5_un4r8"]
 [ext_resource type="Script" path="res://player/inventory_manager.gd" id="6_60koo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kebce"]
@@ -60,6 +61,18 @@ offset_top = 19.0
 offset_right = -508.0
 offset_bottom = -590.0
 
+[node name="Inventory" type="Label" parent="Camera3D/UI"]
+layout_mode = 0
+offset_right = 287.0
+offset_bottom = 23.0
+script = ExtResource("5_un4r8")
+
+[node name="ItemDisplay" type="Label" parent="Camera3D/UI/Inventory"]
+offset_top = 29.0
+offset_right = 261.0
+offset_bottom = 52.0
+script = ExtResource("5_un4r8")
+
 [node name="TrapPlacer" parent="Camera3D" instance=ExtResource("4_rytv5")]
 visible = false
 
@@ -69,9 +82,13 @@ script = ExtResource("6_60koo")
 [node name="InteractHandler" type="RayCast3D" parent="Camera3D" node_paths=PackedStringArray("body")]
 visible = false
 target_position = Vector3(0, 0, -5)
+collision_mask = 3
 debug_shape_custom_color = Color(0, 0, 0.32549, 1)
 script = ExtResource("5_o87el")
 body = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_rce24")
+
+[connection signal="inventory_update" from="Camera3D/TrapPlacer/InventoryManager" to="Camera3D/UI/Inventory" method="_on_inventory_manager_inventory_update"]
+[connection signal="item_selected" from="Camera3D/TrapPlacer/InventoryManager" to="Camera3D/UI/Inventory" method="_on_inventory_manager_item_selected"]

@@ -14,7 +14,6 @@ func _ready():
 	hunt_state.state_controller = self
 
 func physics_process(delta):
-	print(aggro_timer.time_left)
 	if aggro_timer.time_left:
 		hunt_state.physics_process(delta)
 	else:
