@@ -22,7 +22,7 @@ func _process(delta):
 
 func _on_prep_timer_timeout():
 	get_tree().get_first_node_in_group("timer_display").set_display(round_timer,"Survive!:")
-	round_timer.start(120)
+	round_timer.start(5)
 	spawn_enemy()
 
 func _on_round_timer_timeout():

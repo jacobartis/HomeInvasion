@@ -54,7 +54,6 @@ func _on_kill_body_entered(body):
 	print("you lose")
 	get_tree().quit()
 
-
 func _on_door_area_body_entered(body):
 	if body.is_in_group("door"):
 		if body.closed:
