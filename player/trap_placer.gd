@@ -23,7 +23,12 @@ func _input(event):
 		current_trap = null
 		placing = false
 	else:
-		current_trap = inventory_manager.get_selected_item()
-		if !current_trap:return
+		if !inventory_manager.get_selected_item():return
+		current_trap = inventory_manager.get_selected_item().get_instance()
 		get_tree().get_first_node_in_group("world").add_child(current_trap)
+		current_trap.connect("just_placed",current_trap_just_placed)
 		placing = true
+
+func current_trap_just_placed():
+	inventory_manager.remove_selected()
+	

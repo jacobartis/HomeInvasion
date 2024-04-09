@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrapData" load_steps=4 format=3 uid="uid://2mpfao014j6h"]
+
+[ext_resource type="Script" path="res://traps/trap_data.gd" id="1_a2rxr"]
+[ext_resource type="PackedScene" uid="uid://dm7e00ielghem" path="res://traps/test_trap/trap.tscn" id="1_d02yl"]
+[ext_resource type="Texture2D" uid="uid://krriwn8ssxyb" path="res://traps/test_trap/MarbleIcon.png" id="1_rakr2"]
+
+[resource]
+script = ExtResource("1_a2rxr")
+title = "Trap"
+trap_scene = ExtResource("1_d02yl")
+icon = ExtResource("1_rakr2")

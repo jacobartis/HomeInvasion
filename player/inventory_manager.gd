@@ -8,7 +8,11 @@ var position: int = 0
 
 func get_selected_item():
 	if items.is_empty():return null
-	var item = items.keys()[position]
+	return items.keys()[position]
+
+func remove_selected():
+	if items.is_empty():return null
+	var item = get_selected_item()
 	items[item] -= 1
 	
 	if items[item]<=0:
@@ -20,21 +24,22 @@ func get_selected_item():
 	if items.is_empty():
 		emit_signal("item_selected",null)
 	else:
-		emit_signal("item_selected",items.keys()[position])
-	
-	return item.instantiate()
+		emit_signal("item_selected",get_selected_item())
 
 func _process(delta):
 	if items.is_empty():return
 	if Input.is_action_just_pressed("next_item"):
-		position = (position+1)%items.size()
+		position = abs(position+1)%items.size()
+		emit_signal("item_selected",items.keys()[position])
 	if Input.is_action_just_pressed("prev_item"):
-		position = (position-1)%items.size()
-	emit_signal("item_selected",items.keys()[position])
+		position = abs(position-1)%items.size()
+		emit_signal("item_selected",items.keys()[position])
 
-func add_item(item:PackedScene=null):
+func add_item(item:TrapData=null):
 	if items.has(item):
 		items[item] += 1
 	else:
 		items[item] = 1
+	if items.keys().size()==1:
+		emit_signal("item_selected",get_selected_item())
 	emit_signal("inventory_update",items)
