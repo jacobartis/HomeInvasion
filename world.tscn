@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://game/game.gd" id="1_tswlc"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="2_7nilt"]
 [ext_resource type="Texture2D" uid="uid://b85yg5aypp2gf" path="res://qodot_resources/textures/brick.jpg" id="4_4vc50"]
-[ext_resource type="Resource" uid="uid://duthk5xwly5wd" path="res://qodot_resources/home_fgd.tres" id="4_orm8w"]
+[ext_resource type="Resource" path="res://qodot_resources/home_fgd.tres" id="4_orm8w"]
 [ext_resource type="Texture2D" uid="uid://bjjsaw024qjse" path="res://qodot_resources/textures/woodFloor.jpg" id="5_omiov"]
 [ext_resource type="Texture2D" uid="uid://dkyp4bj14pe5c" path="res://qodot_resources/textures/wallpaper.jpg" id="5_pn7tw"]
 [ext_resource type="PackedScene" uid="uid://crritpnpjdgy6" path="res://map_resources/entry_point/entry_point.tscn" id="5_tlfns"]
@@ -1329,9 +1329,10 @@ script = ExtResource("1_tswlc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 1, 0)
 
 [node name="ItemDisplay" parent="Player/Camera3D/UI/Inventory" index="0"]
-layout_mode = 0
-offset_top = 0.0
-offset_bottom = 23.0
+offset_left = 1.0
+offset_top = 42.0
+offset_right = 262.0
+offset_bottom = 65.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)

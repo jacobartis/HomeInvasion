@@ -1,6 +1,8 @@
 extends StaticBody3D
 class_name Trap
 
+signal just_placed()
+
 @onready var placement_guide = $PlacementGuide
 @onready var place_area = $PlaceArea
 @onready var model = $Model
@@ -21,7 +23,7 @@ func _ready():
 func place():
 	if !can_place():
 		queue_free()
-	
+	emit_signal("just_placed")
 	placed = true
 	model.show()
 	placement_guide.hide()
