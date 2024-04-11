@@ -28,7 +28,6 @@ func _input(event):
 		current_trap.place()
 		current_trap = null
 		placing = false
-		
 		inventory_manager.remove_selected()
 	else:
 		if !inventory_manager.get_selected_item():return
