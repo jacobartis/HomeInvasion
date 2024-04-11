@@ -26,14 +26,15 @@ func remove_selected():
 	else:
 		emit_signal("item_selected",get_selected_item())
 
-func _process(delta):
+func next_item():
 	if items.is_empty():return
-	if Input.is_action_just_pressed("next_item"):
-		position = abs(position+1)%items.size()
-		emit_signal("item_selected",items.keys()[position])
-	if Input.is_action_just_pressed("prev_item"):
-		position = abs(position-1)%items.size()
-		emit_signal("item_selected",items.keys()[position])
+	position = abs(position+1)%items.size()
+	emit_signal("item_selected",items.keys()[position])
+
+func prev_item():
+	if items.is_empty():return
+	position = abs(position-1)%items.size()
+	emit_signal("item_selected",items.keys()[position])
 
 func add_item(item:TrapData=null):
 	if items.has(item):
