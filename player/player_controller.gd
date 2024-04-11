@@ -18,7 +18,7 @@ var sprint_mult: float = 1.75
 
 var crafting = false
 
-var hiding_spot = null
+var hiding_spot = null :set=set_hiding_spot
 
 func can_sprint():
 	return stamina>0 and !sprint_cooldown
@@ -29,7 +29,13 @@ func set_stamina(quant):
 		sprint_cooldown = true
 	if sprint_cooldown and stamina==max_stamina:
 		sprint_cooldown = false
-	print(stamina)
+
+func set_hiding_spot(new_spot):
+	hiding_spot = new_spot
+	if !new_spot:
+		state_controller.change_state(PlayerState.State.Idle)
+	else:
+		state_controller.change_state(PlayerState.State.Hiding)
 
 func _ready():
 	interact_handler.body = self

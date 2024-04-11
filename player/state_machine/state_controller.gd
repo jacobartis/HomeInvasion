@@ -1,9 +1,12 @@
 extends PlayerState
 
+signal entered_state(state)
+
 @onready var states = {
 	PlayerState.State.Idle: $Idle,
 	PlayerState.State.Walking: $Walking,
 	PlayerState.State.Sprint: $Sprint,
+	PlayerState.State.Hiding: $Hiding,
 }
 
 var current_state: PlayerState
@@ -23,9 +26,9 @@ func process(delta):
 func change_state(new_state):
 	if current_state:
 		current_state.exit()
-	
 	current_state = states[new_state]
 	current_state.enter()
+	emit_signal("entered_state",current_state)
 
 func physics_process(delta):
 	current_state.physics_process(delta)

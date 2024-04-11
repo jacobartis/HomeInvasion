@@ -1,8 +1,5 @@
 extends PlayerState
 
-func enter():
-	print("idle")
-
 func process(delta):
 	if is_direction_pressed():
 		return PlayerState.State.Walking

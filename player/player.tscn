@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cseafge3dgstr"]
+[gd_scene load_steps=16 format=3 uid="uid://cseafge3dgstr"]
 
 [ext_resource type="Script" path="res://player/player_controller.gd" id="1_m4mlw"]
 [ext_resource type="Script" path="res://player/camera.gd" id="2_jmyep"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://player/state_machine/idle.gd" id="10_tdylq"]
 [ext_resource type="Script" path="res://player/state_machine/walking.gd" id="11_6ik1w"]
 [ext_resource type="Script" path="res://player/state_machine/sprint.gd" id="12_h64jn"]
+[ext_resource type="Script" path="res://player/state_machine/hiding.gd" id="13_802bs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kebce"]
 shader = ExtResource("3_m7gp4")
@@ -115,6 +116,9 @@ script = ExtResource("11_6ik1w")
 
 [node name="Sprint" type="Node" parent="StateController"]
 script = ExtResource("12_h64jn")
+
+[node name="Hiding" type="Node" parent="StateController"]
+script = ExtResource("13_802bs")
 
 [connection signal="inventory_update" from="Camera3D/TrapPlacer/InventoryManager" to="Camera3D/UI/Inventory" method="_on_inventory_manager_inventory_update"]
 [connection signal="item_selected" from="Camera3D/TrapPlacer/InventoryManager" to="Camera3D/UI/Inventory" method="_on_inventory_manager_item_selected"]
