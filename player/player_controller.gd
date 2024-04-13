@@ -1,5 +1,13 @@
 extends CharacterBody3D
 
+@export var crafting_menu: Control
+@export var inventory_menu: Control
+
+@export var interaction_handler: RayCast3D
+@export var inventory_manager: Node
+@export var crafting_manager: Node
+@export var trap_placer: Node3D
+
 @onready var camera = $Camera3D
 @onready var interact_handler = $Camera3D/InteractHandler
 @onready var state_controller = $StateController
@@ -16,7 +24,7 @@ var stamina_recovery: float = 4
 var sprint_cooldown:bool = false
 var sprint_mult: float = 1.75
 
-var crafting = false
+var crafting_open = false
 
 var hiding_spot = null :set=set_hiding_spot
 
@@ -51,8 +59,53 @@ func _physics_process(delta):
 func _input(event):
 	state_controller.input(event)
 	camera_movement(event as InputEventMouseMotion)
+	crafting_input(event)
+	inventory_and_placer_input(event)
 
 func camera_movement(event:InputEventMouseMotion):
 	if !event or Input.mouse_mode!=Input.MOUSE_MODE_CAPTURED: return
 	rotate_y(-event.relative.x*Settings.get_sensitivity())
 	camera.rotate_x(-event.relative.y*Settings.get_sensitivity())
+
+#handles crafting inputs
+func crafting_input(event:InputEvent):
+	#toggles the crafting menu
+	if event.is_action_pressed("player_craft_menu"):
+		if crafting_open:
+			crafting_menu.hide()
+			inventory_menu.modulate.a = 1
+			crafting_open = false
+		else:
+			crafting_menu.show()
+			inventory_menu.modulate.a = .25
+			crafting_open = true
+	if !crafting_open: return
+	#Moves current selection
+	if event.is_action_pressed("next_item"):
+		crafting_manager.next_item()
+	elif event.is_action_pressed("prev_item"):
+		crafting_manager.prev_item()
+	#Crafts the item, adds it to the inventory
+	if event.is_action_pressed("player_craft"):
+		inventory_manager.add_item(crafting_manager.craft_selected())
+
+#Selects current invent item and handles placement.
+func inventory_and_placer_input(event:InputEvent):
+	#Cancles placement if crafting open.
+	if crafting_open: 
+		if trap_placer.is_placing():
+			trap_placer.cancel_placement()
+		return
+	#Scrolls the selected invent item.
+	if !trap_placer.is_placing():
+		if event.is_action_pressed("next_item"):
+			inventory_manager.next_item()
+		elif event.is_action_pressed("prev_item"):
+			inventory_manager.prev_item()
+	#Starts and stops placing traps.
+	if event.is_action_pressed("player_place_trap"):
+		if !trap_placer.is_placing():
+			trap_placer.start_placing(inventory_manager.get_selected_item())
+		else:
+			#Tries to place trap, removes item from invent if true.
+			if trap_placer.place_trap(): inventory_manager.remove_selected()
