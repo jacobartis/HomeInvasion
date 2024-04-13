@@ -14,13 +14,10 @@ func remove_selected():
 	if items.is_empty():return null
 	var item = get_selected_item()
 	items[item] -= 1
-	
 	if items[item]<=0:
 		items.erase(item)
-	
 	position = clamp(position,0,items.size()-1)
 	emit_signal("inventory_update",items)
-	
 	if items.is_empty():
 		emit_signal("item_selected",null)
 	else:
@@ -37,6 +34,7 @@ func prev_item():
 	emit_signal("item_selected",items.keys()[position])
 
 func add_item(item:TrapData=null):
+	if !item: return
 	if items.has(item):
 		items[item] += 1
 	else:
