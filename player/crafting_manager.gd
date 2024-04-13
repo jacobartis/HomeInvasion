@@ -11,10 +11,7 @@ var _resource_quant: Dictionary = {
 	CraftingInfo.Resources.Explosives: 0,
 }
 
-var bench: CraftingInfo.Benches = CraftingInfo.Benches.None
-
-var current_recipes: Array[CraftingRecipe] = [preload("res://crafting/recipes/marbles.tres"),
-preload("res://crafting/recipes/marbles2.tres")]
+var bench: CraftingInfo.Benches = CraftingInfo.Benches.None 
 
 var position: int = 0
 
@@ -25,17 +22,26 @@ func set_resource_quant(resource, quant:int):
 func get_resource_quant(resource:CraftingInfo.Resources):
 	return _resource_quant[resource]
 
+func get_recipes():
+	return CraftingInfo.recipes
+
 func craft_selected():
-	var result = current_recipes[position].craft(_resource_quant,bench)
+	if temp_garbage(): return
+	var result = get_recipes()[position].craft(_resource_quant,bench)
 	emit_signal("resources_updated",_resource_quant)
 	return result
 
 func next_item():
-	if current_recipes.is_empty():return
-	position = abs(position+1)%current_recipes.size()
-	emit_signal("item_selected",current_recipes[position])
+	if temp_garbage(): return
+	position = abs(position+1)%get_recipes().size()
+	emit_signal("item_selected",get_recipes()[position].output_item)
 
 func prev_item():
-	if current_recipes.is_empty():return
-	position = abs(position-1)%current_recipes.size()
-	emit_signal("item_selected",current_recipes[position])
+	if temp_garbage(): return
+	position = abs(position-1)%get_recipes().size()
+	emit_signal("item_selected",get_recipes()[position].output_item)
+
+#TODO Make this not terrible
+func temp_garbage():
+	clamp(position,0,get_recipes().size()-1)
+	return get_recipes().is_empty()
