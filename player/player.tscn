@@ -153,6 +153,18 @@ layout_mode = 2
 texture = ExtResource("6_sein4")
 stretch_mode = 3
 
+[node name="CurrentRecipe" type="Label" parent="Camera3D/UI/CraftMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TestText"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_vgkfd")
+
 [node name="InventoryManager" type="Node" parent="Camera3D" groups=["InventoryManager"]]
 script = ExtResource("6_60koo")
 
@@ -190,4 +202,5 @@ script = ExtResource("13_802bs")
 
 [connection signal="inventory_update" from="Camera3D/InventoryManager" to="Camera3D/UI/Inventory" method="_on_inventory_manager_inventory_update"]
 [connection signal="item_selected" from="Camera3D/InventoryManager" to="Camera3D/UI/Inventory" method="_on_inventory_manager_item_selected"]
+[connection signal="item_selected" from="Camera3D/CraftingManager" to="Camera3D/UI/CraftMenu/CurrentRecipe" method="_on_crafting_manager_item_selected"]
 [connection signal="resources_updated" from="Camera3D/CraftingManager" to="Camera3D/UI/CraftingDisplay" method="_on_crafting_manager_resources_updated"]
