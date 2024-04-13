@@ -12,4 +12,4 @@ func _on_inventory_manager_item_selected(item:TrapData):
 	if !item: 
 		item_display.set_text("None") 
 		return
-	item_display.set_text(str(item.title))
+	item_display.set_text(item.title)
