@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=3 format=3 uid="uid://bmvchmdk0oojk"]
+
+[ext_resource type="Script" path="res://crafting/recipes/crafting_recipe.gd" id="1_m2gu5"]
+[ext_resource type="Resource" path="res://traps/test_trap/test_trap.tres" id="1_ons58"]
+
+[resource]
+script = ExtResource("1_m2gu5")
+bench_requirement = 0
+glass = 1
+cloth = 0
+metal = 0
+electronics = 0
+explosives = 0
+output_item = ExtResource("1_ons58")
