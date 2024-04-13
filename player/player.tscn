@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cseafge3dgstr"]
+[gd_scene load_steps=20 format=3 uid="uid://cseafge3dgstr"]
 
 [ext_resource type="Script" path="res://player/player_controller.gd" id="1_m4mlw"]
 [ext_resource type="Script" path="res://player/camera.gd" id="2_jmyep"]
@@ -7,8 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://b1ksb6ajy6naa" path="res://player/trap_placer.tscn" id="4_rytv5"]
 [ext_resource type="Script" path="res://player/interact_handler.gd" id="5_o87el"]
 [ext_resource type="Script" path="res://player/inventory_display.gd" id="5_un4r8"]
+[ext_resource type="Script" path="res://player/crafting_display.gd" id="5_vgkfd"]
 [ext_resource type="Script" path="res://player/inventory_manager.gd" id="6_60koo"]
+[ext_resource type="Texture2D" uid="uid://krriwn8ssxyb" path="res://traps/test_trap/MarbleIcon.png" id="6_sein4"]
+[ext_resource type="Texture2D" uid="uid://bxe8wmpwa1wpg" path="res://traps/test_trap/MarbleIcon2.png" id="7_mwo83"]
 [ext_resource type="Script" path="res://player/state_machine/state_controller.gd" id="9_7p4i2"]
+[ext_resource type="Script" path="res://player/crafting_manager.gd" id="9_a1e7c"]
 [ext_resource type="Script" path="res://player/state_machine/idle.gd" id="10_tdylq"]
 [ext_resource type="Script" path="res://player/state_machine/walking.gd" id="11_6ik1w"]
 [ext_resource type="Script" path="res://player/state_machine/sprint.gd" id="12_h64jn"]
@@ -22,8 +26,14 @@ shader_parameter/pixelSize = 6
 margin = 0.1
 radius = 0.25
 
-[node name="Player" type="CharacterBody3D" groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("crafting_menu", "inventory_menu", "interaction_handler", "inventory_manager", "crafting_manager", "trap_placer") groups=["player"]]
 script = ExtResource("1_m4mlw")
+crafting_menu = NodePath("Camera3D/UI/CraftMenu")
+inventory_menu = NodePath("Camera3D/UI/Inventory")
+interaction_handler = NodePath("Camera3D/InteractHandler")
+inventory_manager = NodePath("Camera3D/InventoryManager")
+crafting_manager = NodePath("Camera3D/CraftingManager")
+trap_placer = NodePath("Camera3D/TrapPlacer")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
@@ -66,33 +76,91 @@ offset_top = 19.0
 offset_right = -508.0
 offset_bottom = -590.0
 
+[node name="CraftingDisplay" type="Label" parent="Camera3D/UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.862
+anchor_top = 0.194
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -0.0240479
+offset_top = 0.287994
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Test
+Test
+Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_vgkfd")
+
 [node name="Inventory" type="Label" parent="Camera3D/UI"]
-layout_mode = 0
-offset_right = 287.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.869
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.112
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("5_un4r8")
 
 [node name="ItemDisplay" type="Label" parent="Camera3D/UI/Inventory"]
-layout_mode = 0
-offset_top = 29.0
-offset_right = 261.0
-offset_bottom = 52.0
-script = ExtResource("5_un4r8")
-
-[node name="CraftMenu" type="Control" parent="Camera3D/UI"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+text = "Tesrgfg"
+horizontal_alignment = 1
+
+[node name="CraftMenu" type="Control" parent="Camera3D/UI"]
+visible = false
+layout_mode = 1
+anchor_right = 0.087
+anchor_bottom = 1.0
+offset_right = -0.224007
+grow_vertical = 2
+
+[node name="ItemContiner" type="VBoxContainer" parent="Camera3D/UI/CraftMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.179
+anchor_right = 1.0
+anchor_bottom = 0.821
+offset_top = 0.00799561
+offset_bottom = -0.00799561
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Camera3D/UI/CraftMenu/ItemContiner"]
+layout_mode = 2
+texture = ExtResource("6_sein4")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Camera3D/UI/CraftMenu/ItemContiner"]
+layout_mode = 2
+texture = ExtResource("7_mwo83")
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="Camera3D/UI/CraftMenu/ItemContiner"]
+layout_mode = 2
+texture = ExtResource("6_sein4")
+stretch_mode = 3
+
+[node name="InventoryManager" type="Node" parent="Camera3D" groups=["InventoryManager"]]
+script = ExtResource("6_60koo")
+
+[node name="CraftingManager" type="Node" parent="Camera3D"]
+script = ExtResource("9_a1e7c")
 
 [node name="TrapPlacer" parent="Camera3D" instance=ExtResource("4_rytv5")]
 visible = false
-
-[node name="InventoryManager" type="Node" parent="Camera3D/TrapPlacer" groups=["InventoryManager"]]
-script = ExtResource("6_60koo")
 
 [node name="InteractHandler" type="RayCast3D" parent="Camera3D" node_paths=PackedStringArray("body")]
 visible = false
@@ -120,5 +188,6 @@ script = ExtResource("12_h64jn")
 [node name="Hiding" type="Node" parent="StateController"]
 script = ExtResource("13_802bs")
 
-[connection signal="inventory_update" from="Camera3D/TrapPlacer/InventoryManager" to="Camera3D/UI/Inventory" method="_on_inventory_manager_inventory_update"]
-[connection signal="item_selected" from="Camera3D/TrapPlacer/InventoryManager" to="Camera3D/UI/Inventory" method="_on_inventory_manager_item_selected"]
+[connection signal="inventory_update" from="Camera3D/InventoryManager" to="Camera3D/UI/Inventory" method="_on_inventory_manager_inventory_update"]
+[connection signal="item_selected" from="Camera3D/InventoryManager" to="Camera3D/UI/Inventory" method="_on_inventory_manager_item_selected"]
+[connection signal="resources_updated" from="Camera3D/CraftingManager" to="Camera3D/UI/CraftingDisplay" method="_on_crafting_manager_resources_updated"]
