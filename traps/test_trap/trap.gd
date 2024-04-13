@@ -21,8 +21,6 @@ func _ready():
 	placement_guide.material_override = placement_guide.get_material_override().duplicate()
 
 func place():
-	if !can_place():
-		queue_free()
 	emit_signal("just_placed")
 	placed = true
 	model.show()
