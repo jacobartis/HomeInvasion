@@ -2,9 +2,15 @@ extends Node
 
 signal inventory_update(inventory)
 signal item_selected(item)
+signal currency_update(new_currency)
 
 var items: Dictionary = {}
 var position: int = 0
+var currency: int = 0 :set=set_currency
+
+func set_currency(new_currency):
+	currency = new_currency
+	emit_signal("currency_update",currency)
 
 func get_selected_item():
 	if items.is_empty():return null
