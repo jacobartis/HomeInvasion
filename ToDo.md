@@ -1,8 +1,10 @@
 Demo ToDo:
-- Currency
+- Currency ✓
 - Menus/UI
-- Finish House
+- Crafting ✓
+- Lootable spots ✓
 - Enemy AI improvements (Hiding spots)
+- Simple big map
 - 3 basic traps
 - Models
 - Basic settings
