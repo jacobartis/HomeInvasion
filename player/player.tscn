@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://player/crafting_display.gd" id="5_vgkfd"]
 [ext_resource type="Script" path="res://player/inventory_manager.gd" id="6_60koo"]
 [ext_resource type="Texture2D" uid="uid://krriwn8ssxyb" path="res://traps/test_trap/MarbleIcon.png" id="6_sein4"]
-[ext_resource type="Texture2D" uid="uid://bxe8wmpwa1wpg" path="res://traps/test_trap/MarbleIcon2.png" id="7_mwo83"]
+[ext_resource type="Texture2D" uid="uid://dxuf6nnsqgwi2" path="res://traps/glass_shards/glass_shards.png" id="8_iv8ph"]
 [ext_resource type="Script" path="res://player/state_machine/state_controller.gd" id="9_7p4i2"]
 [ext_resource type="Script" path="res://player/crafting_manager.gd" id="9_a1e7c"]
 [ext_resource type="Script" path="res://player/state_machine/idle.gd" id="10_tdylq"]
@@ -145,7 +145,7 @@ stretch_mode = 3
 
 [node name="TextureRect2" type="TextureRect" parent="Camera3D/UI/CraftMenu/ItemContiner"]
 layout_mode = 2
-texture = ExtResource("7_mwo83")
+texture = ExtResource("8_iv8ph")
 stretch_mode = 3
 
 [node name="TextureRect3" type="TextureRect" parent="Camera3D/UI/CraftMenu/ItemContiner"]
