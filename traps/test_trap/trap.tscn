@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dm7e00ielghem"]
 
-[ext_resource type="Script" path="res://traps/test_trap/trap.gd" id="1_hy2xm"]
+[ext_resource type="Script" path="res://traps/trap.gd" id="1_tpyc6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nig73"]
 size = Vector3(1, 0.5, 1)
@@ -12,10 +12,13 @@ size = Vector3(1, 0.5, 1)
 transparency = 1
 albedo_color = Color(1, 1, 1, 0.247059)
 
-[node name="Trap" type="StaticBody3D"]
+[node name="Trap" type="StaticBody3D" node_paths=PackedStringArray("placement_guide", "place_area", "model")]
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("1_hy2xm")
+script = ExtResource("1_tpyc6")
+placement_guide = NodePath("PlacementGuide")
+place_area = NodePath("PlaceArea")
+model = NodePath("Model")
 place_offset = Vector3(0, 0.3, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -3,10 +3,11 @@ class_name Trap
 
 signal just_placed()
 
-@onready var placement_guide = $PlacementGuide
-@onready var place_area = $PlaceArea
-@onready var model = $Model
-
+@export_category("Nodes")
+@export var placement_guide:MeshInstance3D
+@export var place_area:Area3D
+@export var model:MeshInstance3D
+@export_category("Info")
 @export var place_offset: Vector3
 
 var placed: bool = false
