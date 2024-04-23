@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrapData" load_steps=4 format=3 uid="uid://bvkjq0t72ro7h"]
+
+[ext_resource type="Texture2D" uid="uid://dxuf6nnsqgwi2" path="res://traps/glass_shards/glass_shards.png" id="1_2v26x"]
+[ext_resource type="Script" path="res://traps/trap_data.gd" id="1_5uv4p"]
+[ext_resource type="PackedScene" uid="uid://cpvk2pwsqe7b2" path="res://traps/glass_shards/glass_shards.tscn" id="3_asmr6"]
+
+[resource]
+script = ExtResource("1_5uv4p")
+title = "Glass Shards"
+trap_scene = ExtResource("3_asmr6")
+icon = ExtResource("1_2v26x")

@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpvk2pwsqe7b2"]
+
+[ext_resource type="Script" path="res://traps/trap.gd" id="1_pqh3c"]
+[ext_resource type="ArrayMesh" uid="uid://qtuyuoxn3a5i" path="res://traps/glass_shards/glass_shards.res" id="2_ssdug"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nig73"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8aif4"]
+size = Vector3(1, 0.144287, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dowoj"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.247059)
+
+[node name="Trap" type="StaticBody3D" node_paths=PackedStringArray("placement_guide", "place_area", "model")]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_pqh3c")
+placement_guide = NodePath("PlacementGuide")
+place_area = NodePath("PlaceArea")
+model = NodePath("Model")
+place_offset = Vector3(0, 0.2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_nig73")
+
+[node name="TriggerArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerArea"]
+shape = SubResource("BoxShape3D_nig73")
+
+[node name="PlaceArea" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlaceArea"]
+shape = SubResource("BoxShape3D_8aif4")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("2_ssdug")
+skeleton = NodePath("../PlacementGuide")
+
+[node name="PlacementGuide" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_dowoj")
+mesh = ExtResource("2_ssdug")
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
