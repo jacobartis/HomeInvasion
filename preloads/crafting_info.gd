@@ -6,6 +6,7 @@ enum Benches{
 }
 
 enum Resources {
+	Currency,
 	Glass,
 	Cloth,
 	Metal,
