@@ -10,6 +10,7 @@ class_name CraftingRecipe
 @export var metal: int
 @export var electronics: int
 @export var explosives: int
+@export var craft_time: float
 @export_category("Crafting Output")
 @export var output_item:TrapData
 
