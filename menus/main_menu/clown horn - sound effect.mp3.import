@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://deyri5iwnp0h0"
+path="res://.godot/imported/clown horn - sound effect.mp3-4fdb3d9ee8bc73b566ac6fee65820565.mp3str"
+
+[deps]
+
+source_file="res://menus/main_menu/clown horn - sound effect.mp3"
+dest_files=["res://.godot/imported/clown horn - sound effect.mp3-4fdb3d9ee8bc73b566ac6fee65820565.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
