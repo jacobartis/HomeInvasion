@@ -4,6 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://dy2c5pfdqeorq" path="res://menus/main_menu/wacky_bg.jpg" id="1_e48qj"]
 [ext_resource type="AudioStream" uid="uid://deyri5iwnp0h0" path="res://menus/main_menu/clown horn - sound effect.mp3" id="3_xru8y"]
 
+[sub_resource type="Animation" id="Animation_svf1e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_t8vgr"]
 resource_name = "move"
 length = 5.0
@@ -19,21 +34,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 2),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(2.5, 2.5)]
-}
-
-[sub_resource type="Animation" id="Animation_svf1e"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l60b3"]
