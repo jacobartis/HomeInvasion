@@ -10,19 +10,9 @@
 // entity 1
 {
 "classname" "EntryPoint"
-"origin" "224 -256 16"
-}
-// entity 2
-{
-"classname" "EntryPoint"
-"origin" "-296 -264 8"
-}
-// entity 3
-{
-"classname" "EntryPoint"
 "origin" "-120 200 8"
 }
-// entity 4
+// entity 2
 {
 "classname" "door"
 // brush 0
@@ -35,7 +25,7 @@
 ( -24 64 8 ) ( -24 64 9 ) ( -24 65 8 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 5
+// entity 3
 {
 "classname" "door"
 // brush 0
@@ -48,7 +38,7 @@
 ( 32 128 8 ) ( 32 128 9 ) ( 32 129 8 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 6
+// entity 4
 {
 "classname" "door"
 "closed" ""
@@ -62,7 +52,7 @@
 ( 16 272 8 ) ( 16 272 9 ) ( 16 273 8 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 7
+// entity 5
 {
 "classname" "door"
 // brush 0
@@ -75,7 +65,7 @@
 ( -272 -152 8 ) ( -272 -152 9 ) ( -272 -151 8 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 8
+// entity 6
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -172,7 +162,7 @@
 ( 16 272 64 ) ( 16 272 65 ) ( 16 273 64 ) magnolia [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 9
+// entity 7
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -360,7 +350,7 @@
 ( 32 224 0 ) ( 32 128 0 ) ( 32 224 48 ) magnolia [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 10
+// entity 8
 {
 "classname" "door"
 "_tb_layer" "2"
@@ -374,7 +364,7 @@
 ( 80 -16 8 ) ( 80 -16 9 ) ( 80 -15 8 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 11
+// entity 9
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -562,7 +552,7 @@
 ( -24 64 64 ) ( -24 64 65 ) ( -24 65 64 ) wallpaper [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 12
+// entity 10
 {
 "classname" "door"
 "_tb_layer" "3"
@@ -576,7 +566,7 @@
 ( -48 -48 8 ) ( -48 -48 9 ) ( -48 -47 8 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 13
+// entity 11
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -719,7 +709,7 @@
 ( -32 -56 8 ) ( -32 -56 9 ) ( -32 -55 8 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 14
+// entity 12
 {
 "classname" "door"
 "_tb_layer" "4"
@@ -733,7 +723,7 @@
 ( 40 -104 8 ) ( 40 -104 9 ) ( 40 -103 8 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 15
+// entity 13
 {
 "classname" "door"
 "_tb_layer" "4"
@@ -747,7 +737,7 @@
 ( 144 -152 8 ) ( 144 -152 9 ) ( 144 -151 8 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 16
+// entity 14
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -836,7 +826,7 @@
 ( -216 184 64 ) ( -216 184 65 ) ( -216 185 64 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 17
+// entity 15
 {
 "classname" "door"
 "_tb_layer" "5"
@@ -850,7 +840,7 @@
 ( -184 -96 8 ) ( -184 -96 9 ) ( -184 -95 8 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 18
+// entity 16
 {
 "classname" "door"
 "_tb_layer" "5"
@@ -864,7 +854,7 @@
 ( -216 184 0 ) ( -216 184 1 ) ( -216 185 0 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 19
+// entity 17
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -953,7 +943,7 @@
 ( -184 232 8 ) ( -184 232 9 ) ( -184 233 8 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 20
+// entity 18
 {
 "classname" "door"
 "_tb_layer" "6"
@@ -967,7 +957,7 @@
 ( 240 72 8 ) ( 240 72 9 ) ( 240 73 8 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 21
+// entity 19
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -1002,7 +992,7 @@
 ( 192 136 56 ) ( 192 136 57 ) ( 192 137 56 ) metal [ 0 1 0 8 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 22
+// entity 20
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -1011,7 +1001,7 @@
 "_tb_layer_sort_index" "7"
 "_tb_layer_hidden" "1"
 }
-// entity 23
+// entity 21
 {
 "classname" "Room"
 "roomname" "Kitchen"
@@ -1026,7 +1016,7 @@
 ( 192 192 8 ) ( 192 192 9 ) ( 192 193 8 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 24
+// entity 22
 {
 "classname" "Room"
 "roomname" "Living Room"
@@ -1041,7 +1031,7 @@
 ( -32 192 8 ) ( -32 192 9 ) ( -32 193 8 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 25
+// entity 23
 {
 "classname" "Room"
 "roomname" "Garage"
@@ -1056,7 +1046,7 @@
 ( -192 144 8 ) ( -192 144 9 ) ( -192 145 8 ) __TB_empty [ 0 1 0 -16 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 26
+// entity 24
 {
 "classname" "Room"
 "roomname" "Conservitory"
@@ -1071,7 +1061,7 @@
 ( 192 144 8 ) ( 192 144 9 ) ( 192 145 8 ) __TB_empty [ 0 1 0 -16 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 27
+// entity 25
 {
 "classname" "Room"
 "roomname" "Garden"
@@ -1086,7 +1076,7 @@
 ( 248 -160 8 ) ( 248 -160 9 ) ( 248 -159 8 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 28
+// entity 26
 {
 "classname" "Room"
 "roomname" "Office"
@@ -1101,7 +1091,7 @@
 ( 192 -48 88 ) ( 192 -48 89 ) ( 192 -47 88 ) __TB_empty [ 0 1 0 16 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 29
+// entity 27
 {
 "classname" "Room"
 "roomname" "MasterBedroom"
@@ -1116,7 +1106,7 @@
 ( -80 -56 88 ) ( -80 -56 89 ) ( -80 -55 88 ) __TB_empty [ 0 1 0 24 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 30
+// entity 28
 {
 "classname" "Room"
 "roomname" "GamesRoom"
@@ -1131,7 +1121,7 @@
 ( -80 112 88 ) ( -80 112 89 ) ( -80 113 88 ) __TB_empty [ 0 1 0 -16 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 31
+// entity 29
 {
 "classname" "Room"
 "roomname" "Bathroom"
@@ -1146,7 +1136,7 @@
 ( 24 112 88 ) ( 24 112 89 ) ( 24 113 88 ) __TB_empty [ 0 1 0 -16 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 32
+// entity 30
 {
 "classname" "Room"
 "roomname" "GuestBedroom"
@@ -1161,7 +1151,7 @@
 ( 192 128 88 ) ( 192 128 89 ) ( 192 129 88 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 33
+// entity 31
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -1385,7 +1375,7 @@
 ( -72 72 64 ) ( -72 72 80 ) ( -72 104 64 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 34
+// entity 32
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -1510,7 +1500,7 @@
 ( -312 64 72 ) ( -312 64 73 ) ( -312 65 72 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 35
+// entity 33
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -1554,7 +1544,7 @@
 ( 200 56 80 ) ( 200 56 81 ) ( 200 57 80 ) __TB_empty [ 0 1 0 -16 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 36
+// entity 34
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -1598,7 +1588,7 @@
 ( 200 224 72 ) ( 200 224 73 ) ( 200 225 72 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 37
+// entity 35
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -1633,7 +1623,7 @@
 ( 24 232 72 ) ( 24 232 73 ) ( 24 233 72 ) __TB_empty [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 38
+// entity 36
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
