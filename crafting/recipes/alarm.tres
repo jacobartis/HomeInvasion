@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=3 format=3 uid="uid://c8ldd86io4604"]
+
+[ext_resource type="Resource" uid="uid://b8gg05dore1rq" path="res://traps/alarm/alarm.tres" id="1_q7q6v"]
+[ext_resource type="Script" path="res://crafting/recipes/crafting_recipe.gd" id="1_ueimp"]
+
+[resource]
+script = ExtResource("1_ueimp")
+bench_requirement = 0
+glass = 1
+cloth = 0
+metal = 1
+electronics = 0
+explosives = 0
+craft_time = 0.0
+output_item = ExtResource("1_q7q6v")
