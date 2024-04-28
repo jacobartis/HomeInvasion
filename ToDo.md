@@ -11,7 +11,6 @@ Demo ToDo:
 - Sound design
 
 Bonus ToDo (feature creep):
-- Day night cycle
 - Difficulty options
 - Full settings
 - Aggression System
