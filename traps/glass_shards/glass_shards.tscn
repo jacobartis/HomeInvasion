@@ -13,7 +13,7 @@ size = Vector3(1, 0.144287, 1)
 transparency = 1
 albedo_color = Color(1, 1, 1, 0.247059)
 
-[node name="Trap" type="StaticBody3D" node_paths=PackedStringArray("placement_guide", "place_area", "model")]
+[node name="Glass" type="StaticBody3D" node_paths=PackedStringArray("placement_guide", "place_area", "model")]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_pqh3c")
