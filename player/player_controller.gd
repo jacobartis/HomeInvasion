@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+signal entered_room(new_room:Room)
+
 @export var crafting_menu: Control
 @export var inventory_menu: Control
 
@@ -24,9 +26,11 @@ var stamina_recovery: float = 4
 var sprint_cooldown:bool = false
 var sprint_mult: float = 1.75
 
+var room: Room :set=set_room, get=get_room
+
 var crafting_open = false
 
-var hiding_spot = null :set=set_hiding_spot
+var hiding_spot = null :set=set_hiding_spot, get=get_hiding_spot
 
 func can_sprint():
 	return stamina>0 and !sprint_cooldown
@@ -44,6 +48,16 @@ func set_hiding_spot(new_spot):
 		state_controller.change_state(PlayerState.State.Idle)
 	else:
 		state_controller.change_state(PlayerState.State.Hiding)
+
+func set_room(new_room):
+	room = new_room
+	emit_signal("entered_room",room)
+
+func get_hiding_spot():
+	return hiding_spot
+
+func get_room():
+	return room
 
 func _ready():
 	interact_handler.body = self
