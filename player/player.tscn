@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cseafge3dgstr"]
+[gd_scene load_steps=20 format=3 uid="uid://cseafge3dgstr"]
 
 [ext_resource type="Script" path="res://player/player_controller.gd" id="1_m4mlw"]
 [ext_resource type="Script" path="res://player/camera.gd" id="2_jmyep"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://player/crafting_resource_display.gd" id="5_w3jlx"]
 [ext_resource type="Script" path="res://player/inventory_manager.gd" id="6_60koo"]
 [ext_resource type="Script" path="res://player/crafting_menu.gd" id="7_6d0sn"]
+[ext_resource type="Script" path="res://player/room_display.gd" id="8_dkoy0"]
 [ext_resource type="Script" path="res://player/state_machine/state_controller.gd" id="9_7p4i2"]
 [ext_resource type="Script" path="res://player/crafting_manager.gd" id="9_a1e7c"]
 [ext_resource type="Script" path="res://player/state_machine/idle.gd" id="10_tdylq"]
@@ -47,7 +48,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Camera3D/UI"]
-visible = false
 material = SubResource("ShaderMaterial_kebce")
 layout_mode = 1
 anchors_preset = 15
@@ -61,7 +61,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="Camera3D/UI/SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(1152, 648)
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="Camera3D/UI/SubViewportContainer/SubViewport" node_paths=PackedStringArray("follower_cam")]
 current = true
@@ -138,6 +138,14 @@ text = "TestText"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Room" type="Label" parent="Camera3D/UI"]
+layout_mode = 0
+offset_left = 492.0
+offset_top = 70.0
+offset_right = 575.0
+offset_bottom = 93.0
+script = ExtResource("8_dkoy0")
+
 [node name="InventoryManager" type="Node" parent="Camera3D" groups=["InventoryManager"]]
 script = ExtResource("6_60koo")
 
@@ -173,6 +181,7 @@ script = ExtResource("12_h64jn")
 [node name="Hiding" type="Node" parent="StateController"]
 script = ExtResource("13_802bs")
 
+[connection signal="entered_room" from="." to="Camera3D/UI/Room" method="_on_player_entered_room"]
 [connection signal="inventory_update" from="Camera3D/InventoryManager" to="Camera3D/UI/Inventory" method="_on_inventory_manager_inventory_update"]
 [connection signal="item_selected" from="Camera3D/InventoryManager" to="Camera3D/UI/Inventory" method="_on_inventory_manager_item_selected"]
 [connection signal="item_selected" from="Camera3D/CraftingManager" to="Camera3D/UI/CraftMenu" method="_on_crafting_manager_item_selected"]
