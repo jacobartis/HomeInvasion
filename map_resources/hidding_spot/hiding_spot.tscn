@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://byxpvw7yla6yy"]
 
-[ext_resource type="Script" path="res://hiding_spot/hiding_spot.gd" id="1_0i40l"]
+[ext_resource type="Script" path="res://map_resources/hidding_spot/hiding_spot.gd" id="1_0i40l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n6b01"]
 size = Vector3(0.5, 0.5, 0.5)

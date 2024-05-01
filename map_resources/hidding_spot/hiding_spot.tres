@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="QodotFGDPointClass" load_steps=4 format=3 uid="uid://e1tf3wmyoe4e"]
+
+[ext_resource type="Script" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" id="1_ul6wc"]
+[ext_resource type="PackedScene" uid="uid://byxpvw7yla6yy" path="res://map_resources/hidding_spot/hiding_spot.tscn" id="1_wtffb"]
+[ext_resource type="Script" path="res://map_resources/hidding_spot/hiding_spot.gd" id="3_0xx0i"]
+
+[resource]
+script = ExtResource("1_ul6wc")
+scene_file = ExtResource("1_wtffb")
+script_class = ExtResource("3_0xx0i")
+apply_rotation_on_map_build = true
+classname = "Interactable_Hiding_Spot"
+description = "Hiding spot for the player"
+qodot_internal = false
+base_classes = Array[Resource]([])
+class_properties = {}
+class_property_descriptions = {}
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"size": AABB(-4, -4, -4, 4, 4, 4)
+}
+node_class = ""
+transient_node = false
