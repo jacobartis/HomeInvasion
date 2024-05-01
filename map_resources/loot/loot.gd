@@ -6,6 +6,10 @@ extends StaticBody3D
 
 var looted: bool = false
 
+func _ready():
+	loot_type = randi()%6
+	loot_quant = randi_range(1,5)
+
 func interact(interactor):
 	if looted: return
 	if !interactor.is_in_group("player"): return
