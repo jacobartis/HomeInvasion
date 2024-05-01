@@ -28,9 +28,12 @@ func place():
 	placement_guide.hide()
 	set_collision_layer(2)
 	set_collision_mask(2)
+	activate()
 
+#VERY TEMP
 func activate():
-	pass
+	print("Noise")
+	get_tree().call_group("enemy","noise",global_position)
 
 func _on_trigger_area_body_entered(body):
 	if !body.is_in_group("enemy") or !placed:
