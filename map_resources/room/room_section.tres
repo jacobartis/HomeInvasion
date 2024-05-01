@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="QodotFGDSolidClass" load_steps=3 format=3 uid="uid://qfwsncinkxde"]
 
-[ext_resource type="Script" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_solid_class.gd" id="1_hpuj4"]
-[ext_resource type="Script" path="res://map_resources/room/room.gd" id="2_ibifr"]
+[ext_resource type="Script" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_solid_class.gd" id="1_hwl8o"]
+[ext_resource type="Script" path="res://map_resources/room/room_section.gd" id="2_gajk8"]
 
 [resource]
-script = ExtResource("1_hpuj4")
+script = ExtResource("1_hwl8o")
 spawn_type = 2
 build_visuals = false
 use_in_baked_light = true
@@ -16,12 +16,14 @@ collision_layer = 1
 collision_mask = 1
 collision_priority = 1.0
 collision_shape_margin = 0.04
-script_class = ExtResource("2_ibifr")
-classname = "Room"
-description = "Designates a room"
+script_class = ExtResource("2_gajk8")
+classname = "RoomSection"
+description = "Designates a room section"
 qodot_internal = false
 base_classes = Array[Resource]([])
-class_properties = {}
+class_properties = {
+"Room_id": 0
+}
 class_property_descriptions = {}
 meta_properties = {
 "color": Color(0.8, 0.8, 0.8, 1),
