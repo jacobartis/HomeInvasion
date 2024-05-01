@@ -3,8 +3,8 @@ extends EnemyState
 var target_room
 
 func enter():
-	print("Aggro")
 	pick_room()
+	print("Curious")
 
 func process(delta):
 	if !target_room:
@@ -14,10 +14,11 @@ func process(delta):
 	return EnemyState.State.None
 
 func pick_room():
-	target_room = body.director.get_player_room()
-	if !target_room:
+	var rooms = body.director.get_close_rooms(1000,10)
+	if rooms.is_empty():
 		return
-	body.nav_agent.set_target_position(target_room.global_position)
+	target_room = rooms.pick_random()
+	body.nav_agent.set_target_position(target_room.get_rand_pos())
 
 func exit():
 	target_room = null

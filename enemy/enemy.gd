@@ -1,18 +1,14 @@
 extends CharacterBody3D
 
-signal player_set(val)
+signal room_entered(room:Room)
 
 @onready var nav_agent = $NavigationAgent3D
 @onready var stun_timer = $StunTimer
-@onready var player_ray = $PlayerRay
 @onready var state_controller = $StateController
+@onready var animation_player = $AnimationPlayer
+@onready var director = $Director
 
-var player:Node3D:set=set_player
-var player_seen: bool = false 
-
-var pos_target:Vector3
-
-var current_room: Room
+var room: Room :set=set_room, get=get_room
 
 var stunned: bool = false
 var speed: float = 5.0
@@ -20,17 +16,22 @@ const JUMP_VELOCITY = 4.5
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-func set_player(val:Node3D):
-	player = val
-	emit_signal("player_set",val)
- 
+func set_room(new_room:Room):
+	room = new_room
+	emit_signal("room_entered",room) 
+
+func get_room():
+	return room
+
+func get_director():
+	return director
+
 func _ready():
-	state_controller.nav_agent = nav_agent
-	state_controller.body = self
+	state_controller.init(self)
+	director.init(self)
 
 func _process(delta):
-	if !player:
-		player = get_tree().get_first_node_in_group("player")
+	state_controller.process(delta)
 
 func _physics_process(delta):
 	if stunned:
@@ -40,7 +41,15 @@ func _physics_process(delta):
 	state_controller.physics_process(delta)
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	if nav_agent.get_next_path_position() and not nav_agent.is_navigation_finished():
+		look_at(nav_agent.get_next_path_position())
+		rotation.x = 0
+		rotation.z = 0
+		velocity += transform.basis * Vector3(0,0,-speed)
 	move_and_slide()
+
+func noise(pos:Vector3):
+	director.set_pos_of_interest(pos)
 
 func stun(duration:float):
 	stunned = true

@@ -8,7 +8,8 @@ enum State{
 	Search,
 	Aggressive,
 	Tactical,
-	Hunt
+	Chase,
+	Invesigation
 }
 
 #Handles internal status for animations

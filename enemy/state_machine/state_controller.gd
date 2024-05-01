@@ -8,7 +8,8 @@ signal entered_state(state)
 	EnemyState.State.Aggressive: $AggressiveState,
 	EnemyState.State.Tactical: $TacticalState,
 	EnemyState.State.Search: $SearchState,
-	EnemyState.State.Hunt: $HuntState,
+	EnemyState.State.Chase: $ChaseState,
+	EnemyState.State.Invesigation: $InvestigationState,
 }
 
 var current_state: EnemyState
@@ -34,3 +35,6 @@ func change_state(new_state):
 
 func physics_process(delta):
 	current_state.physics_process(delta)
+
+func _on_ray_cast_3d_player_seen():
+	change_state(EnemyState.State.Chase)

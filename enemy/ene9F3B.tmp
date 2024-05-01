@@ -5,9 +5,9 @@
 [ext_resource type="Script" path="res://enemy/enemy_rework/search_state.gd" id="4_4cbsi"]
 [ext_resource type="Script" path="res://enemy/enemy_rework/curious_state.gd" id="4_270ji"]
 [ext_resource type="Script" path="res://enemy/enemy_rework/aggressive_state.gd" id="5_i1gug"]
-[ext_resource type="Script" path="res://enemy/enemy_rework/hunt_state.gd" id="5_nuxsl"]
 [ext_resource type="Script" path="res://enemy/enemy_rework/idle_state.gd" id="6_8fbmx"]
 [ext_resource type="Script" path="res://enemy/enemy_rework/tactical_state.gd" id="6_jfxl1"]
+[ext_resource type="Script" path="res://enemy/enemy_rework/chase_state.gd" id="8_2dyuj"]
 [ext_resource type="Script" path="res://enemy/enemy_rework/director.gd" id="8_fpayr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_spugt"]
@@ -68,7 +68,6 @@ shape = SubResource("CapsuleShape3D_spugt")
 mesh = SubResource("CapsuleMesh_7iw3y")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-path_desired_distance = 0.6
 path_max_distance = 10.01
 debug_enabled = true
 
@@ -93,8 +92,8 @@ script = ExtResource("6_jfxl1")
 [node name="SearchState" type="Node" parent="StateController"]
 script = ExtResource("4_4cbsi")
 
-[node name="HuntState" type="Node" parent="StateController"]
-script = ExtResource("5_nuxsl")
+[node name="ChaseState" type="Node" parent="StateController"]
+script = ExtResource("8_2dyuj")
 
 [node name="Director" type="Node" parent="."]
 script = ExtResource("8_fpayr")

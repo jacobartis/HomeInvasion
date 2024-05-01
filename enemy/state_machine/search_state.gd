@@ -24,6 +24,8 @@ func exit():
 	hiding_spot = null
 
 func find_hiding_spot():
+	if !body.get_room():
+		return
 	if body.get_room().get_hiding_spots().is_empty():
 		return
 	hiding_spot = body.get_room().get_hiding_spots().pick_random()

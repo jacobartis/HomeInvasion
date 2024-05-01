@@ -4,6 +4,9 @@ signal player_seen()
 
 var player: Node3D
 
+func set_player(new_player):
+	player = new_player
+
 func _process(delta):
 	if !player: return
 	
@@ -12,8 +15,6 @@ func _process(delta):
 	rotation_degrees.y = clamp(rotation_degrees.y,-45,45)
 	if !is_colliding():return
 	if get_collider()==player: emit_signal("player_seen")
-	
-
 
 func _on_enemy_player_set(val):
 	player = val
