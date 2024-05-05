@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://c7x84biv1vb70"
+path="res://.godot/imported/demo_map.35.map-d9ee47bbf150b2e58b3651024c772887.tres"
+
+[deps]
+
+source_file="res://maps/autosave/demo_map.35.map"
+dest_files=["res://.godot/imported/demo_map.35.map-d9ee47bbf150b2e58b3651024c772887.tres"]
+
+[params]
+
