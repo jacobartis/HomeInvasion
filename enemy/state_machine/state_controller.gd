@@ -7,7 +7,6 @@ signal entered_state(state)
 	EnemyState.State.Curious: $CuriousState,
 	EnemyState.State.Aggressive: $AggressiveState,
 	EnemyState.State.Tactical: $TacticalState,
-	EnemyState.State.Search: $SearchState,
 	EnemyState.State.Chase: $ChaseState,
 	EnemyState.State.Invesigation: $InvestigationState,
 }
@@ -37,4 +36,7 @@ func physics_process(delta):
 	current_state.physics_process(delta)
 
 func _on_ray_cast_3d_player_seen():
+	if body.peaceful:return
 	change_state(EnemyState.State.Chase)
+
+

@@ -5,18 +5,10 @@ enum State{
 	None,
 	Idle,
 	Curious,
-	Search,
 	Aggressive,
 	Tactical,
 	Chase,
 	Invesigation
-}
-
-#Handles internal status for animations
-enum Status {
-	idle,
-	active,
-	finished
 }
 
 var body
@@ -28,7 +20,7 @@ func enter():
 	pass
 
 func exit():
-	pass
+	body.action_controller.clear_action()
 
 func process(delta) -> State:
 	return State.None
