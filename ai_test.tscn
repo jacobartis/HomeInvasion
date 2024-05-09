@@ -70,6 +70,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -2)
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 6)
+collision_layer = 31
+collision_mask = 31
 script = ExtResource("4_gsxe0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
@@ -77,6 +79,8 @@ shape = SubResource("BoxShape3D_8old6")
 
 [node name="Area3D2" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+collision_layer = 31
+collision_mask = 31
 script = ExtResource("4_gsxe0")
 room_id = 1
 
@@ -85,6 +89,8 @@ shape = SubResource("BoxShape3D_8old6")
 
 [node name="Area3D3" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4)
+collision_layer = 31
+collision_mask = 31
 script = ExtResource("4_gsxe0")
 room_id = 2
 
