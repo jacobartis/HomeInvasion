@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c00aglt5doaa3"]
+
+[ext_resource type="Script" path="res://map_resources/shop/shop_access.gd" id="1_nr7uu"]
+[ext_resource type="ArrayMesh" uid="uid://dvohyvklrjpht" path="res://map_resources/shop/shop_model.res" id="2_opipx"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o4jtr"]
+data = PackedVector3Array(-0.2776, 1.0537, -0.4206, -0.2776, -0.25, 0.4206, -0.2776, -0.25, -0.4206, -0.2776, 1.0537, -0.4206, -0.2776, 1.0537, 0.4206, -0.2776, -0.25, 0.4206, -0.2776, 1.0537, 0.4206, 0.2776, -0.25, 0.4206, -0.2776, -0.25, 0.4206, -0.2776, 1.0537, 0.4206, 0.2776, 1.0537, 0.4206, 0.2776, -0.25, 0.4206, 0.2776, 1.0537, 0.4206, -0.2776, 1.0537, -0.4206, 0.2776, 1.0537, -0.4206, 0.2776, 1.0537, 0.4206, -0.2776, 1.0537, 0.4206, -0.2776, 1.0537, -0.4206, -0.2776, -0.25, 0.4206, 0.2776, -0.25, -0.4206, -0.2776, -0.25, -0.4206, -0.2776, -0.25, 0.4206, 0.2776, -0.25, 0.4206, 0.2776, -0.25, -0.4206, 0.2776, 1.0537, -0.4206, -0.2776, -0.25, -0.4206, 0.2776, -0.25, -0.4206, 0.2776, 1.0537, -0.4206, -0.2776, 1.0537, -0.4206, -0.2776, -0.25, -0.4206, 0.2776, 1.0537, 0.4206, 0.2776, -0.25, -0.4206, 0.2776, -0.25, 0.4206, 0.2776, 1.0537, 0.4206, 0.2776, 1.0537, -0.4206, 0.2776, -0.25, -0.4206)
+
+[node name="ShopAccess" type="StaticBody3D"]
+script = ExtResource("1_nr7uu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("2_opipx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_o4jtr")
