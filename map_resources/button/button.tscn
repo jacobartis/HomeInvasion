@@ -1,0 +1,144 @@
+[gd_scene load_steps=16 format=3 uid="uid://b3fq88hkfqa7t"]
+
+[ext_resource type="Script" path="res://map_resources/button/button.gd" id="1_lioen"]
+[ext_resource type="Texture2D" uid="uid://c0dxovwrx0jqc" path="res://map_resources/button/button.png" id="2_xq78e"]
+[ext_resource type="AudioStream" uid="uid://brl4y6a0xpyim" path="res://map_resources/button/charging.mp3" id="3_0lxrs"]
+[ext_resource type="AudioStream" uid="uid://u03rjddwxstk" path="res://map_resources/button/charged.mp3" id="4_skive"]
+[ext_resource type="AudioStream" uid="uid://cph8u1f8gkeow" path="res://map_resources/button/use.mp3" id="5_o7rpi"]
+[ext_resource type="AudioStream" uid="uid://df2edalit1lww" path="res://map_resources/door/door_toggle.mp3" id="6_lfwwv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5ry3"]
+albedo_color = Color(0, 1, 0, 1)
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_ixwq6"]
+material = SubResource("StandardMaterial3D_w5ry3")
+size = Vector3(0.73, 0.2, 0.001)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xcv0g"]
+albedo_color = Color(1, 1, 0, 1)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_uer7c"]
+material = SubResource("StandardMaterial3D_xcv0g")
+size = Vector3(0.73, 0.2, 0.001)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0if5p"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_nwlfw"]
+material = SubResource("StandardMaterial3D_0if5p")
+size = Vector3(0.73, 0.2, 0.001)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kt6jf"]
+transparency = 1
+albedo_texture = ExtResource("2_xq78e")
+uv1_scale = Vector3(3, 2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5dx43"]
+material = SubResource("StandardMaterial3D_kt6jf")
+size = Vector3(0.75, 0.75, 0.005)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0nhvq"]
+size = Vector3(0.25, 0.25, 0.001)
+
+[node name="Button" type="StaticBody3D"]
+script = ExtResource("1_lioen")
+
+[node name="DisplayGreen" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.190845, 0)
+mesh = SubResource("BoxMesh_ixwq6")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="DisplayGreen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000601605, -0.00966647)
+light_color = Color(0, 1, 0, 1)
+light_energy = 0.5
+light_specular = 0.0
+omni_range = 1.0
+
+[node name="DisplayYellow" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.190845, 0)
+visible = false
+mesh = SubResource("BoxMesh_uer7c")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="DisplayYellow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000601605, -0.00966647)
+light_color = Color(1, 1, 0, 1)
+light_energy = 0.5
+light_specular = 0.0
+omni_range = 1.0
+
+[node name="DisplayRed" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.190845, 0)
+visible = false
+mesh = SubResource("BoxMesh_nwlfw")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="DisplayRed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000601605, -0.00966647)
+light_color = Color(1, 0, 0, 1)
+light_energy = 0.5
+light_specular = 0.0
+omni_range = 1.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_5dx43")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_0nhvq")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DurationTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimeDisplay" type="Label3D" parent="."]
+transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, 0, 0.193, -0.00400196)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "Charging..."
+font_size = 128
+
+[node name="ChargingAudio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_0lxrs")
+attenuation_model = 1
+volume_db = -20.0
+unit_size = 2.5
+pitch_scale = 0.75
+
+[node name="ChargedAudio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_skive")
+attenuation_model = 1
+volume_db = -20.0
+unit_size = 2.5
+pitch_scale = 0.2
+panning_strength = 2.2
+
+[node name="UseAudio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_o7rpi")
+attenuation_model = 1
+volume_db = -20.0
+unit_size = 2.5
+pitch_scale = 0.25
+
+[node name="UseAudio2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_lfwwv")
+attenuation_model = 1
+volume_db = -20.0
+unit_size = 2.5
+pitch_scale = 0.5
+
+[connection signal="timeout" from="CooldownTimer" to="." method="enable"]
+[connection signal="timeout" from="CooldownTimer" to="ChargedAudio" method="play" binds= [0.3]]
+[connection signal="timeout" from="DurationTimer" to="." method="enter_cooldown"]
+[connection signal="finished" from="ChargingAudio" to="." method="_on_charging_audio_finished"]

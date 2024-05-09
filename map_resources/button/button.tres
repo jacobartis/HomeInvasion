@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="QodotFGDPointClass" load_steps=4 format=3 uid="uid://cakmct58ieimq"]
+
+[ext_resource type="Script" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" id="1_h3ih0"]
+[ext_resource type="PackedScene" uid="uid://b3fq88hkfqa7t" path="res://map_resources/button/button.tscn" id="1_ixcsw"]
+[ext_resource type="Script" path="res://map_resources/button/button.gd" id="2_bp45i"]
+
+[resource]
+script = ExtResource("1_h3ih0")
+scene_file = ExtResource("1_ixcsw")
+script_class = ExtResource("2_bp45i")
+apply_rotation_on_map_build = true
+classname = "Interactable_Button"
+description = "Button"
+qodot_internal = false
+base_classes = Array[Resource]([])
+class_properties = {
+"cooldown": 0.0,
+"duration": 0.0,
+"target": ""
+}
+class_property_descriptions = {}
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"size": AABB(-2, -2, -2, 2, 2, 2)
+}
+node_class = ""
+transient_node = false
