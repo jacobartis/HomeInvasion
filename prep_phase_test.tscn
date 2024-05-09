@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c3jiochufdkal" path="res://qodot_resources/textures/grass.jpg" id="14_n2gj2"]
 [ext_resource type="Script" path="res://map_resources/room/room_section.gd" id="15_rl4ao"]
 [ext_resource type="PackedScene" uid="uid://cseafge3dgstr" path="res://player/player.tscn" id="16_lp14k"]
-[ext_resource type="PackedScene" uid="uid://di85fy0lxuci3" path="res://shop/shop_access.tscn" id="17_eof5h"]
+[ext_resource type="PackedScene" uid="uid://di85fy0lxuci3" path="res://map_resources/shop/shop_access.tscn" id="17_eof5h"]
 
 [sub_resource type="GDScript" id="GDScript_jkcgn"]
 script/source = "extends Node3D
