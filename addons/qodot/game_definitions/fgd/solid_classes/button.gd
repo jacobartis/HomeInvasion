@@ -69,7 +69,6 @@ func body_shape_entered(body_id, body: Node, body_shape_idx: int, self_shape_idx
 func body_shape_exited(body_id, body: Node, body_shape_idx: int, self_shape_idx: int) -> void:
 	if body is StaticBody3D:
 		return
-
 	overlaps -= 1
 	if overlaps == 0:
 		if release_delay == 0:
