@@ -23,21 +23,8 @@
 ( -40 -464 16 ) ( -39 -464 16 ) ( -40 -464 17 ) concrete [ -1 -2.375074350735203e-16 0 24 ] [ 0 0 -1 8 ] 0 1 1
 ( 64 -528 24 ) ( 64 -529 24 ) ( 64 -528 25 ) concrete [ -2.375074350735203e-16 1 0 16 ] [ 0 0 -1 8 ] 0 1 1
 }
-// brush 2
-{
-( -328 -400 72 ) ( -328 -399 72 ) ( -328 -400 73 ) concrete [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -328 -408 8 ) ( -328 -320 80 ) ( -264 -408 8 ) concrete [ 1 0 0 0 ] [ 0 -0.773957299203321 -0.6332377902572627 0 ] 0 1 1
-( -328 -400 8 ) ( -327 -400 8 ) ( -328 -399 8 ) concrete [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -264 -320 80 ) ( -263 -320 80 ) ( -264 -320 81 ) concrete [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( -264 -320 8 ) ( -328 -320 80 ) ( -328 -192 80 ) concrete [ 0 1 0 0 ] [ 0.6643638388299198 0 -0.7474093186836597 10.629822 ] 0 1 1
-}
 }
 // entity 1
-{
-"classname" "EntryPoint"
-"origin" "-208 -440 16"
-}
-// entity 2
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -49,7 +36,7 @@
 ( -128 56 8 ) ( -128 57 8 ) ( -128 56 9 ) brick [ 0 -1 0 0 ] [ 0 0 -1 8 ] 0 1 1
 ( -128 56 8 ) ( -128 56 9 ) ( -127 56 8 ) brick [ 1 0 0 0 ] [ 0 0 -1 8 ] 0 1 1
 ( -128 56 8 ) ( -127 56 8 ) ( -128 57 8 ) brick [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( -48 64 112 ) ( -48 65 112 ) ( -47 64 112 ) brick [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -48 64 64 ) ( -48 65 64 ) ( -47 64 64 ) brick [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( -48 64 16 ) ( -47 64 16 ) ( -48 64 17 ) brick [ -1 0 0 0 ] [ 0 0 -1 8 ] 0 1 1
 ( 0 64 16 ) ( 0 64 17 ) ( 0 65 16 ) brick [ 0 1 0 0 ] [ 0 0 -1 8 ] 0 1 1
 }
@@ -219,7 +206,7 @@
 ( 56 -128 8 ) ( 56 -127 8 ) ( 56 -128 9 ) brick [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( 56 -128 8 ) ( 56 -128 9 ) ( 57 -128 8 ) brick [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( 56 -128 8 ) ( 57 -128 8 ) ( 56 -127 8 ) brick [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
-( 64 -64 136 ) ( 64 -63 136 ) ( 65 -64 136 ) brick [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 64 -64 80 ) ( 64 -63 80 ) ( 65 -64 80 ) brick [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 ( 64 -64 16 ) ( 65 -64 16 ) ( 64 -64 17 ) brick [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
 ( 64 -64 16 ) ( 64 -64 17 ) ( 64 -63 16 ) brick [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
@@ -232,7 +219,7 @@
 ( -32 136 8 ) ( -136 136 80 ) ( -136 264 80 ) concrete [ 0.8221921916437787 0 -0.5692099788303083 0 ] [ 0 -1 0 0 ] 0 1 1
 }
 }
-// entity 3
+// entity 2
 {
 "classname" "door"
 "disabled" "false"
@@ -247,21 +234,21 @@
 ( -24 -56 16 ) ( -24 -56 17 ) ( -24 -55 16 ) glass [ 0 1 0 24 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 4
+// entity 3
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "-84 -20 12"
 "disabled" "false"
 "_tb_layer" "5"
 }
-// entity 5
+// entity 4
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "-84 -44 12"
 "disabled" "false"
 "_tb_layer" "5"
 }
-// entity 6
+// entity 5
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "68 92 12"
@@ -269,7 +256,7 @@
 "disabled" "false"
 "_tb_layer" "5"
 }
-// entity 7
+// entity 6
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "68 116 12"
@@ -277,7 +264,7 @@
 "disabled" "false"
 "_tb_layer" "5"
 }
-// entity 8
+// entity 7
 {
 "classname" "Interactable_Loot"
 "origin" "44.899 -18.8284 12"
@@ -285,7 +272,7 @@
 "disabled" "false"
 "_tb_layer" "5"
 }
-// entity 9
+// entity 8
 {
 "classname" "door"
 "disabled" "false"
@@ -300,7 +287,7 @@
 ( 40 64 16 ) ( 40 64 17 ) ( 40 65 16 ) glass [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 10
+// entity 9
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "52 -44 12"
@@ -308,7 +295,7 @@
 "disabled" "false"
 "_tb_layer" "5"
 }
-// entity 11
+// entity 10
 {
 "classname" "RoomSection"
 "room_id" "0"
@@ -324,7 +311,7 @@
 ( 128 88 16 ) ( 128 88 17 ) ( 128 89 16 ) Room [ 0 1 0 8 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 12
+// entity 11
 {
 "classname" "RoomSection"
 "room_id" "0"
@@ -340,12 +327,12 @@
 ( 56 0 16 ) ( 56 0 17 ) ( 56 1 16 ) Room [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 13
+// entity 12
 {
 "classname" "RoomSection"
 "room_id" "0"
 "disabled" "false"
-"doorway" "true"
+"doorway" "false"
 "_tb_layer" "5"
 // brush 0
 {
@@ -357,29 +344,29 @@
 ( 56 56 16 ) ( 56 56 17 ) ( 56 57 16 ) Room [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
+// entity 13
+{
+"classname" "RoomSection"
+"room_id" "0"
+"disabled" "false"
+"doorway" "false"
+"_tb_layer" "5"
+// brush 0
+{
+( -16 192 8 ) ( -16 193 8 ) ( -16 192 9 ) Room [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -136 64 8 ) ( -136 64 9 ) ( -135 64 8 ) Room [ 1 0 0 8 ] [ 0 0 -1 0 ] 0 1 1
+( -136 192 8 ) ( -135 192 8 ) ( -136 193 8 ) Room [ -1 0 0 -8 ] [ 0 -1 0 0 ] 0 1 1
+( 56 248 72 ) ( 56 249 72 ) ( 57 248 72 ) Room [ 1 0 0 8 ] [ 0 -1 0 0 ] 0 1 1
+( 56 72 16 ) ( 57 72 16 ) ( 56 72 17 ) Room [ -1 0 0 -8 ] [ 0 0 -1 0 ] 0 1 1
+( 48 248 16 ) ( 48 248 17 ) ( 48 249 16 ) Room [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
 // entity 14
 {
 "classname" "RoomSection"
 "room_id" "0"
 "disabled" "false"
-"doorway" "true"
-"_tb_layer" "5"
-// brush 0
-{
-( -16 184 8 ) ( -16 185 8 ) ( -16 184 9 ) Room [ 0 -1 0 -8 ] [ 0 0 -1 0 ] 0 1 1
-( -136 56 8 ) ( -136 56 9 ) ( -135 56 8 ) Room [ 1 0 0 8 ] [ 0 0 -1 0 ] 0 1 1
-( -136 184 8 ) ( -135 184 8 ) ( -136 185 8 ) Room [ -1 0 0 -8 ] [ 0 -1 0 -8 ] 0 1 1
-( 56 240 72 ) ( 56 241 72 ) ( 57 240 72 ) Room [ 1 0 0 8 ] [ 0 -1 0 -8 ] 0 1 1
-( 56 64 16 ) ( 57 64 16 ) ( 56 64 17 ) Room [ -1 0 0 -8 ] [ 0 0 -1 0 ] 0 1 1
-( 48 240 16 ) ( 48 240 17 ) ( 48 241 16 ) Room [ 0 1 0 8 ] [ 0 0 -1 0 ] 0 1 1
-}
-}
-// entity 15
-{
-"classname" "RoomSection"
-"room_id" "0"
-"disabled" "false"
-"doorway" "true"
+"doorway" "false"
 "_tb_layer" "5"
 // brush 0
 {
@@ -391,7 +378,7 @@
 ( 128 56 80 ) ( 128 56 81 ) ( 128 57 80 ) Room [ 0 1 0 0 ] [ -2.4492935982947064e-16 0 -1 0 ] 0 1 1
 }
 }
-// entity 16
+// entity 15
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -588,7 +575,7 @@
 ( -104 -528 64 ) ( -104 -528 65 ) ( -104 -527 64 ) brick [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 17
+// entity 16
 {
 "classname" "door"
 "disabled" "false"
@@ -603,7 +590,7 @@
 ( -64 -648 16 ) ( -64 -649 16 ) ( -64 -648 17 ) glass [ 1.0718754395722282e-15 1 0 8 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 18
+// entity 17
 {
 "classname" "Interactable_Shop_Access"
 "origin" "-8 -672 16"
@@ -611,7 +598,7 @@
 "disabled" "false"
 "_tb_layer" "7"
 }
-// entity 19
+// entity 18
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "-180 -732 12"
@@ -619,7 +606,7 @@
 "disabled" "false"
 "_tb_layer" "7"
 }
-// entity 20
+// entity 19
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "-180 -756 12"
@@ -627,7 +614,7 @@
 "disabled" "false"
 "_tb_layer" "7"
 }
-// entity 21
+// entity 20
 {
 "classname" "Interactable_Loot"
 "origin" "44 -740 12"
@@ -635,7 +622,7 @@
 "disabled" "false"
 "_tb_layer" "7"
 }
-// entity 22
+// entity 21
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "60 -572 12"
@@ -643,7 +630,7 @@
 "disabled" "false"
 "_tb_layer" "7"
 }
-// entity 23
+// entity 22
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "60 -548 12"
@@ -651,7 +638,7 @@
 "disabled" "false"
 "_tb_layer" "7"
 }
-// entity 24
+// entity 23
 {
 "classname" "RoomSection"
 "room_id" "2"
@@ -667,7 +654,7 @@
 ( 72 -712 24 ) ( 72 -712 25 ) ( 72 -711 24 ) Room [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 25
+// entity 24
 {
 "classname" "RoomSection"
 "room_id" "2"
@@ -683,7 +670,7 @@
 ( -8 -648 24 ) ( -8 -648 25 ) ( -8 -647 24 ) Room [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 26
+// entity 25
 {
 "classname" "RoomSection"
 "room_id" "2"
@@ -699,7 +686,7 @@
 ( 56 -536 24 ) ( 56 -536 25 ) ( 56 -535 24 ) Room [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 27
+// entity 26
 {
 "classname" "door"
 "disabled" "false"
@@ -714,7 +701,7 @@
 ( -192 -592 16 ) ( -192 -592 17 ) ( -192 -591 16 ) glass [ 0 1 0 8 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 28
+// entity 27
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -911,7 +898,7 @@
 ( -400 0 88 ) ( -400 0 89 ) ( -400 1 88 ) brick [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 29
+// entity 28
 {
 "classname" "door"
 "disabled" "false"
@@ -926,14 +913,14 @@
 ( -336 -128 88 ) ( -336 -128 89 ) ( -336 -127 88 ) glass [ 0 1 0 0 ] [ 0 0 -1 8 ] 0 1 1
 }
 }
-// entity 30
+// entity 29
 {
 "classname" "Interactable_Shop_Access"
 "origin" "-592 -224 88"
 "disabled" "false"
 "_tb_layer" "8"
 }
-// entity 31
+// entity 30
 {
 "classname" "RoomSection"
 "room_id" "3"
@@ -949,7 +936,7 @@
 ( -536 -64 88 ) ( -536 -64 89 ) ( -536 -63 88 ) Room [ 0 1 0 8 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 32
+// entity 31
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "-612 -188 84"
@@ -957,7 +944,7 @@
 "disabled" "false"
 "_tb_layer" "8"
 }
-// entity 33
+// entity 32
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "-588 -188 84"
@@ -965,7 +952,7 @@
 "disabled" "false"
 "_tb_layer" "8"
 }
-// entity 34
+// entity 33
 {
 "classname" "RoomSection"
 "room_id" "3"
@@ -981,7 +968,7 @@
 ( -576 8 88 ) ( -576 8 89 ) ( -576 9 88 ) Room [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 35
+// entity 34
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "-516 4 84"
@@ -989,7 +976,7 @@
 "disabled" "false"
 "_tb_layer" "8"
 }
-// entity 36
+// entity 35
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "-492 4 84"
@@ -997,7 +984,7 @@
 "disabled" "false"
 "_tb_layer" "8"
 }
-// entity 37
+// entity 36
 {
 "classname" "Interactable_Shop_Access"
 "origin" "-464 8 88"
@@ -1005,7 +992,7 @@
 "disabled" "false"
 "_tb_layer" "8"
 }
-// entity 38
+// entity 37
 {
 "classname" "RoomSection"
 "room_id" "3"
@@ -1021,7 +1008,7 @@
 ( -448 80 96 ) ( -448 80 97 ) ( -448 81 96 ) Room [ 0 1 0 -8 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 39
+// entity 38
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "-244 124 84"
@@ -1029,7 +1016,7 @@
 "disabled" "false"
 "_tb_layer" "8"
 }
-// entity 40
+// entity 39
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "-244 100 84"
@@ -1037,7 +1024,7 @@
 "disabled" "false"
 "_tb_layer" "8"
 }
-// entity 41
+// entity 40
 {
 "classname" "RoomSection"
 "room_id" "3"
@@ -1053,24 +1040,7 @@
 ( -200 136 96 ) ( -200 136 97 ) ( -200 137 96 ) Room [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 42
-{
-"classname" "RoomSection"
-"room_id" "3"
-"disabled" "false"
-"doorway" "true"
-"_tb_layer" "8"
-// brush 0
-{
-( 0 -48 8 ) ( 0 -47 8 ) ( 0 -48 9 ) Room [ 0 -1 0 8 ] [ 0 0 -1 -8 ] 0 1 1
-( -16 64 8 ) ( -16 64 9 ) ( -15 64 8 ) Room [ 1 0 0 -40 ] [ 0 0 -1 -8 ] 0 1 1
-( -16 -48 8 ) ( -15 -48 8 ) ( -16 -47 8 ) Room [ -1 0 0 40 ] [ 0 -1 0 8 ] 0 1 1
-( 144 144 56 ) ( 144 145 56 ) ( 145 144 56 ) Room [ 1 0 0 -40 ] [ 0 -1 0 8 ] 0 1 1
-( 144 72 24 ) ( 145 72 24 ) ( 144 72 25 ) Room [ -1 0 0 40 ] [ 0 0 -1 -8 ] 0 1 1
-( 40 144 24 ) ( 40 144 25 ) ( 40 145 24 ) Room [ 0 1 0 -8 ] [ 0 0 -1 -8 ] 0 1 1
-}
-}
-// entity 43
+// entity 41
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -1275,7 +1245,7 @@
 ( -8 -960 192 ) ( -8 -960 193 ) ( -8 -959 192 ) brick [ 0 1 0 16 ] [ 0 0 -1 -8 ] 0 1 1
 }
 }
-// entity 44
+// entity 42
 {
 "classname" "door"
 "disabled" "false"
@@ -1290,7 +1260,7 @@
 ( -152 -952 160 ) ( -152 -953 160 ) ( -152 -952 161 ) glass [ 1.7608940092517615e-15 1 0 0 ] [ 0 0 -1 16 ] 0 1 1
 }
 }
-// entity 45
+// entity 43
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "-300 -1036 156"
@@ -1298,7 +1268,7 @@
 "disabled" "false"
 "_tb_layer" "9"
 }
-// entity 46
+// entity 44
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "-268 -1036 156"
@@ -1306,7 +1276,7 @@
 "disabled" "false"
 "_tb_layer" "9"
 }
-// entity 47
+// entity 45
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "-52 -1036 156"
@@ -1314,7 +1284,7 @@
 "disabled" "false"
 "_tb_layer" "9"
 }
-// entity 48
+// entity 46
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "-20 -1036 156"
@@ -1322,7 +1292,7 @@
 "disabled" "false"
 "_tb_layer" "9"
 }
-// entity 49
+// entity 47
 {
 "classname" "Interactable_Loot"
 "origin" "-228 -1036 156"
@@ -1330,7 +1300,7 @@
 "disabled" "false"
 "_tb_layer" "9"
 }
-// entity 50
+// entity 48
 {
 "classname" "Interactable_Loot"
 "origin" "-84 -1036 156"
@@ -1338,7 +1308,7 @@
 "disabled" "false"
 "_tb_layer" "9"
 }
-// entity 51
+// entity 49
 {
 "classname" "Interactable_Shop_Access"
 "origin" "-200 -1040 160"
@@ -1346,7 +1316,7 @@
 "disabled" "false"
 "_tb_layer" "9"
 }
-// entity 52
+// entity 50
 {
 "classname" "Interactable_Shop_Access"
 "origin" "-120 -1040 160"
@@ -1354,7 +1324,7 @@
 "disabled" "false"
 "_tb_layer" "9"
 }
-// entity 53
+// entity 51
 {
 "classname" "RoomSection"
 "room_id" "4"
@@ -1370,7 +1340,7 @@
 ( 0 -912 160 ) ( 0 -912 161 ) ( 0 -911 160 ) Room [ 0 1 0 56 ] [ 0 0 -1 -8 ] 0 1 1
 }
 }
-// entity 54
+// entity 52
 {
 "classname" "RoomSection"
 "room_id" "4"
@@ -1386,7 +1356,7 @@
 ( -72 -912 160 ) ( -72 -912 161 ) ( -72 -911 160 ) Room [ 0 1 0 -8 ] [ 0 0 -1 -8 ] 0 1 1
 }
 }
-// entity 55
+// entity 53
 {
 "classname" "RoomSection"
 "room_id" "4"
@@ -1402,7 +1372,7 @@
 ( -160 -912 160 ) ( -160 -912 161 ) ( -160 -911 160 ) Room [ 0 1 0 -8 ] [ 0 0 -1 -8 ] 0 1 1
 }
 }
-// entity 56
+// entity 54
 {
 "classname" "RoomSection"
 "room_id" "4"
@@ -1418,7 +1388,7 @@
 ( -256 -912 160 ) ( -256 -912 161 ) ( -256 -911 160 ) Room [ 0 1 0 -8 ] [ 0 0 -1 -8 ] 0 1 1
 }
 }
-// entity 57
+// entity 55
 {
 "classname" "RoomSection"
 "room_id" "4"
@@ -1435,7 +1405,7 @@
 ( 64 -768 160 ) ( 64 -768 161 ) ( 64 -767 160 ) Room [ 0 1 0 -24 ] [ 0 0 -1 -8 ] 0 1 1
 }
 }
-// entity 58
+// entity 56
 {
 "classname" "RoomSection"
 "room_id" "4"
@@ -1452,7 +1422,7 @@
 ( -384 -768 160 ) ( -384 -768 161 ) ( -384 -767 160 ) Room [ 0 1 0 -24 ] [ 0 0 -1 -8 ] 0 1 1
 }
 }
-// entity 59
+// entity 57
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -1460,7 +1430,7 @@
 "_tb_id" "10"
 "_tb_layer_sort_index" "5"
 }
-// entity 60
+// entity 58
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -1657,7 +1627,7 @@
 ( 448 -328 136 ) ( 448 -328 137 ) ( 448 -327 136 ) brick [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 61
+// entity 59
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "404 -748 84"
@@ -1665,7 +1635,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 62
+// entity 60
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "404 -724 84"
@@ -1673,7 +1643,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 63
+// entity 61
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "404 -668 84"
@@ -1681,7 +1651,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 64
+// entity 62
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "404 -692 84"
@@ -1689,7 +1659,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 65
+// entity 63
 {
 "classname" "RoomSection"
 "room_id" "5"
@@ -1705,7 +1675,7 @@
 ( 512 -768 80 ) ( 512 -768 81 ) ( 512 -767 80 ) Room [ -3.8285686989269494e-16 1 0 8 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 66
+// entity 64
 {
 "classname" "door"
 "disabled" "false"
@@ -1720,7 +1690,7 @@
 ( 448 -384 136 ) ( 448 -384 137 ) ( 448 -383 136 ) glass [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 67
+// entity 65
 {
 "classname" "door"
 "disabled" "false"
@@ -1735,7 +1705,7 @@
 ( 192 -456 80 ) ( 192 -456 81 ) ( 192 -455 80 ) glass [ -1.6081226496766366e-16 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 68
+// entity 66
 {
 "classname" "door"
 "disabled" "false"
@@ -1750,7 +1720,7 @@
 ( 392 -576 136 ) ( 392 -576 137 ) ( 392 -575 136 ) glass [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 69
+// entity 67
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "372 -548 84"
@@ -1758,7 +1728,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 70
+// entity 68
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "372 -524 84"
@@ -1766,7 +1736,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 71
+// entity 69
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "372 -492 84"
@@ -1774,7 +1744,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 72
+// entity 70
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "372 -468 84"
@@ -1782,7 +1752,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 73
+// entity 71
 {
 "classname" "RoomSection"
 "room_id" "5"
@@ -1798,7 +1768,7 @@
 ( 384 -568 88 ) ( 384 -569 88 ) ( 384 -568 89 ) Room [ -2.603921899779596e-16 1 0 -8 ] [ 0 0 -1 0 ] 180 1 1
 }
 }
-// entity 74
+// entity 72
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "308 -316 84"
@@ -1806,7 +1776,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 75
+// entity 73
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "284 -316 84"
@@ -1814,7 +1784,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 76
+// entity 74
 {
 "classname" "RoomSection"
 "room_id" "5"
@@ -1830,7 +1800,7 @@
 ( 448 -264 80 ) ( 448 -265 80 ) ( 448 -264 81 ) Room [ 8.114832495942686e-16 1 0 8 ] [ 0 0 -1 0 ] 180 1 1
 }
 }
-// entity 77
+// entity 75
 {
 "classname" "RoomSection"
 "room_id" "5"
@@ -1846,7 +1816,7 @@
 ( 256 -576 88 ) ( 256 -577 88 ) ( 256 -576 89 ) Room [ -2.603921899779596e-16 1 0 0 ] [ 0 0 -1 0 ] 180 1 1
 }
 }
-// entity 78
+// entity 76
 {
 "classname" "RoomSection"
 "room_id" "5"
@@ -1862,7 +1832,7 @@
 ( 384 -760 88 ) ( 384 -761 88 ) ( 384 -760 89 ) Room [ -2.603921899779596e-16 1 0 -8 ] [ 0 0 -1 0 ] 180 1 1
 }
 }
-// entity 79
+// entity 77
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "220 -748 84"
@@ -1870,7 +1840,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 80
+// entity 78
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "244 -748 84"
@@ -1878,7 +1848,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 81
+// entity 79
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "340 -748 84"
@@ -1886,7 +1856,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 82
+// entity 80
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "364 -748 84"
@@ -1894,7 +1864,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 83
+// entity 81
 {
 "classname" "RoomSection"
 "room_id" "5"
@@ -1910,7 +1880,7 @@
 ( 384 -888 88 ) ( 384 -889 88 ) ( 384 -888 89 ) Room [ -2.603921899779596e-16 1 0 -8 ] [ 0 0 -1 0 ] 180 1 1
 }
 }
-// entity 84
+// entity 82
 {
 "classname" "RoomSection"
 "room_id" "5"
@@ -1926,7 +1896,7 @@
 ( 256 -392 80 ) ( 256 -393 80 ) ( 256 -392 81 ) Room [ 8.114832495942686e-16 1 0 8 ] [ 0 0 -1 0 ] 180 1 1
 }
 }
-// entity 85
+// entity 83
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "212 -444 84"
@@ -1934,7 +1904,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 86
+// entity 84
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "236 -444 84"
@@ -1942,7 +1912,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 87
+// entity 85
 {
 "classname" "RoomSection"
 "room_id" "5"
@@ -1958,7 +1928,7 @@
 ( 448 -192 80 ) ( 448 -192 81 ) ( 448 -191 80 ) Room [ 9.951802694663716e-16 1 0 8 ] [ 0 0 -1 0 ] 180 1 1
 }
 }
-// entity 88
+// entity 86
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "268 -156 84"
@@ -1966,7 +1936,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 89
+// entity 87
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "268 -172 84"
@@ -1974,7 +1944,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 90
+// entity 88
 {
 "classname" "Interactable_Shop_Access"
 "origin" "216 -472 88"
@@ -1982,7 +1952,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 91
+// entity 89
 {
 "classname" "Interactable_Loot"
 "origin" "244 -468 84"
@@ -1990,7 +1960,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 92
+// entity 90
 {
 "classname" "Interactable_Loot"
 "origin" "308 -748 84"
@@ -1998,7 +1968,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 93
+// entity 91
 {
 "classname" "Interactable_Loot"
 "origin" "276 -748 84"
@@ -2006,7 +1976,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 94
+// entity 92
 {
 "classname" "RoomSection"
 "room_id" "5"
@@ -2022,7 +1992,7 @@
 ( 440 -448 88 ) ( 440 -449 88 ) ( 440 -448 89 ) Room [ -2.603921899779596e-16 1 0 0 ] [ 0 0 -1 0 ] 180 1 1
 }
 }
-// entity 95
+// entity 93
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "428 -348 84"
@@ -2030,7 +2000,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 96
+// entity 94
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "428 -364 84"
@@ -2038,7 +2008,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 97
+// entity 95
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "380 -788 84"
@@ -2046,7 +2016,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 98
+// entity 96
 {
 "classname" "Interactable_Hiding_Spot"
 "origin" "380 -812 84"
@@ -2054,7 +2024,7 @@
 "disabled" "false"
 "_tb_layer" "11"
 }
-// entity 99
+// entity 97
 {
 "classname" "RoomSection"
 "room_id" "5"
@@ -2071,7 +2041,7 @@
 ( 128 -264 80 ) ( 128 -265 80 ) ( 128 -264 81 ) Room [ 8.114832495942686e-16 1 0 -56 ] [ 0 0 -1 0 ] 180 1 1
 }
 }
-// entity 100
+// entity 98
 {
 "classname" "RoomSection"
 "room_id" "5"
@@ -2088,7 +2058,7 @@
 ( 64 -584 80 ) ( 64 -584 81 ) ( 64 -583 80 ) Room [ 9.951802694663716e-16 1 0 16 ] [ 0 0 -1 0 ] 180 1 1
 }
 }
-// entity 101
+// entity 99
 {
 "classname" "RoomSection"
 "room_id" "5"
@@ -2105,7 +2075,7 @@
 ( 72 -952 80 ) ( 72 -952 81 ) ( 72 -951 80 ) Room [ 9.951802694663716e-16 1 0 0 ] [ 0 0 -1 0 ] 180 1 1
 }
 }
-// entity 102
+// entity 100
 {
 "classname" "RoomSection"
 "room_id" "5"
@@ -2122,7 +2092,7 @@
 ( 64 -952 80 ) ( 64 -952 81 ) ( 64 -951 80 ) Room [ 9.951802694663716e-16 1 0 0 ] [ 0 0 -1 0 ] 180 1 1
 }
 }
-// entity 103
+// entity 101
 {
 "classname" "RoomSection"
 "room_id" "5"
@@ -2139,7 +2109,7 @@
 ( 72 -952 152 ) ( 72 -952 153 ) ( 72 -951 152 ) Room [ 9.951802694663716e-16 1 0 0 ] [ 0 0 -1 8 ] 180 1 1
 }
 }
-// entity 104
+// entity 102
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -2318,7 +2288,7 @@
 ( -456 -608 72 ) ( -456 -608 73 ) ( -456 -607 72 ) brick [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 105
+// entity 103
 {
 "classname" "RoomSection"
 "room_id" "7"
@@ -2334,13 +2304,14 @@
 ( -488 -552 16 ) ( -488 -552 17 ) ( -488 -551 16 ) Room [ 0 1 0 40 ] [ 0 0 -1 -32 ] 0 1 1
 }
 }
-// entity 106
+// entity 104
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
 "_tb_name" "UpperLeft"
 "_tb_id" "13"
 "_tb_layer_sort_index" "8"
+"_tb_layer_hidden" "1"
 // brush 0
 {
 ( -896 -856 96 ) ( -896 -855 96 ) ( -896 -856 97 ) brick [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
@@ -2540,7 +2511,7 @@
 ( -464 -848 104 ) ( -464 -848 105 ) ( -464 -847 104 ) concrete [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 107
+// entity 105
 {
 "classname" "door"
 "disabled" "false"
@@ -2555,7 +2526,7 @@
 ( -632 -760 168 ) ( -632 -760 169 ) ( -632 -759 168 ) glass [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 108
+// entity 106
 {
 "classname" "door"
 "targetname" "door"
@@ -2571,7 +2542,7 @@
 ( -760 -600 168 ) ( -760 -600 169 ) ( -760 -599 168 ) glass [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 109
+// entity 107
 {
 "classname" "Interactable_Button"
 "origin" "-632 -614 134"
@@ -2581,7 +2552,7 @@
 "disabled" "false"
 "_tb_layer" "13"
 }
-// entity 110
+// entity 108
 {
 "classname" "RoomSection"
 "room_id" "6"
@@ -2597,7 +2568,7 @@
 ( -544 -512 112 ) ( -544 -512 113 ) ( -544 -511 112 ) Room [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 111
+// entity 109
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -2758,14 +2729,14 @@
 ( -480 -848 104 ) ( -480 -848 105 ) ( -480 -847 104 ) concrete [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 112
+// entity 110
 {
 "classname" "Interactable_Loot"
 "origin" "-532 -940 12"
 "disabled" "false"
 "_tb_layer" "14"
 }
-// entity 113
+// entity 111
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -2881,7 +2852,7 @@
 ( -888 -472 104 ) ( -888 -472 105 ) ( -888 -471 104 ) concrete [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 114
+// entity 112
 {
 "classname" "Interactable_Loot"
 "origin" "-980 -460 12"
@@ -2889,7 +2860,7 @@
 "disabled" "false"
 "_tb_layer" "15"
 }
-// entity 115
+// entity 113
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -2979,7 +2950,7 @@
 ( -512 -360 136 ) ( -512 -360 137 ) ( -512 -359 136 ) concrete [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 116
+// entity 114
 {
 "classname" "func_group"
 "_tb_type" "_tb_layer"
@@ -3068,7 +3039,7 @@
 ( -456 -328 80 ) ( -456 -328 81 ) ( -456 -327 80 ) brick [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
-// entity 117
+// entity 115
 {
 "classname" "RoomSection"
 "room_id" "7"
@@ -3084,7 +3055,7 @@
 ( -64 -384 16 ) ( -64 -384 17 ) ( -64 -383 16 ) Room [ 0 1 0 0 ] [ 0 0 -1 -32 ] 0 1 1
 }
 }
-// entity 118
+// entity 116
 {
 "classname" "RoomSection"
 "room_id" "7"
