@@ -6,10 +6,10 @@
 [ext_resource type="Script" path="res://enemy/state_machine/curious_state.gd" id="4_a45gs"]
 [ext_resource type="Script" path="res://enemy/state_machine/aggressive_state.gd" id="5_ea7it"]
 [ext_resource type="Script" path="res://enemy/state_machine/tactical_state.gd" id="6_nvaxx"]
+[ext_resource type="Script" path="res://enemy/state_machine/search_state.gd" id="7_rkpro"]
 [ext_resource type="Script" path="res://enemy/state_machine/chase_state.gd" id="8_mcak2"]
-[ext_resource type="Script" path="res://enemy/state_machine/investigation_state.gd" id="9_a3sl2"]
+[ext_resource type="Script" path="res://enemy/investigation_state.gd" id="9_a3sl2"]
 [ext_resource type="Script" path="res://enemy/state_machine/director.gd" id="9_kmwiy"]
-[ext_resource type="Script" path="res://enemy/actions/search_action.gd" id="10_36g1t"]
 [ext_resource type="Script" path="res://enemy/player_ray.gd" id="10_i0asf"]
 [ext_resource type="Script" path="res://enemy/actions/action_controller.gd" id="10_pnrfb"]
 [ext_resource type="AudioStream" uid="uid://dtct0hhg3mcv3" path="res://enemy/Assets/Sounds/indoor-footsteps-6385.mp3" id="12_d8363"]
@@ -124,7 +124,6 @@ _data = {
 
 [node name="Enemy" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_xqq5o")
-peaceful = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_spugt")
@@ -163,11 +162,11 @@ one_shot = true
 [node name="InvestigationState" type="Node" parent="StateController"]
 script = ExtResource("9_a3sl2")
 
-[node name="ActionController" type="Node" parent="."]
+[node name="Actions" type="Node" parent="."]
 script = ExtResource("10_pnrfb")
 
-[node name="SearchAction" type="Node" parent="ActionController"]
-script = ExtResource("10_36g1t")
+[node name="SearchAction" type="Node" parent="Actions"]
+script = ExtResource("7_rkpro")
 
 [node name="Director" type="Node" parent="."]
 script = ExtResource("9_kmwiy")

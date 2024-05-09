@@ -9,7 +9,6 @@ func set_player(new_player):
 
 func _process(delta):
 	if !player: return
-	
 	look_at(player.global_position)
 	rotation_degrees.x = clamp(rotation_degrees.x,-45,45)
 	rotation_degrees.y = clamp(rotation_degrees.y,-45,45)
