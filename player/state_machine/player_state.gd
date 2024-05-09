@@ -6,6 +6,7 @@ enum State {
 	Idle,
 	Walking,
 	Sprint,
+	Sneaking,
 	Hiding,
 	Crafting
 }

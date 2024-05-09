@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 signal entered_room(new_room:Room)
+signal entered_section(new_section:RoomSection)
 
 @export var crafting_menu: Control
 @export var inventory_menu: Control
@@ -27,6 +28,7 @@ var sprint_cooldown:bool = false
 var sprint_mult: float = 1.75
 
 var room: Room :set=set_room, get=get_room
+var section: RoomSection :set=set_section, get=get_section
 
 var crafting_open = false
 
@@ -53,11 +55,18 @@ func set_room(new_room):
 	room = new_room
 	emit_signal("entered_room",room)
 
+func set_section(new_seciton:RoomSection):
+	section = new_seciton
+	emit_signal("section_entered",section) 
+
 func get_hiding_spot():
 	return hiding_spot
 
 func get_room():
 	return room
+
+func get_section():
+	return section
 
 func _ready():
 	interact_handler.body = self

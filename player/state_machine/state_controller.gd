@@ -6,6 +6,7 @@ signal entered_state(state)
 	PlayerState.State.Idle: $Idle,
 	PlayerState.State.Walking: $Walking,
 	PlayerState.State.Sprint: $Sprint,
+	PlayerState.State.Sneaking: $Sneaking,
 	PlayerState.State.Hiding: $Hiding,
 }
 

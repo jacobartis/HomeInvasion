@@ -9,7 +9,7 @@ func is_direction_pressed() -> bool:
 	return Input.get_vector("player_left", "player_right", "player_forward", "player_backward") != Vector2.ZERO
 
 func physics_process(delta):
-	body.stamina += delta*body.stamina_recovery
+	body.stamina += delta*body.stamina_recovery*2
 	movement(delta)
 
 func movement(delta):

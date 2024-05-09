@@ -1,11 +1,20 @@
 extends PlayerState
 
 
+func enter():
+	body.get_node("WalkAudio").play()
+
+func exit():
+	body.get_node("WalkAudio").stop()
+
 func process(delta):
 	if movement_input() == Vector3.ZERO:
 		return PlayerState.State.Idle
 	if Input.is_action_pressed("player_sprint") and body.can_sprint():
 		return PlayerState.State.Sprint
+	if Input.is_action_pressed("player_sneak"):
+		return PlayerState.State.Sneaking
+	get_tree().call_group("enemy","noise",body.global_position,.5)
 	return PlayerState.State.None
 
 func movement_input():
