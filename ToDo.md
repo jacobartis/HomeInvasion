@@ -9,6 +9,7 @@ Demo ToDo:
 - Models
 - Basic settings
 - Sound design
+- Doors ✓
 
 Bonus ToDo (feature creep):
 - Difficulty options
@@ -19,3 +20,21 @@ Bonus ToDo (feature creep):
 - ...More stuff
 
 Throwable trap
+
+Squid game esq setting.
+End of timer killer gets snipped / killed.
+Roguelike bracket system vs different enemies.
+Different playable characters.
+
+Maintanance tunnels
+
+Intencity/Stress over suspence horror
+
+Random modifiers/events
+
+New item Flashlight - Blackout event
+
+Blackout event:
+	Lights go out
+	Silence 
+
