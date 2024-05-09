@@ -24,7 +24,6 @@ func add_room_section(room_section:RoomSection):
 		rooms[room_section.room_id] = new_room
 	else:
 		rooms[room_section.room_id].add_section(room_section)
-	print(room_section.room_id)
 	check_valid()
 
 #Removes empty rooms
