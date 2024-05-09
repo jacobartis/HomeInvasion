@@ -22,7 +22,9 @@ description = "Designates a room section"
 qodot_internal = false
 base_classes = Array[Resource]([])
 class_properties = {
-"Room_id": 0
+"disabled": "false",
+"doorway": "false",
+"room_id": 0
 }
 class_property_descriptions = {}
 meta_properties = {

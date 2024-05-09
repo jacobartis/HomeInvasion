@@ -5,53 +5,29 @@ var sections: Array[RoomSection] = []:get=get_sections
 var player_entries: int = 0
 
 func get_sections():
+	sections.sort_custom(
+		func(a,b):
+			return a.player_entries>b.player_entries
+	)
 	return sections
 
 func get_rand_pos():
 	return sections.pick_random().global_position
 
-func get_furthest_section(pos:Vector3):
-	var ordered = sections.duplicate()
-	ordered.sort_custom(
-		func(a, b):
-			return pos.distance_to(a.global_position)>pos.distance_to(b.global_position)
-	)
-	return ordered[0]
-
-func get_closest_section(pos:Vector3):
-	var ordered = sections.duplicate()
-	ordered.sort_custom(
-		func(a, b):
-			return pos.distance_to(a.global_position)<pos.distance_to(b.global_position)
-	)
-	return ordered[0]
-
-func get_hiding_spots():
+func get_hiding_spots(min_time:int=0):
 	var hs = []
 	for section in sections:
 		hs.append_array(section.get_hiding_spots())
-	return hs
-
-func get_furthest_hiding_spot(pos:Vector3):
-	var ordered = get_hiding_spots()
-	ordered.sort_custom(
-		func(a, b):
-			return pos.distance_to(a.global_position)>pos.distance_to(b.global_position)
+	var current = Time.get_ticks_msec()
+	return hs.filter(
+		func(spot): return current-spot.last_search>min_time
 	)
-	return ordered[0]
-
-func get_closest_hiding_spot(pos:Vector3):
-	var ordered = get_hiding_spots()
-	ordered.sort_custom(
-		func(a, b):
-			return pos.distance_to(a.global_position)<pos.distance_to(b.global_position)
-	)
-	return ordered[0]
 
 func add_section(section:RoomSection):
 	if !section or sections.has(section): return
-	sections.append(section)
 	section.connect("body_entered",section_entered)
+	if section.doorway: return
+	sections.append(section)
 
 func remove_section(section:RoomSection):
 	if !section or sections.has(section): return
@@ -62,6 +38,20 @@ func remove_section(section:RoomSection):
 
 func section_entered(body:Node3D):
 	if !(body.is_in_group("enemy") or body.is_in_group("player")): return
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and body.get_room() != self:
 		player_entries += 1
 	body.set_room(self)
+
+func sort_furthest(pos:Vector3,list:Array):
+	list.sort_custom(
+		func(a,b):
+			return pos.distance_to(a.global_position)>pos.distance_to(b.global_position)
+	)
+	return list
+
+func sort_closest(pos:Vector3,list:Array):
+	list.sort_custom(
+		func(a,b):
+			return pos.distance_to(a.global_position)<pos.distance_to(b.global_position)
+	)
+	return list
