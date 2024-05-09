@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqjqhb38sbal1"]
+
+[ext_resource type="PackedScene" uid="uid://dhki3eh3xgk2b" path="res://map_resources/hidding_spot/Assets/hiding_spot.glb" id="1_g4v3p"]
+
+[node name="hiding_spot" instance=ExtResource("1_g4v3p")]
+
+[node name="LeftDoor" parent="." index="1"]
+transform = Transform3D(-3.8581e-08, -0.999621, -0.0275275, 0.882965, -4.37114e-08, 0, -1.06244e-09, -0.0275275, 0.999621, 0.604459, 0.0451459, 0.999993)
+
+[node name="RightDoor" parent="." index="2"]
+transform = Transform3D(-3.85956e-08, -1, -1.74846e-07, 0.882965, -4.37114e-08, -7.10543e-15, -4.74431e-16, -1.74846e-07, 1, 0.604158, 0.242717, -1.00183)

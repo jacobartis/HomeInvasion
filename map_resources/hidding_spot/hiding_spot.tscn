@@ -1,63 +1,137 @@
-[gd_scene load_steps=7 format=3 uid="uid://byxpvw7yla6yy"]
+[gd_scene load_steps=10 format=3 uid="uid://byxpvw7yla6yy"]
 
 [ext_resource type="Script" path="res://map_resources/hidding_spot/hiding_spot.gd" id="1_0i40l"]
+[ext_resource type="Texture2D" uid="uid://ty7ooxgubft6" path="res://icon.svg" id="2_irvmm"]
+[ext_resource type="PackedScene" uid="uid://dplhpg6v7eb7c" path="res://noise_indicator/noise_indicator.tscn" id="2_ktfev"]
+[ext_resource type="PackedScene" uid="uid://dhki3eh3xgk2b" path="res://map_resources/hidding_spot/Assets/hiding_spot.glb" id="4_wh5cx"]
+[ext_resource type="AudioStream" uid="uid://cncyynjdat8xd" path="res://map_resources/hidding_spot/Assets/metallic-door-shut-98740.mp3" id="5_54y0g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n6b01"]
-size = Vector3(0.5, 0.5, 0.5)
+size = Vector3(1, 1.7, 0.6)
 
-[sub_resource type="BoxMesh" id="BoxMesh_55lag"]
-size = Vector3(0.5, 0.5, 0.5)
-
-[sub_resource type="Animation" id="Animation_npn68"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_imt34"]
+resource_name = "search"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
+tracks/0/path = NodePath("AudioStreamPlayer3D:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D:pitch_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.75, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer3D:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_u3r57"]
-resource_name = "search"
-length = 0.5
+[sub_resource type="Animation" id="Animation_i5s62"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
+tracks/0/path = NodePath("AudioStreamPlayer3D:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D:pitch_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer3D:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-20.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yuqaj"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qta0n"]
 _data = {
-"RESET": SubResource("Animation_npn68"),
-"search": SubResource("Animation_u3r57")
+"RESET": SubResource("Animation_i5s62"),
+"search": SubResource("Animation_imt34")
 }
 
 [node name="HidingSpot" type="StaticBody3D" groups=["hiding_spot"]]
 script = ExtResource("1_0i40l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.642699, 0)
 shape = SubResource("BoxShape3D_n6b01")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_55lag")
-
 [node name="InteractionSpot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.22371)
+
+[node name="Sprite3D" type="Sprite3D" parent="InteractionSpot"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0.153269)
+billboard = 1
+texture = ExtResource("2_irvmm")
+
+[node name="NoiseIndicator" parent="." instance=ExtResource("2_ktfev")]
+
+[node name="hiding_spot" parent="." instance=ExtResource("4_wh5cx")]
+transform = Transform3D(-3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, 0, 0.251112, 0)
+
+[node name="LeftDoor" parent="hiding_spot" index="1"]
+transform = Transform3D(-3.85956e-08, -1, -1.74846e-07, 0.882965, -4.37114e-08, 7.10543e-15, -1.30221e-14, -1.74846e-07, 1, 0.604459, 0.0451459, 0.999993)
+
+[node name="RightDoor" parent="hiding_spot" index="2"]
+transform = Transform3D(-3.85956e-08, -1, -1.74846e-07, 0.882965, -4.37114e-08, 7.10543e-15, -1.30221e-14, -1.74846e-07, 1, 0.604158, 0.242717, -1.00183)
+
+[node name="CameraPos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, -0.05)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_54y0g")
+volume_db = -20.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_yuqaj")
+"": SubResource("AnimationLibrary_qta0n")
 }
+
+[connection signal="searched" from="." to="hiding_spot/AnimationPlayer" method="play" binds= ["QuickOpen"]]
+
+[editable path="hiding_spot"]
