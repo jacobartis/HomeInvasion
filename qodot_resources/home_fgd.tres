@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="QodotFGDFile" load_steps=8 format=3 uid="uid://duthk5xwly5wd"]
+[gd_resource type="Resource" script_class="QodotFGDFile" load_steps=10 format=3 uid="uid://duthk5xwly5wd"]
 
 [ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="1_88x8d"]
 [ext_resource type="Resource" uid="uid://cs0xf7xc4hf8h" path="res://map_resources/entry_point/entry_point.tres" id="2_4gflm"]
@@ -7,6 +7,8 @@
 [ext_resource type="Resource" uid="uid://qfwsncinkxde" path="res://map_resources/room/room_section.tres" id="4_4ekeg"]
 [ext_resource type="Resource" uid="uid://e1tf3wmyoe4e" path="res://map_resources/hidding_spot/hiding_spot.tres" id="5_jqauq"]
 [ext_resource type="Resource" uid="uid://dp2htph3oelqh" path="res://map_resources/loot/loot.tres" id="6_1m6v5"]
+[ext_resource type="Resource" uid="uid://7b433se1f2og" path="res://map_resources/shop/shop_fgd.tres" id="7_h77nd"]
+[ext_resource type="Resource" uid="uid://cakmct58ieimq" path="res://map_resources/button/button.tres" id="8_qgjn3"]
 
 [resource]
 script = ExtResource("3_oobcl")
@@ -14,4 +16,4 @@ export_file = false
 target_folder = "A:/Game dev/TrenchBroom/games/HomeInvasion"
 fgd_name = "HomeInvasion"
 base_fgd_files = Array[Resource]([ExtResource("1_88x8d")])
-entity_definitions = Array[Resource]([ExtResource("2_4gflm"), ExtResource("3_vgk01"), ExtResource("4_4ekeg"), ExtResource("5_jqauq"), ExtResource("6_1m6v5")])
+entity_definitions = Array[Resource]([ExtResource("2_4gflm"), ExtResource("3_vgk01"), ExtResource("4_4ekeg"), ExtResource("5_jqauq"), ExtResource("6_1m6v5"), ExtResource("7_h77nd"), ExtResource("8_qgjn3")])
