@@ -1,0 +1,53 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bprc36b22ouh4"]
+
+[ext_resource type="FontFile" uid="uid://c5el8d2ssblhf" path="res://menus/theme/vinque rg.otf" id="1_7ef8c"]
+[ext_resource type="Texture2D" uid="uid://iu5rq7dalgbq" path="res://menus/theme/Grabber.png" id="1_fjnt0"]
+[ext_resource type="Texture2D" uid="uid://c3dh8baqxdnhj" path="res://menus/theme/GrabberDisabled.png" id="2_tlxqn"]
+[ext_resource type="Texture2D" uid="uid://dp5di5raxkynk" path="res://menus/theme/GrabberHighlight.png" id="3_ko0ip"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyvww"]
+bg_color = Color(0.678431, 0, 0.0156863, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ejyi0"]
+bg_color = Color(0.678431, 0, 0.0156863, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ib3ej"]
+bg_color = Color(0.215686, 0.215686, 0.215686, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[resource]
+default_font = ExtResource("1_7ef8c")
+default_font_size = 24
+HSlider/icons/grabber = ExtResource("1_fjnt0")
+HSlider/icons/grabber_disabled = ExtResource("2_tlxqn")
+HSlider/icons/grabber_highlight = ExtResource("3_ko0ip")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_kyvww")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_ejyi0")
+HSlider/styles/slider = SubResource("StyleBoxFlat_ib3ej")
+VBoxContainer/constants/separation = 15
