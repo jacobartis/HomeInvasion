@@ -1,0 +1,26 @@
+[gd_resource type="Environment" load_steps=5 format=3 uid="uid://eklp8u5x8exh"]
+
+[sub_resource type="Gradient" id="Gradient_fg0s2"]
+colors = PackedColorArray(0, 0, 0, 1, 0.105882, 0.152941, 0.384314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gkwm0"]
+gradient = SubResource("Gradient_fg0s2")
+fill_from = Vector2(1, 0.0384615)
+fill_to = Vector2(1, 0.611111)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_f545i"]
+night_sky = SubResource("GradientTexture2D_gkwm0")
+
+[sub_resource type="Sky" id="Sky_mnd0p"]
+sky_material = SubResource("PhysicalSkyMaterial_f545i")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_mnd0p")
+ambient_light_source = 2
+ambient_light_color = Color(0.454902, 0.454902, 0.454902, 1)
+fog_enabled = true
+fog_light_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+fog_light_energy = 1.5
+fog_density = 0.186
+volumetric_fog_density = 0.2
