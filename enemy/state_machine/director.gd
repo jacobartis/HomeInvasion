@@ -12,7 +12,7 @@ func set_player(new_player):
 	emit_signal("player_found",player)
 
 func set_pos_of_interest(new_pos):
-	if body.is_peaceful(): return
+	if body.is_deaf(): return
 	pos_of_interest = new_pos
 	emit_signal("new_pos_of_interest", new_pos)
 

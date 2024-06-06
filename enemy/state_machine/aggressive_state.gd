@@ -28,9 +28,10 @@ func process(delta):
 	return EnemyState.State.None
 
 func pick_room():
-	print(body.director.get_close_rooms(0,100))
-	if body.director.get_close_rooms(0,100):
-		room = body.director.get_close_rooms(0,100).pick_random()
+	var selection = body.director.get_close_rooms(0,30)
+	print(selection)
+	if selection:
+		room = selection.pick_random()
 	else:
 		room = body.director.get_player_room()
 	if !room: return

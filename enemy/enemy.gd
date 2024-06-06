@@ -11,6 +11,7 @@ signal section_entered(section:Room)
 @onready var director = $Director
 
 @export var peaceful: bool = false
+@export var deaf: bool = false
 
 var room: Room :set=set_room, get=get_room
 var section: RoomSection :set=set_section, get=get_section
@@ -26,6 +27,8 @@ var stamina_regen: float = 1.5
 
 var sprinting: bool = false :set=set_sprinting
 var can_sprint:bool = true :set=set_can_sprint
+
+var menacing: bool = false
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -65,6 +68,9 @@ func get_director():
 func is_peaceful():
 	return peaceful
 
+func is_deaf():
+	return deaf
+
 func _ready():
 	action_controller.init(self)
 	state_controller.init(self)
@@ -72,6 +78,10 @@ func _ready():
 
 func _process(delta):
 	state_controller.process(delta)
+	if menacing:
+		LevelInfo.menace += delta
+	else:
+		LevelInfo.menace -= delta
 
 func _physics_process(delta):
 	if stunned:
@@ -82,7 +92,7 @@ func _physics_process(delta):
 	action_controller.physics_process(delta)
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-	
+	nav_agent.set_target_position(nav_agent.get_target_position())
 	if nav_agent.get_next_path_position() and not nav_agent.is_navigation_finished():
 		var current_speed = speed
 		if sprinting:
@@ -96,7 +106,7 @@ func _physics_process(delta):
 		rotation.x = 0
 		rotation.z = 0
 		velocity += transform.basis * Vector3(0,0,-current_speed)
-	
+	nav_agent.set_velocity(velocity)
 	move_and_slide()
 
 func noise(pos:Vector3, vol:float=1):
@@ -116,7 +126,10 @@ func _on_kill_body_entered(body):
 	print("you lose")
 	get_tree().quit()
 
-func _on_door_area_body_entered(body):
-	if body.is_in_group("door"):
-		if body.closed:
-			body.interact(self)
+func menace_area_entered(body):
+	if !body.is_in_group("player"):return
+	menacing = true
+
+func menace_area_exited(body):
+	if !body.is_in_group("player"):return
+	menacing = false

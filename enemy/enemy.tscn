@@ -23,9 +23,6 @@ radius = 0.25
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_424n4"]
 radius = 1.0
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_cb8cq"]
-radius = 1.0
-
 [sub_resource type="Animation" id="Animation_v7ngm"]
 length = 0.001
 tracks/0/type = "value"
@@ -122,9 +119,13 @@ _data = {
 "walk": SubResource("Animation_iujfj")
 }
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rwa6r"]
+radius = 20.0
+
 [node name="Enemy" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_xqq5o")
 peaceful = true
+deaf = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_spugt")
@@ -134,7 +135,7 @@ mesh = SubResource("CapsuleMesh_eon0j")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.75
-path_max_distance = 10.01
+path_max_distance = 100.01
 
 [node name="StunTimer" type="Timer" parent="."]
 one_shot = true
@@ -177,11 +178,6 @@ script = ExtResource("9_kmwiy")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Kill"]
 shape = SubResource("CylinderShape3D_424n4")
 
-[node name="DoorArea" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorArea"]
-shape = SubResource("CylinderShape3D_cb8cq")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_r60w4")
@@ -200,8 +196,17 @@ pitch_scale = 0.75
 stream = ExtResource("12_d8363")
 pitch_scale = 1.25
 
+[node name="MenaceArea" type="Area3D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenaceArea"]
+shape = SubResource("CylinderShape3D_rwa6r")
+
+[connection signal="path_changed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_path_changed"]
 [connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
 [connection signal="player_found" from="Director" to="RayCast3D" method="set_player"]
 [connection signal="body_entered" from="Kill" to="." method="_on_kill_body_entered"]
-[connection signal="body_entered" from="DoorArea" to="." method="_on_door_area_body_entered"]
 [connection signal="player_seen" from="RayCast3D" to="StateController" method="_on_ray_cast_3d_player_seen"]
+[connection signal="body_entered" from="MenaceArea" to="." method="menace_area_entered"]
+[connection signal="body_exited" from="MenaceArea" to="." method="menace_area_exited"]
