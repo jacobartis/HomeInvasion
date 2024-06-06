@@ -14,7 +14,7 @@ func process(delta):
 		return PlayerState.State.Sprint
 	if Input.is_action_pressed("player_sneak"):
 		return PlayerState.State.Sneaking
-	get_tree().call_group("enemy","noise",body.global_position,.5)
+	get_tree().call_group("enemy","noise",body.global_position,.25)
 	return PlayerState.State.None
 
 func movement_input():

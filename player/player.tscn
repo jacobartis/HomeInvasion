@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cseafge3dgstr"]
+[gd_scene load_steps=19 format=3 uid="uid://cseafge3dgstr"]
 
 [ext_resource type="Script" path="res://player/player_controller.gd" id="1_m4mlw"]
 [ext_resource type="Script" path="res://player/camera.gd" id="2_jmyep"]
@@ -7,12 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b1ksb6ajy6naa" path="res://player/trap_placer.tscn" id="4_rytv5"]
 [ext_resource type="Script" path="res://player/interact_handler.gd" id="5_o87el"]
 [ext_resource type="Script" path="res://player/inventory_display.gd" id="5_un4r8"]
-[ext_resource type="Script" path="res://player/crafting_resource_display.gd" id="5_w3jlx"]
 [ext_resource type="Script" path="res://player/inventory_manager.gd" id="6_60koo"]
-[ext_resource type="Script" path="res://player/crafting_menu.gd" id="7_6d0sn"]
 [ext_resource type="Script" path="res://player/room_display.gd" id="8_dkoy0"]
 [ext_resource type="Script" path="res://player/state_machine/state_controller.gd" id="9_7p4i2"]
-[ext_resource type="Script" path="res://player/crafting_manager.gd" id="9_a1e7c"]
 [ext_resource type="Script" path="res://player/state_machine/idle.gd" id="10_tdylq"]
 [ext_resource type="Script" path="res://player/state_machine/walking.gd" id="11_6ik1w"]
 [ext_resource type="Script" path="res://player/state_machine/sprint.gd" id="12_h64jn"]
@@ -28,13 +25,11 @@ shader_parameter/pixelSize = 4
 margin = 0.1
 radius = 0.25
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("crafting_menu", "inventory_menu", "interaction_handler", "inventory_manager", "crafting_manager", "trap_placer") groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("inventory_menu", "interaction_handler", "inventory_manager", "trap_placer") groups=["player"]]
 script = ExtResource("1_m4mlw")
-crafting_menu = NodePath("Camera3D/UI/CraftMenu")
 inventory_menu = NodePath("Camera3D/UI/Inventory")
 interaction_handler = NodePath("Camera3D/InteractHandler")
 inventory_manager = NodePath("Camera3D/InventoryManager")
-crafting_manager = NodePath("Camera3D/CraftingManager")
 trap_placer = NodePath("Camera3D/TrapPlacer")
 
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
@@ -84,25 +79,6 @@ offset_right = -508.0
 offset_bottom = -590.0
 mouse_filter = 2
 
-[node name="CraftingDisplay" type="Label" parent="Camera3D/UI"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.862
-anchor_top = 0.194
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -0.0240479
-offset_top = 0.287994
-offset_bottom = 12.0
-grow_horizontal = 0
-grow_vertical = 2
-text = "Test
-Test
-Test"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("5_w3jlx")
-
 [node name="Inventory" type="Label" parent="Camera3D/UI"]
 layout_mode = 1
 anchors_preset = -1
@@ -126,28 +102,6 @@ grow_vertical = 2
 text = "Tesrgfg"
 horizontal_alignment = 1
 
-[node name="CraftMenu" type="VBoxContainer" parent="Camera3D/UI"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.087
-anchor_bottom = 1.0
-offset_top = 284.0
-offset_right = -0.223999
-offset_bottom = -284.0
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("7_6d0sn")
-
-[node name="TextureRect" type="TextureRect" parent="Camera3D/UI/CraftMenu"]
-layout_mode = 2
-
-[node name="CurrentRecipe" type="Label" parent="Camera3D/UI/CraftMenu"]
-layout_mode = 2
-text = "TestText"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Room" type="Label" parent="Camera3D/UI"]
 layout_mode = 0
 offset_left = 492.0
@@ -156,11 +110,23 @@ offset_right = 575.0
 offset_bottom = 93.0
 script = ExtResource("8_dkoy0")
 
+[node name="ColorRect" type="ColorRect" parent="Camera3D/UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -9.0
+offset_right = 11.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.988235, 0.988235, 0.988235, 1)
+
 [node name="InventoryManager" type="Node" parent="Camera3D" groups=["InventoryManager"]]
 script = ExtResource("6_60koo")
-
-[node name="CraftingManager" type="Node" parent="Camera3D"]
-script = ExtResource("9_a1e7c")
 
 [node name="TrapPlacer" parent="Camera3D" instance=ExtResource("4_rytv5")]
 visible = false
@@ -212,5 +178,3 @@ pitch_scale = 0.8
 [connection signal="entered_room" from="." to="Camera3D/UI/Room" method="_on_player_entered_room"]
 [connection signal="inventory_update" from="Camera3D/InventoryManager" to="Camera3D/UI/Inventory" method="_on_inventory_manager_inventory_update"]
 [connection signal="item_selected" from="Camera3D/InventoryManager" to="Camera3D/UI/Inventory" method="_on_inventory_manager_item_selected"]
-[connection signal="item_selected" from="Camera3D/CraftingManager" to="Camera3D/UI/CraftMenu" method="_on_crafting_manager_item_selected"]
-[connection signal="resources_updated" from="Camera3D/CraftingManager" to="Camera3D/UI/CraftingDisplay" method="_on_crafting_manager_resources_updated"]

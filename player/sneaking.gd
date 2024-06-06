@@ -14,7 +14,7 @@ func process(delta):
 		return PlayerState.State.Walking
 	if Input.is_action_pressed("player_sprint") and body.can_sprint():
 		return PlayerState.State.Sprint
-	get_tree().call_group("enemy","noise",body.global_position,.25)
+	get_tree().call_group("enemy","noise",body.global_position,.1)
 	return PlayerState.State.None
 
 func movement_input():

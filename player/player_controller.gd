@@ -3,12 +3,12 @@ extends CharacterBody3D
 signal entered_room(new_room:Room)
 signal entered_section(new_section:RoomSection)
 
-@export var crafting_menu: Control
+#@export var crafting_menu: Control
 @export var inventory_menu: Control
 
 @export var interaction_handler: RayCast3D
 @export var inventory_manager: Node
-@export var crafting_manager: Node
+#@export var crafting_manager: Node
 @export var trap_placer: Node3D
 
 @onready var camera = $Camera3D
@@ -71,6 +71,7 @@ func get_section():
 func _ready():
 	interact_handler.body = self
 	state_controller.init(self)
+	#LevelInfo.menace_update.connect(menace_update)
 
 func _process(delta):
 	state_controller.process(delta)
@@ -84,7 +85,6 @@ func _physics_process(delta):
 func _input(event):
 	state_controller.input(event)
 	camera_movement(event as InputEventMouseMotion)
-	crafting_input(event)
 	inventory_and_placer_input(event)
 
 func camera_movement(event:InputEventMouseMotion):
@@ -92,27 +92,27 @@ func camera_movement(event:InputEventMouseMotion):
 	rotate_y(-event.relative.x*Settings.get_sensitivity())
 	camera.rotate_x(-event.relative.y*Settings.get_sensitivity())
 
-#handles crafting inputs
-func crafting_input(event:InputEvent):
-	#toggles the crafting menu
-	if event.is_action_pressed("player_craft_menu"):
-		if crafting_open:
-			crafting_menu.hide()
-			inventory_menu.modulate.a = 1
-			crafting_open = false
-		else:
-			crafting_menu.show()
-			inventory_menu.modulate.a = .25
-			crafting_open = true
-	if !crafting_open: return
-	#Moves current selection
-	if event.is_action_pressed("next_item"):
-		crafting_manager.next_item()
-	elif event.is_action_pressed("prev_item"):
-		crafting_manager.prev_item()
-	#Crafts the item, adds it to the inventory
-	if event.is_action_pressed("player_craft"):
-		inventory_manager.add_item(crafting_manager.craft_selected())
+##handles crafting inputs
+#func crafting_input(event:InputEvent):
+	##toggles the crafting menu
+	#if event.is_action_pressed("player_craft_menu"):
+		#if crafting_open:
+			#crafting_menu.hide()
+			#inventory_menu.modulate.a = 1
+			#crafting_open = false
+		#else:
+			#crafting_menu.show()
+			#inventory_menu.modulate.a = .25
+			#crafting_open = true
+	#if !crafting_open: return
+	##Moves current selection
+	#if event.is_action_pressed("next_item"):
+		#crafting_manager.next_item()
+	#elif event.is_action_pressed("prev_item"):
+		#crafting_manager.prev_item()
+	##Crafts the item, adds it to the inventory
+	#if event.is_action_pressed("player_craft"):
+		#inventory_manager.add_item(crafting_manager.craft_selected())
 
 #Selects current invent item and handles placement.
 func inventory_and_placer_input(event:InputEvent):
@@ -134,3 +134,6 @@ func inventory_and_placer_input(event:InputEvent):
 		else:
 			#Tries to place trap, removes item from invent if true.
 			if trap_placer.place_trap(): inventory_manager.remove_selected()
+
+func menace_update(val):
+	print(val)
