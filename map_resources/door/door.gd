@@ -1,8 +1,11 @@
 extends StaticBody3D
 
+signal state_changed()
+
 var closed:bool = false
 var close_audio:AudioStreamPlayer3D
 var open_audio:AudioStreamPlayer3D
+var avoidance: NavigationObstacle3D
 
 @export var properties: Dictionary :
 	get:
@@ -37,12 +40,13 @@ func _ready():
 	open_audio.position = Vector3.ZERO
 	open_audio.set_pitch_scale(.5)
 
+
 func use(duration) -> void:
 	toggle()
 	await get_tree().create_timer(duration).timeout
 	toggle()
 
-func interact(body=null):
+func interact(body=null,rushed:bool=false):
 	return
 	#toggle()
 
@@ -55,11 +59,14 @@ func toggle():
 		close()
 
 func open():
+	#avoidance.set_avoidance_enabled(false)
 	collision_layer = 2
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position", global_position+Vector3(0,5,0), 1)
 	tween.play()
 	closed = false
+	await tween.finished
+	state_changed.emit()
 
 func close():
 	collision_layer = 3
@@ -67,3 +74,5 @@ func close():
 	tween.tween_property(self, "position", global_position-Vector3(0,5,0), .25)
 	tween.play()
 	closed = true
+	await tween.finished
+	state_changed.emit()
