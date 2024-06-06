@@ -1,15 +1,13 @@
 Demo ToDo:
-- Currency ✓
-- Menus/UI
-- Crafting ✓
-- Lootable spots ✓
-- Enemy AI improvements (Hiding spots) ✓
-- Simple big map
-- 3 basic traps
-- Models
-- Basic settings
-- Sound design
-- Doors ✓
+- Enemy behaviour
+- Items
+- Inventory
+- Map
+- Simple Models
+- UI
+- Vents
+- Basic menu
+- Game end
 
 Bonus ToDo (feature creep):
 - Difficulty options
@@ -26,15 +24,4 @@ End of timer killer gets snipped / killed.
 Roguelike bracket system vs different enemies.
 Different playable characters.
 
-Maintanance tunnels
-
-Intencity/Stress over suspence horror
-
 Random modifiers/events
-
-New item Flashlight - Blackout event
-
-Blackout event:
-	Lights go out
-	Silence 
-
