@@ -40,14 +40,16 @@ func _process(delta):
 	$TimeDisplay.set_text(str(time_left))
 
 
-func use(duration) -> void:
-	disable()
-	$CooldownTimer.start(duration)
+func use(use_duration) -> void:
+	can_be_pressed = false
+	$DurationTimer.start(use_duration)
+	hide_displays()
+	$DisplayYellow.show()
 
 func _ready():
 	enable()
 
-func interact(interactor):
+func interact(interactor,rushed:bool=false):
 	if can_be_pressed:
 		$UseAudio.play(.1)
 		activate()

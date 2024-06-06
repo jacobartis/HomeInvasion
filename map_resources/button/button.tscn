@@ -47,7 +47,7 @@ material = SubResource("StandardMaterial3D_kt6jf")
 size = Vector3(0.75, 0.75, 0.005)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0nhvq"]
-size = Vector3(0.25, 0.25, 0.001)
+size = Vector3(0.733398, 0.754883, 0.001)
 
 [node name="Button" type="StaticBody3D"]
 script = ExtResource("1_lioen")
