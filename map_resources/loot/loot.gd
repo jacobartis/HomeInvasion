@@ -23,7 +23,7 @@ func _ready():
 	loot_type = randi()%6
 	loot_quant = randi_range(1,5)
 
-func interact(interactor):
+func interact(interactor,rushed:bool=false):
 	if looted: return
 	if !interactor.is_in_group("player"): return
 	if loot_type == CraftingInfo.Resources.Currency:
