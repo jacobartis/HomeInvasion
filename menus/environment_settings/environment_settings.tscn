@@ -1,0 +1,282 @@
+[gd_scene load_steps=6 format=3 uid="uid://cay3g1lffj86f"]
+
+[ext_resource type="Theme" uid="uid://bprc36b22ouh4" path="res://menus/theme/game_theme.tres" id="1_flr42"]
+[ext_resource type="Script" path="res://menus/environment_settings/environment_settings.gd" id="2_kj372"]
+[ext_resource type="LabelSettings" uid="uid://de8m5bwerphb3" path="res://menus/environment_settings/SubTitle.tres" id="3_ja85q"]
+[ext_resource type="LabelSettings" uid="uid://bbapu7gkcpv58" path="res://menus/environment_settings/Text.tres" id="4_r1xrc"]
+[ext_resource type="Script" path="res://menus/environment_settings/label.gd" id="5_bxhdm"]
+
+[node name="Environment" type="Panel"]
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_flr42")
+script = ExtResource("2_kj372")
+
+[node name="Control" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = 0.035
+anchor_right = 0.965
+anchor_bottom = 0.965
+offset_left = -0.125
+offset_top = 0.32
+offset_right = 0.125
+offset_bottom = -0.320007
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="Control"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=40][u][color=#8B0000][center] Environment Menu"
+fit_content = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Sky" type="VBoxContainer" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/Sky"]
+layout_mode = 2
+text = "Sky settings"
+label_settings = ExtResource("3_ja85q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Color" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Sky"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Control/ScrollContainer/VBoxContainer/Sky/Color"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Color:"
+label_settings = ExtResource("4_r1xrc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SkyColor" type="ColorPickerButton" parent="Control/ScrollContainer/VBoxContainer/Sky/Color"]
+layout_mode = 2
+size_flags_horizontal = 3
+edit_alpha = false
+
+[node name="AmbientLight" type="VBoxContainer" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/AmbientLight"]
+layout_mode = 2
+text = "Ambient Light"
+label_settings = ExtResource("3_ja85q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Color" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/AmbientLight"]
+layout_mode = 2
+
+[node name="Color" type="Label" parent="Control/ScrollContainer/VBoxContainer/AmbientLight/Color"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Color:"
+label_settings = ExtResource("4_r1xrc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LightColor" type="ColorPickerButton" parent="Control/ScrollContainer/VBoxContainer/AmbientLight/Color"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.784314, 0.784314, 0.784314, 1)
+edit_alpha = false
+
+[node name="Energy" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/AmbientLight"]
+layout_mode = 2
+
+[node name="Energy" type="Label" parent="Control/ScrollContainer/VBoxContainer/AmbientLight/Energy"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Energy:
+"
+label_settings = ExtResource("4_r1xrc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LightEnergy" type="HSlider" parent="Control/ScrollContainer/VBoxContainer/AmbientLight/Energy"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 5.0
+step = 0.05
+value = 0.25
+
+[node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/AmbientLight/Energy/LightEnergy"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.425
+anchor_top = -0.437
+anchor_right = 0.575
+anchor_bottom = 1.437
+offset_left = -0.0500031
+offset_top = 1.992
+offset_right = 0.0499878
+offset_bottom = 2.008
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = ExtResource("4_r1xrc")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_bxhdm")
+
+[node name="Fog" type="VBoxContainer" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/Fog"]
+layout_mode = 2
+text = "Fog"
+label_settings = ExtResource("3_ja85q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enabled" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Fog"]
+layout_mode = 2
+
+[node name="Enabled" type="Label" parent="Control/ScrollContainer/VBoxContainer/Fog/Enabled"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Enabled: "
+label_settings = ExtResource("4_r1xrc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FogColor" type="CheckButton" parent="Control/ScrollContainer/VBoxContainer/Fog/Enabled"]
+layout_mode = 2
+size_flags_horizontal = 2
+button_pressed = true
+icon_alignment = 1
+
+[node name="Color" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Fog"]
+layout_mode = 2
+
+[node name="Color" type="Label" parent="Control/ScrollContainer/VBoxContainer/Fog/Color"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Color:"
+label_settings = ExtResource("4_r1xrc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FogColor" type="ColorPickerButton" parent="Control/ScrollContainer/VBoxContainer/Fog/Color"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.517647, 0.552941, 0.607843, 1)
+edit_alpha = false
+
+[node name="Energy" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Fog"]
+layout_mode = 2
+
+[node name="Energy" type="Label" parent="Control/ScrollContainer/VBoxContainer/Fog/Energy"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Energy:
+"
+label_settings = ExtResource("4_r1xrc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FogEnergy" type="HSlider" parent="Control/ScrollContainer/VBoxContainer/Fog/Energy"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 5.0
+step = 0.1
+value = 1.0
+
+[node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/Fog/Energy/FogEnergy"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.425
+anchor_top = -0.437
+anchor_right = 0.575
+anchor_bottom = 1.437
+offset_left = -0.0500031
+offset_top = 1.992
+offset_right = 0.0499878
+offset_bottom = 2.008
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = ExtResource("4_r1xrc")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_bxhdm")
+
+[node name="Dencity" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Fog"]
+layout_mode = 2
+
+[node name="Energy" type="Label" parent="Control/ScrollContainer/VBoxContainer/Fog/Dencity"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Dencity: "
+label_settings = ExtResource("4_r1xrc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FogDensity" type="HSlider" parent="Control/ScrollContainer/VBoxContainer/Fog/Dencity"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 0.5
+step = 0.001
+value = 0.01
+
+[node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/Fog/Dencity/FogDensity"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.425
+anchor_top = -0.437
+anchor_right = 0.575
+anchor_bottom = 1.437
+offset_left = -0.0500031
+offset_top = 1.992
+offset_right = 0.0499878
+offset_bottom = 2.008
+grow_horizontal = 2
+grow_vertical = 2
+text = "
+"
+label_settings = ExtResource("4_r1xrc")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_bxhdm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 2
+
+[node name="ResetButton" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reset
+"
+
+[node name="SaveButton" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Save"
+
+[connection signal="color_changed" from="Control/ScrollContainer/VBoxContainer/Sky/Color/SkyColor" to="." method="_on_sky_color_color_changed"]
+[connection signal="color_changed" from="Control/ScrollContainer/VBoxContainer/AmbientLight/Color/LightColor" to="." method="_on_light_color_color_changed"]
+[connection signal="value_changed" from="Control/ScrollContainer/VBoxContainer/AmbientLight/Energy/LightEnergy" to="." method="_on_light_energy_value_changed"]
+[connection signal="value_changed" from="Control/ScrollContainer/VBoxContainer/AmbientLight/Energy/LightEnergy" to="Control/ScrollContainer/VBoxContainer/AmbientLight/Energy/LightEnergy/Label" method="set_text_better"]
+[connection signal="toggled" from="Control/ScrollContainer/VBoxContainer/Fog/Enabled/FogColor" to="." method="_on_fog_color_toggled"]
+[connection signal="color_changed" from="Control/ScrollContainer/VBoxContainer/Fog/Color/FogColor" to="." method="_on_fog_color_color_changed"]
+[connection signal="value_changed" from="Control/ScrollContainer/VBoxContainer/Fog/Energy/FogEnergy" to="." method="_on_fog_energy_value_changed"]
+[connection signal="value_changed" from="Control/ScrollContainer/VBoxContainer/Fog/Energy/FogEnergy" to="Control/ScrollContainer/VBoxContainer/Fog/Energy/FogEnergy/Label" method="set_text_better"]
+[connection signal="value_changed" from="Control/ScrollContainer/VBoxContainer/Fog/Dencity/FogDensity" to="." method="_on_fog_density_value_changed"]
+[connection signal="value_changed" from="Control/ScrollContainer/VBoxContainer/Fog/Dencity/FogDensity" to="Control/ScrollContainer/VBoxContainer/Fog/Dencity/FogDensity/Label" method="set_text_better"]
+[connection signal="pressed" from="Control/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
