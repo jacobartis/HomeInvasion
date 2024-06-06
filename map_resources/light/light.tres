@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="QodotFGDPointClass" load_steps=3 format=3 uid="uid://byps0s2d1jg8n"]
+
+[ext_resource type="Script" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" id="1_5xqlc"]
+[ext_resource type="PackedScene" uid="uid://cnid16k8yq30s" path="res://map_resources/light/light.tscn" id="1_d6g3g"]
+
+[resource]
+script = ExtResource("1_5xqlc")
+scene_file = ExtResource("1_d6g3g")
+apply_rotation_on_map_build = true
+classname = "Light"
+description = "Test light"
+qodot_internal = false
+base_classes = Array[Resource]([])
+class_properties = {
+"color": Color(0, 0, 0, 1),
+"energy": 1.0,
+"range": 5.0
+}
+class_property_descriptions = {}
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"size": AABB(-1, -1, -1, 1, 1, 1)
+}
+node_class = ""
+transient_node = false
