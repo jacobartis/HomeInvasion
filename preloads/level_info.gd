@@ -1,6 +1,14 @@
 extends Node
 
+signal menace_update(val)
+
+var menace: float = 0: set=set_menace
+
 var rooms: Dictionary = {} : get=get_rooms
+
+func set_menace(val):
+	menace = clamp(val,0,INF)
+	menace_update.emit(menace)
 
 func get_rooms() -> Dictionary:
 	return rooms
