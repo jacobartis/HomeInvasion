@@ -17,10 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Settings="*res://preloads/settings.gd"
 ShopMenu="*res://shop/shop_menu.tscn"
 CraftingInfo="*res://preloads/crafting_info.gd"
 LevelInfo="*res://preloads/level_info.gd"
+Settings="*res://menus/settings/settings.tscn"
 
 [dotnet]
 
