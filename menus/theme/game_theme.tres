@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bprc36b22ouh4"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://bprc36b22ouh4"]
 
 [ext_resource type="FontFile" uid="uid://c5el8d2ssblhf" path="res://menus/theme/vinque rg.otf" id="1_7ef8c"]
 [ext_resource type="Texture2D" uid="uid://iu5rq7dalgbq" path="res://menus/theme/Grabber.png" id="1_fjnt0"]
@@ -41,6 +41,20 @@ corner_radius_bottom_left = 5
 expand_margin_top = 2.0
 expand_margin_bottom = 2.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6d85a"]
+bg_color = Color(0.109804, 0.109804, 0.109804, 0.929412)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxovn"]
+bg_color = Color(0.109804, 0.109804, 0.109804, 0.929412)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [resource]
 default_font = ExtResource("1_7ef8c")
 default_font_size = 24
@@ -50,4 +64,6 @@ HSlider/icons/grabber_highlight = ExtResource("3_ko0ip")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_kyvww")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_ejyi0")
 HSlider/styles/slider = SubResource("StyleBoxFlat_ib3ej")
+Panel/styles/panel = SubResource("StyleBoxFlat_6d85a")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_jxovn")
 VBoxContainer/constants/separation = 15
