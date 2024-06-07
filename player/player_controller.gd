@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 signal entered_room(new_room:Room)
 signal entered_section(new_section:RoomSection)
+signal stamina_update(new_val:float)
 
 #@export var crafting_menu: Control
 @export var inventory_menu: Control
@@ -39,6 +40,7 @@ func can_sprint():
 
 func set_stamina(quant):
 	stamina = clamp(quant,0,max_stamina)
+	stamina_update.emit(stamina)
 	if stamina<= 0:
 		sprint_cooldown = true
 	if sprint_cooldown and stamina==max_stamina:
