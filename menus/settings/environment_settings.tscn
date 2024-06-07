@@ -1,20 +1,20 @@
 [gd_scene load_steps=6 format=3 uid="uid://cay3g1lffj86f"]
 
-[ext_resource type="Theme" uid="uid://bprc36b22ouh4" path="res://menus/theme/game_theme.tres" id="1_flr42"]
-[ext_resource type="Script" path="res://menus/environment_settings/environment_settings.gd" id="2_kj372"]
-[ext_resource type="LabelSettings" uid="uid://de8m5bwerphb3" path="res://menus/environment_settings/SubTitle.tres" id="3_ja85q"]
-[ext_resource type="LabelSettings" uid="uid://bbapu7gkcpv58" path="res://menus/environment_settings/Text.tres" id="4_r1xrc"]
-[ext_resource type="Script" path="res://menus/environment_settings/label.gd" id="5_bxhdm"]
+[ext_resource type="Theme" uid="uid://bprc36b22ouh4" path="res://menus/theme/game_theme.tres" id="1_o3mgt"]
+[ext_resource type="Script" path="res://menus/settings/environment_settings.gd" id="2_wyy8s"]
+[ext_resource type="LabelSettings" uid="uid://de8m5bwerphb3" path="res://menus/settings/SubTitle.tres" id="3_53dkf"]
+[ext_resource type="LabelSettings" uid="uid://bbapu7gkcpv58" path="res://menus/settings/Text.tres" id="4_vhry3"]
+[ext_resource type="Script" path="res://menus/settings/label.gd" id="5_678cb"]
 
-[node name="Environment" type="Panel"]
+[node name="Environment" type="Panel" groups=["sub_menu"]]
 anchors_preset = -1
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_flr42")
-script = ExtResource("2_kj372")
+theme = ExtResource("1_o3mgt")
+script = ExtResource("2_wyy8s")
 
 [node name="Control" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -51,7 +51,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/Sky"]
 layout_mode = 2
 text = "Sky settings"
-label_settings = ExtResource("3_ja85q")
+label_settings = ExtResource("3_53dkf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -62,7 +62,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Color:"
-label_settings = ExtResource("4_r1xrc")
+label_settings = ExtResource("4_vhry3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -77,7 +77,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/AmbientLight"]
 layout_mode = 2
 text = "Ambient Light"
-label_settings = ExtResource("3_ja85q")
+label_settings = ExtResource("3_53dkf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -88,7 +88,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Color:"
-label_settings = ExtResource("4_r1xrc")
+label_settings = ExtResource("4_vhry3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -106,7 +106,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 text = "Energy:
 "
-label_settings = ExtResource("4_r1xrc")
+label_settings = ExtResource("4_vhry3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -130,10 +130,10 @@ offset_right = 0.0499878
 offset_bottom = 2.008
 grow_horizontal = 2
 grow_vertical = 2
-label_settings = ExtResource("4_r1xrc")
+label_settings = ExtResource("4_vhry3")
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("5_bxhdm")
+script = ExtResource("5_678cb")
 
 [node name="Fog" type="VBoxContainer" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -141,7 +141,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer/Fog"]
 layout_mode = 2
 text = "Fog"
-label_settings = ExtResource("3_ja85q")
+label_settings = ExtResource("3_53dkf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -152,7 +152,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Enabled: "
-label_settings = ExtResource("4_r1xrc")
+label_settings = ExtResource("4_vhry3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -169,7 +169,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Color:"
-label_settings = ExtResource("4_r1xrc")
+label_settings = ExtResource("4_vhry3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -187,7 +187,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 text = "Energy:
 "
-label_settings = ExtResource("4_r1xrc")
+label_settings = ExtResource("4_vhry3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -211,10 +211,10 @@ offset_right = 0.0499878
 offset_bottom = 2.008
 grow_horizontal = 2
 grow_vertical = 2
-label_settings = ExtResource("4_r1xrc")
+label_settings = ExtResource("4_vhry3")
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("5_bxhdm")
+script = ExtResource("5_678cb")
 
 [node name="Dencity" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer/Fog"]
 layout_mode = 2
@@ -223,7 +223,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Dencity: "
-label_settings = ExtResource("4_r1xrc")
+label_settings = ExtResource("4_vhry3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -249,24 +249,30 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "
 "
-label_settings = ExtResource("4_r1xrc")
+label_settings = ExtResource("4_vhry3")
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("5_bxhdm")
+script = ExtResource("5_678cb")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="ResetButton" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Reset
+text = "   Reset   
 "
 
 [node name="SaveButton" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Save"
+text = "   Save   "
+
+[node name="Close" type="Button" parent="Control"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "   Close   "
 
 [connection signal="color_changed" from="Control/ScrollContainer/VBoxContainer/Sky/Color/SkyColor" to="." method="_on_sky_color_color_changed"]
 [connection signal="color_changed" from="Control/ScrollContainer/VBoxContainer/AmbientLight/Color/LightColor" to="." method="_on_light_color_color_changed"]
@@ -280,3 +286,4 @@ text = "Save"
 [connection signal="value_changed" from="Control/ScrollContainer/VBoxContainer/Fog/Dencity/FogDensity" to="Control/ScrollContainer/VBoxContainer/Fog/Dencity/FogDensity/Label" method="set_text_better"]
 [connection signal="pressed" from="Control/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Control/Close" to="." method="hide"]

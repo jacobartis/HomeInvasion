@@ -4,8 +4,10 @@ extends Panel
 @onready var old_env = environment.duplicate()
 
 func _ready():
-	Settings.toggled_pause.connect(toggle_visible)
-	update_values()
+	visibility_changed.connect(update_values)
+
+func close():
+	hide()
 
 func update_values():
 	$Control/ScrollContainer/VBoxContainer/Sky/Color/SkyColor.color = environment.background_color
@@ -15,9 +17,6 @@ func update_values():
 	$Control/ScrollContainer/VBoxContainer/Fog/Color/FogColor.color =environment.fog_light_color
 	$Control/ScrollContainer/VBoxContainer/Fog/Energy/FogEnergy.value = environment.fog_light_energy
 	$Control/ScrollContainer/VBoxContainer/Fog/Dencity/FogDensity.value = environment.fog_density
-
-func toggle_visible(val):
-	visible = val
 
 func _on_sky_color_color_changed(color):
 	environment.background_color = color

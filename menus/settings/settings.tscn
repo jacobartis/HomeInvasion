@@ -1,0 +1,116 @@
+[gd_scene load_steps=6 format=3 uid="uid://bifjfnrjd3em8"]
+
+[ext_resource type="Theme" uid="uid://bprc36b22ouh4" path="res://menus/theme/game_theme.tres" id="1_kw5i6"]
+[ext_resource type="Script" path="res://menus/settings/settings.gd" id="2_2eqfw"]
+[ext_resource type="PackedScene" uid="uid://cay3g1lffj86f" path="res://menus/settings/environment_settings.tscn" id="3_bpi2a"]
+[ext_resource type="PackedScene" uid="uid://crlosxli4nryx" path="res://menus/settings/controls_menu.tscn" id="3_kphrs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mxlek"]
+font_size = 64
+
+[node name="Settings" type="CanvasLayer"]
+process_mode = 3
+layer = 2
+script = ExtResource("2_2eqfw")
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.352
+anchor_top = 0.228
+anchor_right = 0.648
+anchor_bottom = 0.772
+offset_left = 0.159973
+offset_top = -0.240021
+offset_right = -0.160034
+offset_bottom = 0.23999
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kw5i6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_mxlek")
+horizontal_alignment = 1
+
+[node name="Music" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Music"]
+layout_mode = 2
+text = "Music"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="Panel/VBoxContainer/Music"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Sound" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Sound"]
+layout_mode = 2
+text = "Sound"
+horizontal_alignment = 1
+
+[node name="SoundSlider" type="HSlider" parent="Panel/VBoxContainer/Sound"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="OpenControls" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "    Controls    "
+
+[node name="DebugButton" type="Button" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "    Debug    "
+
+[node name="MenuButton" type="Button" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "    Menu    "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 25
+
+[node name="Quit" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "    Quit    "
+
+[node name="Close" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "    Close    "
+
+[node name="Environment" parent="." instance=ExtResource("3_bpi2a")]
+visible = false
+anchor_left = 0.251
+anchor_right = 0.75
+offset_left = -0.152008
+offset_right = -6.10352e-05
+
+[node name="ControlsMenu" parent="." instance=ExtResource("3_kphrs")]
+visible = false
+
+[connection signal="value_changed" from="Panel/VBoxContainer/Music/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/Sound/SoundSlider" to="." method="_on_sound_slider_value_changed"]
+[connection signal="pressed" from="Panel/VBoxContainer/OpenControls" to="ControlsMenu" method="show"]
+[connection signal="pressed" from="Panel/VBoxContainer/DebugButton" to="Environment" method="show"]
+[connection signal="pressed" from="Panel/VBoxContainer/MenuButton" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Close" to="." method="_on_close_pressed"]

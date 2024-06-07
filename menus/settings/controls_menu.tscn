@@ -1,0 +1,198 @@
+[gd_scene load_steps=8 format=3 uid="uid://crlosxli4nryx"]
+
+[ext_resource type="Theme" uid="uid://bprc36b22ouh4" path="res://menus/theme/game_theme.tres" id="1_w5tk2"]
+[ext_resource type="Script" path="res://menus/settings/controls_menu.gd" id="2_2gjvx"]
+[ext_resource type="Script" path="res://menus/settings/input_mapper.gd" id="2_ujj8n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ymyg"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_wn3wm"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_7qjgv"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_rp3ds"]
+font_size = 64
+
+[node name="ControlsMenu" type="PanelContainer" groups=["controls_menu", "sub_menu"]]
+anchors_preset = -1
+anchor_left = 0.243
+anchor_top = 0.029
+anchor_right = 0.757
+anchor_bottom = 0.971
+offset_left = 0.0639954
+offset_top = 0.208
+offset_right = -0.0640259
+offset_bottom = -0.208069
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_w5tk2")
+script = ExtResource("2_2gjvx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Controls"
+label_settings = SubResource("LabelSettings_4ymyg")
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlayerForward" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" groups=["input"]]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+script = ExtResource("2_ujj8n")
+control_name = &"player_forward"
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/PlayerForward"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Up"
+label_settings = SubResource("LabelSettings_wn3wm")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/PlayerForward"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Test"
+flat = true
+
+[node name="PlayerLeft" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" groups=["input"]]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+script = ExtResource("2_ujj8n")
+control_name = &"player_left"
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/PlayerLeft"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Up"
+label_settings = SubResource("LabelSettings_wn3wm")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/PlayerLeft"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Test"
+flat = true
+
+[node name="PlayerRight" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" groups=["input"]]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+script = ExtResource("2_ujj8n")
+control_name = &"player_right"
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/PlayerRight"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Up"
+label_settings = SubResource("LabelSettings_wn3wm")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/PlayerRight"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Test"
+flat = true
+
+[node name="PlayerBackward" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" groups=["input"]]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+script = ExtResource("2_ujj8n")
+control_name = &"player_backward"
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/PlayerBackward"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Up"
+label_settings = SubResource("LabelSettings_wn3wm")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/PlayerBackward"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Test"
+flat = true
+
+[node name="CloseControls" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "    Close    "
+
+[node name="AwaitingInput" type="Control" parent="."]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_w5tk2")
+
+[node name="ColorRect" type="ColorRect" parent="AwaitingInput"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.843137)
+
+[node name="Label" type="Label" parent="AwaitingInput"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.274
+anchor_top = 0.457
+anchor_right = 0.726
+anchor_bottom = 0.543
+offset_left = 0.419983
+offset_top = 0.439972
+offset_right = -0.420044
+offset_bottom = -0.440063
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press a new button to bind."
+label_settings = SubResource("LabelSettings_7qjgv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Duplicate" type="Popup" parent="."]
+size = Vector2i(959, 100)
+
+[node name="Label" type="Label" parent="Duplicate"]
+offset_right = 40.0
+offset_bottom = 24.0
+theme = ExtResource("1_w5tk2")
+text = "That key is already being used."
+label_settings = SubResource("LabelSettings_rp3ds")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="awaiting_input" from="VBoxContainer/ScrollContainer/VBoxContainer/PlayerForward" to="." method="_on_input_awaiting_input"]
+[connection signal="recived_input" from="VBoxContainer/ScrollContainer/VBoxContainer/PlayerForward" to="." method="_on_input_recived_input"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/PlayerForward/Button" to="VBoxContainer/ScrollContainer/VBoxContainer/PlayerForward" method="_on_button_pressed"]
+[connection signal="awaiting_input" from="VBoxContainer/ScrollContainer/VBoxContainer/PlayerLeft" to="." method="_on_input_awaiting_input"]
+[connection signal="recived_input" from="VBoxContainer/ScrollContainer/VBoxContainer/PlayerLeft" to="." method="_on_input_recived_input"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/PlayerLeft/Button" to="VBoxContainer/ScrollContainer/VBoxContainer/PlayerLeft" method="_on_button_pressed"]
+[connection signal="awaiting_input" from="VBoxContainer/ScrollContainer/VBoxContainer/PlayerRight" to="." method="_on_input_awaiting_input"]
+[connection signal="recived_input" from="VBoxContainer/ScrollContainer/VBoxContainer/PlayerRight" to="." method="_on_input_recived_input"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/PlayerRight/Button" to="VBoxContainer/ScrollContainer/VBoxContainer/PlayerRight" method="_on_button_pressed"]
+[connection signal="awaiting_input" from="VBoxContainer/ScrollContainer/VBoxContainer/PlayerBackward" to="." method="_on_input_awaiting_input"]
+[connection signal="recived_input" from="VBoxContainer/ScrollContainer/VBoxContainer/PlayerBackward" to="." method="_on_input_recived_input"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/PlayerBackward/Button" to="VBoxContainer/ScrollContainer/VBoxContainer/PlayerBackward" method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CloseControls" to="." method="hide"]
