@@ -1,15 +1,19 @@
-Demo ToDo:
-- Enemy behaviour
-- Items
-- Inventory
-- Map
-- Simple Models
-- UI
-- Vents
-- Basic menu
-- Game end
+# Today:
+- Enemy
 
-Bonus ToDo (feature creep):
+# Demo ToDo:
+- Enemy behaviour
+- Game end
+- Items/Traps
+- Inventory
+- UI
+- Sound Design
+- <s>Vents</s>
+- <s>Basic menu</s>
+- Simple Models
+- Map finishing touches
+
+# Bonus ToDo (feature creep):
 - Difficulty options
 - Full settings
 - Aggression System
@@ -19,8 +23,6 @@ Bonus ToDo (feature creep):
 
 Throwable trap
 
-Squid game esq setting.
-End of timer killer gets snipped / killed.
 Roguelike bracket system vs different enemies.
 Different playable characters.
 
