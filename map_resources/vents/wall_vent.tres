@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="QodotFGDPointClass" load_steps=3 format=3 uid="uid://doqmrihoe0gr7"]
+
+[ext_resource type="PackedScene" uid="uid://c828mkdpjjxvm" path="res://map_resources/vents/wall_vent.tscn" id="1_av72o"]
+[ext_resource type="Script" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" id="2_3fsx8"]
+
+[resource]
+script = ExtResource("2_3fsx8")
+scene_file = ExtResource("1_av72o")
+apply_rotation_on_map_build = true
+classname = "Vent_Wall_Vent"
+description = "Vent for the wall"
+qodot_internal = false
+base_classes = Array[Resource]([])
+class_properties = {}
+class_property_descriptions = {}
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"size": AABB(-8, -8, -4, 8, 8, 4)
+}
+node_class = ""
+transient_node = false

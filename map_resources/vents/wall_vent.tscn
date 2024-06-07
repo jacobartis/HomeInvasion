@@ -1,0 +1,147 @@
+[gd_scene load_steps=13 format=3 uid="uid://c828mkdpjjxvm"]
+
+[ext_resource type="Script" path="res://map_resources/vents/vent.gd" id="1_i0qic"]
+[ext_resource type="AudioStream" uid="uid://cdgd5nvcbqiau" path="res://map_resources/vents/vent_open.mp3" id="2_iy2nr"]
+[ext_resource type="AudioStream" uid="uid://cw5h30le8y45v" path="res://map_resources/vents/vent_close.mp3" id="3_fcttu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eb5gh"]
+load_path = "res://.godot/imported/VentTexture.png-4b94c3a8aedc0b075844ce99f3457707.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r702y"]
+albedo_texture = SubResource("CompressedTexture2D_eb5gh")
+uv1_scale = Vector3(3, 1.87, 1)
+uv1_offset = Vector3(1.005, 0.1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ewbg0"]
+material = SubResource("StandardMaterial3D_r702y")
+size = Vector3(1, 0.01, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkvl2"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_40nle"]
+material = SubResource("StandardMaterial3D_qkvl2")
+size = Vector3(1, 0.005, 0.5)
+
+[sub_resource type="Animation" id="Animation_rygt0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cover:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Open:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Close:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_rl13p"]
+resource_name = "open"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cover:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(0.5, 0.2, 2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(2.35619, 0, 0), Vector3(2.61799, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Open:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Close:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ljyy8"]
+_data = {
+"RESET": SubResource("Animation_rygt0"),
+"open": SubResource("Animation_rl13p")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5r0xn"]
+size = Vector3(1, 1, 1.5)
+
+[node name="Vent" type="Node3D" groups=["vent"]]
+script = ExtResource("1_i0qic")
+
+[node name="Cover" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cover"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.003, -0.25, 0)
+mesh = SubResource("BoxMesh_ewbg0")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00257847, 0, 0)
+mesh = SubResource("BoxMesh_40nle")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ljyy8")
+}
+
+[node name="InteractionArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2229)
+shape = SubResource("BoxShape3D_5r0xn")
+
+[node name="Open" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_iy2nr")
+pitch_scale = 0.6
+
+[node name="Close" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_fcttu")
+pitch_scale = 0.5
