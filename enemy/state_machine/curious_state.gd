@@ -2,28 +2,36 @@ extends EnemyState
 
 var target_room
 
+var target_interactable: Node3D : set=set_target_interactable
+
+func set_target_interactable(new):
+	if target_interactable:
+		target_interactable.get_node("InteractionArea").body_entered.disconnect(self_entered_interaction)
+	
+	target_interactable = new
+	if !target_interactable: return
+	
+	if not (target_interactable.has_node("InteractionArea") and target_interactable.has_method("interact")):return
+	var int_area: Area3D = target_interactable.get_node("InteractionArea")
+	if !int_area: return
+	body.nav_agent.set_target_position(int_area.global_position)
+	int_area.body_entered.connect(self_entered_interaction)
+
 func enter():
-	pick_room()
 	print("Curious")
 
 func process(delta):
-	if body.get_director().get_pos_of_interest():
-		return EnemyState.State.Invesigation
-	if !target_room:
-		return EnemyState.State.Idle
-	if body.get_room() == target_room and !body.action_controller.current_action:
-		body.action_controller.enter({
-			"action":EnemyAction.Actions.Search,
-			"hiding_spot":target_room.get_hiding_spots().pick_random()
-		})
-	var result = body.action_controller.process(delta)
-	if result:
-		return EnemyState.State.Idle
+	if !target_interactable and !body.in_vent:
+		target_interactable = body.get_director().get_vent_nearest_player().back()
+	if body.in_vent and $Emerge.is_stopped():
+		body.get_director().get_vent_nearest_player().front().exit(body,false)
 	return EnemyState.State.None
 
-func pick_room():
-	var rooms = body.director.get_close_rooms(10,50)
-	if rooms.is_empty():
-		return
-	target_room = rooms.pick_random()
-	body.nav_agent.set_target_position(target_room.get_rand_pos())
+func self_entered_interaction(area_body):
+	if body != area_body: return
+	print("Entered interaction area")
+	target_interactable.interact(body,{"Noise":true})
+	target_interactable = null
+
+
+

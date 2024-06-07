@@ -29,7 +29,6 @@ func process(delta):
 
 func pick_room():
 	var selection = body.director.get_close_rooms(0,30)
-	print(selection)
 	if selection:
 		room = selection.pick_random()
 	else:

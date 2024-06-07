@@ -57,9 +57,12 @@ func get_player_hiding_spot():
 
 func get_random_behaviour():
 	var rand = randi()%3
-	rand = 0
-	if rand == 0:
-		return EnemyState.State.Aggressive
-	elif rand == 1:
-		return EnemyState.State.Curious
-	return EnemyState.State.Tactical
+	return EnemyState.State.Curious
+
+func get_vent_nearest_player():
+	var vents = get_tree().get_nodes_in_group("vent")
+	vents.sort_custom(
+		func(a,b):
+			return a.global_position.distance_to(get_player_pos())<b.global_position.distance_to(get_player_pos())
+	)
+	return vents
