@@ -149,6 +149,9 @@ script = ExtResource("3_txcmd")
 [node name="CuriousState" type="Node" parent="StateController"]
 script = ExtResource("4_a45gs")
 
+[node name="Emerge" type="Timer" parent="StateController/CuriousState"]
+one_shot = true
+
 [node name="AggressiveState" type="Node" parent="StateController"]
 script = ExtResource("5_ea7it")
 
@@ -203,6 +206,7 @@ collision_mask = 5
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenaceArea"]
 shape = SubResource("CylinderShape3D_rwa6r")
 
+[connection signal="entered_vent" from="." to="StateController/CuriousState/Emerge" method="start" binds= [5.0]]
 [connection signal="path_changed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_path_changed"]
 [connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
 [connection signal="player_found" from="Director" to="RayCast3D" method="set_player"]

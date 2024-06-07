@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 signal room_entered(room:Room)
 signal section_entered(section:Room)
+signal entered_vent()
+signal exited_vent()
 
 @onready var nav_agent = $NavigationAgent3D
 @onready var stun_timer = $StunTimer
@@ -30,6 +32,8 @@ var can_sprint:bool = true :set=set_can_sprint
 
 var menacing: bool = false
 
+var in_vent: bool = false :set=set_in_vent
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func set_room(new_room:Room):
@@ -55,6 +59,13 @@ func set_can_sprint(value:bool):
 
 func set_sprinting(value:bool):
 	sprinting = value and can_sprint
+
+func set_in_vent(val:bool):
+	in_vent = val
+	if val:
+		entered_vent.emit()
+	else:
+		exited_vent.emit()
 
 func get_room():
 	return room
@@ -84,7 +95,7 @@ func _process(delta):
 		LevelInfo.menace -= delta
 
 func _physics_process(delta):
-	if stunned:
+	if stunned or in_vent:
 		return
 	velocity.x = 0
 	velocity.z = 0
