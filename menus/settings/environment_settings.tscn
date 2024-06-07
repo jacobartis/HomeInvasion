@@ -8,9 +8,14 @@
 
 [node name="Environment" type="Panel" groups=["sub_menu"]]
 anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_right = -1.0
+anchor_left = 0.207
+anchor_top = 0.008
+anchor_right = 0.754
+anchor_bottom = 0.992
+offset_left = 0.53598
+offset_top = -0.184
+offset_right = 0.391968
+offset_bottom = 0.18396
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_o3mgt")

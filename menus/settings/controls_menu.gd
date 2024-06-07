@@ -1,4 +1,4 @@
-extends PanelContainer
+extends Panel
 
 var awaiting_key
 

@@ -16,23 +16,32 @@ font_size = 64
 [sub_resource type="LabelSettings" id="LabelSettings_rp3ds"]
 font_size = 64
 
-[node name="ControlsMenu" type="PanelContainer" groups=["controls_menu", "sub_menu"]]
-anchors_preset = -1
-anchor_left = 0.243
-anchor_top = 0.029
-anchor_right = 0.757
-anchor_bottom = 0.971
-offset_left = 0.0639954
-offset_top = 0.208
-offset_right = -0.0640259
-offset_bottom = -0.208069
+[node name="ControlsMenu" type="Panel" groups=["controls_menu", "sub_menu"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.0
+offset_top = -317.0
+offset_right = 298.0
+offset_bottom = 317.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_w5tk2")
 script = ExtResource("2_2gjvx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 16.0
+offset_right = -20.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 50
 
 [node name="Label" type="Label" parent="VBoxContainer"]
@@ -142,6 +151,11 @@ text = "    Close    "
 [node name="AwaitingInput" type="Control" parent="."]
 visible = false
 layout_mode = 2
+anchors_preset = 0
+offset_right = 592.0
+offset_bottom = 610.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_w5tk2")
 
 [node name="ColorRect" type="ColorRect" parent="AwaitingInput"]
