@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="QodotFGDFile" load_steps=20 format=3 uid="uid://duthk5xwly5wd"]
+[gd_resource type="Resource" script_class="QodotFGDFile" load_steps=26 format=3 uid="uid://duthk5xwly5wd"]
 
 [ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="1_88x8d"]
 [ext_resource type="Resource" uid="uid://cs0xf7xc4hf8h" path="res://map_resources/entry_point/entry_point.tres" id="2_4gflm"]
@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://qfwsncinkxde" path="res://map_resources/room/room_section.tres" id="4_4ekeg"]
 [ext_resource type="Resource" uid="uid://e1tf3wmyoe4e" path="res://map_resources/hidding_spot/hiding_spot.tres" id="5_jqauq"]
 [ext_resource type="Resource" uid="uid://dp2htph3oelqh" path="res://map_resources/loot/loot.tres" id="6_1m6v5"]
-[ext_resource type="Resource" uid="uid://7b433se1f2og" path="res://map_resources/shop/shop_fgd.tres" id="7_h77nd"]
+[ext_resource type="Script" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" id="7_e486y"]
 [ext_resource type="Resource" uid="uid://cakmct58ieimq" path="res://map_resources/button/button.tres" id="8_qgjn3"]
 [ext_resource type="Resource" uid="uid://byps0s2d1jg8n" path="res://map_resources/light/light.tres" id="9_0xuhu"]
 [ext_resource type="Resource" uid="uid://doqmrihoe0gr7" path="res://map_resources/vents/wall_vent.tres" id="10_tw8f4"]
@@ -20,10 +20,82 @@
 [ext_resource type="Resource" uid="uid://bg72t8vn8pky0" path="res://map_resources/particle_emitter/particle_emitter.tres" id="17_igkrx"]
 [ext_resource type="Resource" uid="uid://ccpul3dpahnr3" path="res://map_resources/door/tp_door.tres" id="18_yfv7j"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ysi41"]
+load_path = "res://.godot/imported/shop_model_shop_texture.jpg-4912a80434fd190296aa5d6a4d335306.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrq1b"]
+resource_name = "Material.001"
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_ysi41")
+roughness = 0.5
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cof7x"]
+_surfaces = [{
+"aabb": AABB(-0.555241, -0.5, -0.841262, 1.11048, 2.60739, 1.68252),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0, 3, 0, 4, 0, 2, 0, 3, 0, 5, 0, 4, 0, 5, 0, 0, 0, 6, 0, 5, 0, 3, 0, 0, 0, 2, 0, 7, 0, 1, 0, 2, 0, 4, 0, 7, 0, 6, 0, 1, 0, 7, 0, 6, 0, 0, 0, 1, 0, 5, 0, 7, 0, 4, 0, 5, 0, 6, 0, 7, 0),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 254, 255, 255, 255, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5dypb"]
+resource_name = "shop_model_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.555241, -0.5, -0.841262, 1.11048, 2.60739, 1.68252),
+"attribute_data": PackedByteArray(2, 89, 1, 1, 2, 89, 208, 254, 193, 254, 208, 254, 193, 254, 1, 1, 132, 63, 14, 138, 132, 63, 29, 20, 0, 0, 29, 20, 0, 0, 14, 138, 75, 74, 75, 132, 75, 74, 48, 56, 198, 10, 48, 56, 198, 10, 75, 132, 131, 13, 187, 52, 131, 13, 214, 128, 8, 77, 214, 128, 8, 77, 187, 52, 149, 5, 223, 132, 149, 5, 207, 250, 25, 69, 207, 250, 25, 69, 223, 132, 59, 6, 18, 64, 59, 6, 50, 176, 181, 79, 50, 176, 181, 79, 18, 64),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0, 4, 0, 6, 0, 5, 0, 4, 0, 7, 0, 6, 0, 8, 0, 10, 0, 9, 0, 8, 0, 11, 0, 10, 0, 12, 0, 14, 0, 13, 0, 12, 0, 15, 0, 14, 0, 16, 0, 18, 0, 17, 0, 16, 0, 19, 0, 18, 0, 20, 0, 22, 0, 21, 0, 20, 0, 23, 0, 22, 0),
+"material": SubResource("StandardMaterial3D_nrq1b"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 254, 255, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 255, 255, 255, 191, 0, 0, 254, 255, 255, 255, 255, 191, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 254, 255, 255, 255, 255, 255, 255, 255, 254, 255, 255, 255, 255, 191, 255, 255, 254, 255, 0, 0, 255, 191, 0, 0, 254, 255, 0, 0, 255, 191, 0, 0, 254, 255, 255, 255, 255, 191, 0, 0, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 255, 255, 254, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 255, 255, 254, 255, 255, 255, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 254, 255, 0, 0, 255, 191, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 127, 255, 127, 255, 127, 255, 127, 255, 127, 255, 127, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_cof7x")
+
+[sub_resource type="PackedScene" id="PackedScene_dwgg0"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("shop_model", "Node3D", "Cube", "mesh", "skeleton", "MeshInstance3D"),
+"node_count": 2,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 0, 0, 0, 0, 5, 2, -1, 2, 3, 0, 4, 1, 0),
+"variants": [SubResource("ArrayMesh_5dypb"), NodePath("")],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_r8x4t"]
+script = ExtResource("7_e486y")
+scene_file = SubResource("PackedScene_dwgg0")
+apply_rotation_on_map_build = true
+classname = "Interactable_Shop_Access"
+description = "Interactable to open the shop"
+qodot_internal = false
+base_classes = Array[Resource]([])
+class_properties = {}
+class_property_descriptions = {}
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"size": AABB(-4, -2, -1, -4, 2, 1)
+}
+node_class = ""
+transient_node = false
+
 [resource]
 script = ExtResource("3_oobcl")
 export_file = false
 target_folder = "A:/Game dev/TrenchBroom/games/HomeInvasion"
 fgd_name = "HomeInvasion"
 base_fgd_files = Array[Resource]([ExtResource("1_88x8d")])
-entity_definitions = Array[Resource]([ExtResource("2_4gflm"), ExtResource("3_vgk01"), ExtResource("4_4ekeg"), ExtResource("5_jqauq"), ExtResource("6_1m6v5"), ExtResource("7_h77nd"), ExtResource("8_qgjn3"), ExtResource("9_0xuhu"), ExtResource("10_tw8f4"), ExtResource("11_exgsy"), ExtResource("12_dh3fq"), ExtResource("13_b44iy"), ExtResource("14_jr5qp"), ExtResource("15_fbkeq"), ExtResource("16_iy525"), ExtResource("17_igkrx"), ExtResource("18_yfv7j")])
+entity_definitions = Array[Resource]([ExtResource("2_4gflm"), ExtResource("3_vgk01"), ExtResource("4_4ekeg"), ExtResource("5_jqauq"), ExtResource("6_1m6v5"), SubResource("Resource_r8x4t"), ExtResource("8_qgjn3"), ExtResource("9_0xuhu"), ExtResource("10_tw8f4"), ExtResource("11_exgsy"), ExtResource("12_dh3fq"), ExtResource("13_b44iy"), ExtResource("14_jr5qp"), ExtResource("15_fbkeq"), ExtResource("16_iy525"), ExtResource("17_igkrx"), ExtResource("18_yfv7j")])
