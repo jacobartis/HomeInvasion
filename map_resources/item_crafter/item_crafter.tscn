@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce6q0djbh5joa"]
+
+[ext_resource type="Script" path="res://map_resources/item_crafter/item_crafter.gd" id="1_3tef5"]
+[ext_resource type="Script" path="res://interaction_handler/interaction_handler.gd" id="2_py4j6"]
+
+[node name="ItemCrafter" type="StaticBody3D"]
+script = ExtResource("1_3tef5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="InteractionHandler" type="Node" parent="."]
+script = ExtResource("2_py4j6")
+
+[connection signal="interaction_end" from="InteractionHandler" to="." method="_on_interaction_handler_interaction_end"]
+[connection signal="interaction_start" from="InteractionHandler" to="." method="_on_interaction_handler_interaction_start"]
