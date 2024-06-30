@@ -7,7 +7,6 @@ signal exited_vent()
 
 @onready var nav_agent = $NavigationAgent3D
 @onready var stun_timer = $StunTimer
-@onready var action_controller = $ActionController
 @onready var state_controller = $StateController
 @onready var animation_player = $AnimationPlayer
 @onready var director = $Director
@@ -33,6 +32,8 @@ var can_sprint:bool = true :set=set_can_sprint
 var menacing: bool = false
 
 var in_vent: bool = false :set=set_in_vent
+var vent_noise_delay:float = 20
+var vent_current_del: float = 20
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -75,6 +76,9 @@ func get_section():
 
 func get_director():
 	return director
+	
+func get_visible_notifier():
+	return $Visible
 
 func is_peaceful():
 	return peaceful
@@ -83,24 +87,28 @@ func is_deaf():
 	return deaf
 
 func _ready():
-	action_controller.init(self)
 	state_controller.init(self)
 	director.init(self)
 
 func _process(delta):
 	state_controller.process(delta)
+	if in_vent and vent_current_del<=0:
+		director.get_vent_nearest_player().front().move_sound()
+		vent_current_del = vent_noise_delay*randf_range(.5,1)
+	if in_vent:
+		vent_current_del -= delta
 	if menacing:
 		LevelInfo.menace += delta
 	else:
 		LevelInfo.menace -= delta
 
 func _physics_process(delta):
+
 	if stunned or in_vent:
 		return
 	velocity.x = 0
 	velocity.z = 0
 	state_controller.physics_process(delta)
-	action_controller.physics_process(delta)
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	nav_agent.set_target_position(nav_agent.get_target_position())

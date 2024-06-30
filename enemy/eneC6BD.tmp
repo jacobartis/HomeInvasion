@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://i4214dncwd37"]
+[gd_scene load_steps=23 format=3 uid="uid://i4214dncwd37"]
 
 [ext_resource type="Script" path="res://enemy/enemy.gd" id="1_xqq5o"]
 [ext_resource type="Script" path="res://enemy/state_machine/state_controller.gd" id="2_4117l"]
@@ -7,11 +7,9 @@
 [ext_resource type="Script" path="res://enemy/state_machine/observation_state.gd" id="6_6bg54"]
 [ext_resource type="Script" path="res://enemy/state_machine/confusion_state.gd" id="6_bpp1x"]
 [ext_resource type="Script" path="res://enemy/state_machine/chase_state.gd" id="8_mcak2"]
-[ext_resource type="Script" path="res://enemy/state_machine/intimidation_state.gd" id="8_nkrfb"]
+[ext_resource type="Script" path="res://enemy/state_machine/enemy_base_state.gd" id="8_y04s0"]
 [ext_resource type="Script" path="res://enemy/state_machine/director.gd" id="9_kmwiy"]
-[ext_resource type="Script" path="res://enemy/state_machine/prowling_state.gd" id="9_liag7"]
 [ext_resource type="Script" path="res://enemy/player_ray.gd" id="10_i0asf"]
-[ext_resource type="Script" path="res://enemy/state_machine/ambush_state.gd" id="10_tysuf"]
 [ext_resource type="Texture2D" uid="uid://ty7ooxgubft6" path="res://icon.svg" id="11_sxa4h"]
 [ext_resource type="AudioStream" uid="uid://dtct0hhg3mcv3" path="res://enemy/Assets/Sounds/indoor-footsteps-6385.mp3" id="12_d8363"]
 [ext_resource type="Script" path="res://audio_players/settings_based_audio_stream_player_3d.gd" id="14_3wyfa"]
@@ -161,13 +159,13 @@ script = ExtResource("6_6bg54")
 script = ExtResource("8_mcak2")
 
 [node name="IntimidationState" type="Node" parent="StateController"]
-script = ExtResource("8_nkrfb")
+script = ExtResource("8_y04s0")
 
 [node name="ProwlingState" type="Node" parent="StateController"]
-script = ExtResource("9_liag7")
+script = ExtResource("8_y04s0")
 
 [node name="AmushState" type="Node" parent="StateController"]
-script = ExtResource("10_tysuf")
+script = ExtResource("8_y04s0")
 
 [node name="Director" type="Node" parent="."]
 script = ExtResource("9_kmwiy")

@@ -4,11 +4,13 @@ signal entered_state(state)
 
 @onready var states = {
 	EnemyState.State.Idle: $IdleState,
-	EnemyState.State.Curious: $CuriousState,
-	EnemyState.State.Aggressive: $AggressiveState,
-	EnemyState.State.Tactical: $TacticalState,
+	EnemyState.State.Absent: $AbsentState,
+	EnemyState.State.Observation: $ObservationState,
+	EnemyState.State.Confusion: $ConfusionState,
 	EnemyState.State.Chase: $ChaseState,
-	EnemyState.State.Invesigation: $InvestigationState,
+	EnemyState.State.Ambush:$AmushState,
+	EnemyState.State.Prowling:$ProwlingState,
+	EnemyState.State.Intimidation:$IntimidationState,
 }
 
 var current_state: EnemyState
@@ -35,8 +37,9 @@ func change_state(new_state):
 func physics_process(delta):
 	current_state.physics_process(delta)
 
-func _on_ray_cast_3d_player_seen():
-	if body.peaceful:return
-	change_state(EnemyState.State.Chase)
-
-
+func _on_ray_cast_3d_player_enter_view():
+	#if body.peaceful:return
+	if randi()%1==0:
+		change_state(EnemyState.State.Observation)
+	else:
+		change_state(EnemyState.State.Chase)
