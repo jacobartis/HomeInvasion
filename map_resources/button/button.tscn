@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b3fq88hkfqa7t"]
+[gd_scene load_steps=17 format=3 uid="uid://b3fq88hkfqa7t"]
 
 [ext_resource type="Script" path="res://map_resources/button/button.gd" id="1_lioen"]
 [ext_resource type="Texture2D" uid="uid://c0dxovwrx0jqc" path="res://map_resources/button/button.png" id="2_xq78e"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://u03rjddwxstk" path="res://map_resources/button/charged.mp3" id="4_skive"]
 [ext_resource type="AudioStream" uid="uid://cph8u1f8gkeow" path="res://map_resources/button/use.mp3" id="5_o7rpi"]
 [ext_resource type="AudioStream" uid="uid://df2edalit1lww" path="res://map_resources/door/door_toggle.mp3" id="6_lfwwv"]
+[ext_resource type="Script" path="res://interaction_handler/interaction_handler.gd" id="7_mfwur"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5ry3"]
 albedo_color = Color(0, 1, 0, 1)
@@ -138,7 +139,12 @@ volume_db = -20.0
 unit_size = 2.5
 pitch_scale = 0.5
 
+[node name="InteractionHandler" type="Node" parent="."]
+script = ExtResource("7_mfwur")
+duration = 0.0
+
 [connection signal="timeout" from="CooldownTimer" to="." method="enable"]
 [connection signal="timeout" from="CooldownTimer" to="ChargedAudio" method="play" binds= [0.3]]
 [connection signal="timeout" from="DurationTimer" to="." method="enter_cooldown"]
 [connection signal="finished" from="ChargingAudio" to="." method="_on_charging_audio_finished"]
+[connection signal="interaction_finished" from="InteractionHandler" to="." method="interact"]

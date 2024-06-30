@@ -2,6 +2,8 @@ extends StaticBody3D
 
 signal trigger(duration)
 
+@onready var interaction_handler:InteractionHandler = $InteractionHandler
+
 var can_be_pressed:bool = true
 var duration: float = 5
 var cooldown: float = 10
@@ -27,7 +29,7 @@ func _process(delta):
 	if !time_left: 
 		if !can_be_pressed:
 			var dots = ""
-			for x in roundi(Time.get_ticks_msec()/500)%4:
+			for x in roundi(Time.get_ticks_msec()/500.0)%4:
 				dots = dots+"."
 			$TimeDisplay.set_text("CHARGING"+dots) 
 			return
@@ -49,7 +51,7 @@ func use(use_duration) -> void:
 func _ready():
 	enable()
 
-func interact(interactor,rushed:bool=false):
+func interact(interactor):
 	if can_be_pressed:
 		$UseAudio.play(.1)
 		activate()
