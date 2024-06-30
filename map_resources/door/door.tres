@@ -22,7 +22,10 @@ description = "Is a door"
 qodot_internal = false
 base_classes = Array[Resource]([])
 class_properties = {
-"closed": false
+"closed": "",
+"interactable": "",
+"move_pos": Vector3(0, 0, 0),
+"targetname": ""
 }
 class_property_descriptions = {}
 meta_properties = {
