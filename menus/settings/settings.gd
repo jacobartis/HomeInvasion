@@ -1,10 +1,21 @@
 extends CanvasLayer
 
 signal toggled_pause(val)
+signal music_vol_changed(val)
+signal sound_vol_changed(val)
 
 var sensitivity: float = .004: get=get_sensitivity
-var music_volume: float = 1
-var sound_volume: float = 1
+
+var music_volume: float = 1:
+	set(val):
+		music_volume = val
+		music_vol_changed.emit(val)
+
+var sound_volume: float = 1:
+	set(val):
+		sound_volume = val
+		sound_vol_changed.emit(val)
+
 var paused: bool = false: set = set_paused
 
 func get_sensitivity():

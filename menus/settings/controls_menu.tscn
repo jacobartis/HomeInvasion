@@ -143,6 +143,27 @@ theme_override_font_sizes/font_size = 32
 text = "Test"
 flat = true
 
+[node name="PlayerSneak" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" groups=["input"]]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+script = ExtResource("2_ujj8n")
+control_name = &"player_sneak"
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/PlayerSneak"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Up"
+label_settings = SubResource("LabelSettings_wn3wm")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/PlayerSneak"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Test"
+flat = true
+
 [node name="CloseControls" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -209,4 +230,7 @@ vertical_alignment = 1
 [connection signal="awaiting_input" from="VBoxContainer/ScrollContainer/VBoxContainer/PlayerBackward" to="." method="_on_input_awaiting_input"]
 [connection signal="recived_input" from="VBoxContainer/ScrollContainer/VBoxContainer/PlayerBackward" to="." method="_on_input_recived_input"]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/PlayerBackward/Button" to="VBoxContainer/ScrollContainer/VBoxContainer/PlayerBackward" method="_on_button_pressed"]
+[connection signal="awaiting_input" from="VBoxContainer/ScrollContainer/VBoxContainer/PlayerSneak" to="." method="_on_input_awaiting_input"]
+[connection signal="recived_input" from="VBoxContainer/ScrollContainer/VBoxContainer/PlayerSneak" to="." method="_on_input_recived_input"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/PlayerSneak/Button" to="VBoxContainer/ScrollContainer/VBoxContainer/PlayerSneak" method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/CloseControls" to="." method="hide"]

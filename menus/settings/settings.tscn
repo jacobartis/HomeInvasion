@@ -11,6 +11,7 @@ font_size = 64
 [node name="Settings" type="CanvasLayer"]
 process_mode = 3
 layer = 2
+visible = false
 script = ExtResource("2_2eqfw")
 
 [node name="Panel" type="Panel" parent="."]
