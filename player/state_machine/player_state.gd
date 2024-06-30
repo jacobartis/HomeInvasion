@@ -8,7 +8,8 @@ enum State {
 	Sprint,
 	Sneaking,
 	Hiding,
-	Crafting
+	Crafting,
+	Interacting
 }
 
 var body

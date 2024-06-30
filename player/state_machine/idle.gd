@@ -1,5 +1,9 @@
 extends PlayerState
 
+func input(event):
+	body.camera_movement(event as InputEventMouseMotion)
+	body.inventory_and_placer_input(event)
+
 func process(delta):
 	if is_direction_pressed():
 		return PlayerState.State.Walking

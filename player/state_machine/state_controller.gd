@@ -8,6 +8,7 @@ signal entered_state(state)
 	PlayerState.State.Sprint: $Sprint,
 	PlayerState.State.Sneaking: $Sneaking,
 	PlayerState.State.Hiding: $Hiding,
+	PlayerState.State.Interacting: $Interacting,
 }
 
 var current_state: PlayerState

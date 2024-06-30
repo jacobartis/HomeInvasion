@@ -6,6 +6,10 @@ func enter():
 func exit():
 	body.get_node("RunAudio").stop()
 
+func input(event):
+	body.camera_movement(event as InputEventMouseMotion)
+	body.inventory_and_placer_input(event)
+
 func process(delta):
 	if movement_input() == Vector3.ZERO:
 		return PlayerState.State.Idle

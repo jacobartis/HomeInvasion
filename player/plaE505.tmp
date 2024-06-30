@@ -1,69 +1,25 @@
-[gd_scene load_steps=25 format=3 uid="uid://cseafge3dgstr"]
+[gd_scene load_steps=19 format=3 uid="uid://cseafge3dgstr"]
 
 [ext_resource type="Script" path="res://player/player_controller.gd" id="1_m4mlw"]
 [ext_resource type="Script" path="res://player/camera.gd" id="2_jmyep"]
-[ext_resource type="Theme" uid="uid://bprc36b22ouh4" path="res://menus/theme/game_theme.tres" id="2_moyoo"]
 [ext_resource type="Shader" path="res://player/player.gdshader" id="3_m7gp4"]
 [ext_resource type="PackedScene" uid="uid://b1ksb6ajy6naa" path="res://player/trap_placer.tscn" id="4_rytv5"]
+[ext_resource type="PackedScene" uid="uid://cituxuk84jv50" path="res://player/UI/hotbar.tscn" id="4_tcgam"]
 [ext_resource type="Script" path="res://player/interaction_prompt.gd" id="5_kb8tv"]
 [ext_resource type="Script" path="res://player/interact_handler.gd" id="5_o87el"]
-[ext_resource type="PackedScene" uid="uid://c3xckdr462ydx" path="res://inventory/inventory.tscn" id="6_76vyw"]
-[ext_resource type="PackedScene" uid="uid://4wcfqfyj4mhy" path="res://compass/compass.tscn" id="9_1blu3"]
+[ext_resource type="Script" path="res://player/inventory_manager.gd" id="6_60koo"]
 [ext_resource type="Script" path="res://player/state_machine/state_controller.gd" id="9_7p4i2"]
 [ext_resource type="Script" path="res://player/state_machine/idle.gd" id="10_tdylq"]
 [ext_resource type="Script" path="res://player/state_machine/walking.gd" id="11_6ik1w"]
 [ext_resource type="Script" path="res://player/state_machine/sprint.gd" id="12_h64jn"]
 [ext_resource type="Script" path="res://player/state_machine/hiding.gd" id="13_802bs"]
 [ext_resource type="Script" path="res://player/sneaking.gd" id="15_gv3ub"]
-[ext_resource type="Script" path="res://player/state_machine/interacting.gd" id="15_ig022"]
 [ext_resource type="Script" path="res://audio_players/settings_based_audio_stream_player_3d.gd" id="15_ygjsw"]
 [ext_resource type="AudioStream" uid="uid://b2h8s5gj0m24d" path="res://player/Assets/Audio/indoor-footsteps-6385.mp3" id="18_upngc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kebce"]
 shader = ExtResource("3_m7gp4")
 shader_parameter/pixelSize = 8
-
-[sub_resource type="LabelSettings" id="LabelSettings_oh83t"]
-font_size = 128
-font_color = Color(0.67451, 0.211765, 0.737255, 1)
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(-2, 2)
-
-[sub_resource type="Animation" id="Animation_1u153"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Hand:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_r64yx"]
-resource_name = "equip"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Hand:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7, 1),
-"transitions": PackedFloat32Array(2, 0.5, 1),
-"update": 0,
-"values": [Vector3(-0.436332, 0, 0), Vector3(0.0872665, 0, 0), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2omam"]
-_data = {
-"RESET": SubResource("Animation_1u153"),
-"equip": SubResource("Animation_r64yx")
-}
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rce24"]
 margin = 0.1
@@ -72,7 +28,7 @@ radius = 0.25
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("interaction_handler", "inventory_manager", "trap_placer") groups=["player"]]
 script = ExtResource("1_m4mlw")
 interaction_handler = NodePath("Camera3D/InteractHandler")
-inventory_manager = NodePath("Camera3D/UI/Inventory")
+inventory_manager = NodePath("Camera3D/InventoryManager")
 trap_placer = NodePath("Camera3D/TrapPlacer")
 
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
@@ -90,7 +46,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = ExtResource("2_moyoo")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Camera3D/UI"]
 material = SubResource("ShaderMaterial_kebce")
@@ -115,8 +70,18 @@ current = true
 script = ExtResource("2_jmyep")
 follower_cam = NodePath("../../../..")
 
-[node name="Inventory" parent="Camera3D/UI" groups=["InventoryManager"] instance=ExtResource("6_76vyw")]
+[node name="Hotbar" parent="Camera3D/UI" instance=ExtResource("4_tcgam")]
 layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.133
+anchor_top = 0.85
+anchor_right = 0.867
+offset_left = -0.216003
+offset_top = 0.200012
+offset_right = 0.215942
+offset_bottom = 1.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Stamina" type="ProgressBar" parent="Camera3D/UI"]
 layout_mode = 1
@@ -150,20 +115,8 @@ grow_vertical = 0
 text = "Interaction"
 script = ExtResource("5_kb8tv")
 
-[node name="Label" type="Label" parent="Camera3D/UI" groups=["minigame_disp"]]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-label_settings = SubResource("LabelSettings_oh83t")
+[node name="InventoryManager" type="Node" parent="Camera3D" groups=["InventoryManager"]]
+script = ExtResource("6_60koo")
 
 [node name="TrapPlacer" parent="Camera3D" instance=ExtResource("4_rytv5")]
 visible = false
@@ -172,21 +125,9 @@ visible = false
 visible = false
 target_position = Vector3(0, 0, -5)
 collision_mask = 3
-collide_with_areas = true
 debug_shape_custom_color = Color(0, 0, 0.32549, 1)
 script = ExtResource("5_o87el")
 body = NodePath("../..")
-
-[node name="Hand" type="Node3D" parent="Camera3D"]
-
-[node name="Compass" parent="Camera3D/Hand" instance=ExtResource("9_1blu3")]
-transform = Transform3D(0.179691, -0.0334329, -0.0811987, 1.77378e-09, 0.184937, -0.0761463, 0.0878122, 0.0684142, 0.166158, 0.344684, -0.2, -0.503)
-
-[node name="HandAnim" type="AnimationPlayer" parent="Camera3D"]
-unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_2omam")
-}
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_rce24")
@@ -209,9 +150,6 @@ script = ExtResource("12_h64jn")
 [node name="Hiding" type="Node" parent="StateController"]
 script = ExtResource("13_802bs")
 
-[node name="Interacting" type="Node" parent="StateController"]
-script = ExtResource("15_ig022")
-
 [node name="RunAudio" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("18_upngc")
 volume_db = 10.0
@@ -230,6 +168,7 @@ volume_db = 20.0
 pitch_scale = 0.8
 script = ExtResource("15_ygjsw")
 
-[connection signal="interaction_start" from="." to="StateController/Interacting" method="_on_player_interaction_start"]
 [connection signal="stamina_update" from="." to="Camera3D/UI/Stamina" method="set_value"]
+[connection signal="inventory_update" from="Camera3D/InventoryManager" to="Camera3D/UI/Hotbar" method="_on_inventory_manager_inventory_update"]
+[connection signal="pos_selected" from="Camera3D/InventoryManager" to="Camera3D/UI/Hotbar" method="_on_inventory_manager_pos_selected"]
 [connection signal="new_interact_obj" from="Camera3D/InteractHandler" to="Camera3D/UI/InterationPrompt" method="_on_interact_handler_new_interact_obj"]

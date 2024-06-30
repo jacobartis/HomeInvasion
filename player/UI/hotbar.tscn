@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cituxuk84jv50"]
+
+[ext_resource type="Theme" uid="uid://bprc36b22ouh4" path="res://menus/theme/game_theme.tres" id="1_dli6c"]
+[ext_resource type="Script" path="res://player/hotbar.gd" id="2_iukdx"]
+[ext_resource type="PackedScene" uid="uid://7mdpijfpfo0b" path="res://player/UI/hotbar_element.tscn" id="3_ibdik"]
+
+[node name="Hotbar" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_dli6c")
+theme_override_constants/separation = 50
+script = ExtResource("2_iukdx")
+
+[node name="HotbarElement" parent="." instance=ExtResource("3_ibdik")]
+layout_mode = 2
+
+[node name="HotbarElement2" parent="." instance=ExtResource("3_ibdik")]
+layout_mode = 2
+
+[node name="HotbarElement3" parent="." instance=ExtResource("3_ibdik")]
+layout_mode = 2
+
+[node name="HotbarElement4" parent="." instance=ExtResource("3_ibdik")]
+layout_mode = 2
+
+[node name="HotbarElement5" parent="." instance=ExtResource("3_ibdik")]
+layout_mode = 2
