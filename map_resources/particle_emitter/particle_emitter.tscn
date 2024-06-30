@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://dgmw8jphadaf5"]
+
+[ext_resource type="Script" path="res://map_resources/particle_emitter/particle_emitter.gd" id="1_h83g5"]
+
+[sub_resource type="Gradient" id="Gradient_0rv06"]
+offsets = PackedFloat32Array(0, 0.429319, 1)
+colors = PackedColorArray(0.152941, 0.152941, 0.152941, 1, 0.68956, 0.68956, 0.68956, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mayc8"]
+gradient = SubResource("Gradient_0rv06")
+
+[sub_resource type="Curve" id="Curve_letpr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.242009, 0.505494), 0.0, 0.0, 0, 0, Vector2(0.712329, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_yywjl"]
+curve = SubResource("Curve_letpr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fm6b3"]
+direction = Vector3(0, 0.5, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 2, 0)
+scale_curve = SubResource("CurveTexture_yywjl")
+color_ramp = SubResource("GradientTexture1D_mayc8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2nk7s"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_8hfu8"]
+material = SubResource("StandardMaterial3D_2nk7s")
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="ParticleEmitter" type="GPUParticles3D"]
+amount = 16
+explosiveness = 0.2
+process_material = SubResource("ParticleProcessMaterial_fm6b3")
+draw_pass_1 = SubResource("BoxMesh_8hfu8")
+script = ExtResource("1_h83g5")
