@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1ksb6ajy6naa" path="res://player/trap_placer.tscn" id="4_rytv5"]
 [ext_resource type="Script" path="res://player/interaction_prompt.gd" id="5_kb8tv"]
 [ext_resource type="Script" path="res://player/interact_handler.gd" id="5_o87el"]
-[ext_resource type="PackedScene" uid="uid://c3xckdr462ydx" path="res://inventory/inventory.tscn" id="6_76vyw"]
+[ext_resource type="PackedScene" uid="uid://c3xckdr462ydx" path="res://player/inventory/inventory.tscn" id="6_76vyw"]
 [ext_resource type="PackedScene" uid="uid://4wcfqfyj4mhy" path="res://compass/compass.tscn" id="9_1blu3"]
 [ext_resource type="Script" path="res://player/state_machine/state_controller.gd" id="9_7p4i2"]
 [ext_resource type="Script" path="res://player/state_machine/idle.gd" id="10_tdylq"]
