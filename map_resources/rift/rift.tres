@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="QodotFGDPointClass" load_steps=3 format=3 uid="uid://ljrokxkk1gfc"]
+
+[ext_resource type="Script" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" id="1_d2rmh"]
+[ext_resource type="PackedScene" uid="uid://d2kw86c1dl5b3" path="res://map_resources/rift/rift.tscn" id="1_hgvxk"]
+
+[resource]
+script = ExtResource("1_d2rmh")
+scene_file = ExtResource("1_hgvxk")
+apply_rotation_on_map_build = true
+classname = "Interactable_Rift"
+description = "rift puzzle"
+qodot_internal = false
+base_classes = Array[Resource]([])
+class_properties = {
+"key_value": 0
+}
+class_property_descriptions = {}
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"size": AABB(-8, -8, -8, 8, 8, 8)
+}
+node_class = ""
+transient_node = false
