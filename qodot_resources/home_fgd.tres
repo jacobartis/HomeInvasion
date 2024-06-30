@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="QodotFGDFile" load_steps=12 format=3 uid="uid://duthk5xwly5wd"]
+[gd_resource type="Resource" script_class="QodotFGDFile" load_steps=20 format=3 uid="uid://duthk5xwly5wd"]
 
 [ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="1_88x8d"]
 [ext_resource type="Resource" uid="uid://cs0xf7xc4hf8h" path="res://map_resources/entry_point/entry_point.tres" id="2_4gflm"]
@@ -11,6 +11,14 @@
 [ext_resource type="Resource" uid="uid://cakmct58ieimq" path="res://map_resources/button/button.tres" id="8_qgjn3"]
 [ext_resource type="Resource" uid="uid://byps0s2d1jg8n" path="res://map_resources/light/light.tres" id="9_0xuhu"]
 [ext_resource type="Resource" uid="uid://doqmrihoe0gr7" path="res://map_resources/vents/wall_vent.tres" id="10_tw8f4"]
+[ext_resource type="Resource" uid="uid://cwv84d3e1h3ag" path="res://map_resources/generator/generator.tres" id="11_exgsy"]
+[ext_resource type="Resource" uid="uid://curpt4hnmyq6b" path="res://map_resources/door/powered_door.tres" id="12_dh3fq"]
+[ext_resource type="Resource" uid="uid://boxyb085ndq85" path="res://map_resources/sealer/sealer.tres" id="13_b44iy"]
+[ext_resource type="Resource" uid="uid://blea2ts3opivp" path="res://map_resources/key_item/key_item.tres" id="14_jr5qp"]
+[ext_resource type="Resource" uid="uid://ljrokxkk1gfc" path="res://map_resources/rift/rift.tres" id="15_fbkeq"]
+[ext_resource type="Resource" uid="uid://wvvsshwtjga2" path="res://map_resources/noise_emitter/noise_emitter.tres" id="16_iy525"]
+[ext_resource type="Resource" uid="uid://bg72t8vn8pky0" path="res://map_resources/particle_emitter/particle_emitter.tres" id="17_igkrx"]
+[ext_resource type="Resource" uid="uid://ccpul3dpahnr3" path="res://map_resources/door/tp_door.tres" id="18_yfv7j"]
 
 [resource]
 script = ExtResource("3_oobcl")
@@ -18,4 +26,4 @@ export_file = false
 target_folder = "A:/Game dev/TrenchBroom/games/HomeInvasion"
 fgd_name = "HomeInvasion"
 base_fgd_files = Array[Resource]([ExtResource("1_88x8d")])
-entity_definitions = Array[Resource]([ExtResource("2_4gflm"), ExtResource("3_vgk01"), ExtResource("4_4ekeg"), ExtResource("5_jqauq"), ExtResource("6_1m6v5"), ExtResource("7_h77nd"), ExtResource("8_qgjn3"), ExtResource("9_0xuhu"), ExtResource("10_tw8f4")])
+entity_definitions = Array[Resource]([ExtResource("2_4gflm"), ExtResource("3_vgk01"), ExtResource("4_4ekeg"), ExtResource("5_jqauq"), ExtResource("6_1m6v5"), ExtResource("7_h77nd"), ExtResource("8_qgjn3"), ExtResource("9_0xuhu"), ExtResource("10_tw8f4"), ExtResource("11_exgsy"), ExtResource("12_dh3fq"), ExtResource("13_b44iy"), ExtResource("14_jr5qp"), ExtResource("15_fbkeq"), ExtResource("16_iy525"), ExtResource("17_igkrx"), ExtResource("18_yfv7j")])

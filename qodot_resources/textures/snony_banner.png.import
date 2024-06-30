@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkyp4bj14pe5c"
-path="res://.godot/imported/wallpaper.jpg-97ac2e52e096e6150b19a1f0cc6190d5.ctex"
+uid="uid://c280ta6i7cnem"
+path.s3tc="res://.godot/imported/snony_banner.png-2d330314fb768d7620896c55cc146de0.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://qodot_resources/textures/wallpaper.jpg"
-dest_files=["res://.godot/imported/wallpaper.jpg-97ac2e52e096e6150b19a1f0cc6190d5.ctex"]
+source_file="res://qodot_resources/textures/snony_banner.png"
+dest_files=["res://.godot/imported/snony_banner.png-2d330314fb768d7620896c55cc146de0.s3tc.ctex"]
 
 [params]
 
-compress/mode=3
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

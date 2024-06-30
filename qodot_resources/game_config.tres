@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://dpjjh0hst6xj" path="res://addons/qodot/game_definitions/face_tags/clip_tag.tres" id="3_8xmr2"]
 [ext_resource type="Resource" uid="uid://b3ec6041xnoec" path="res://addons/qodot/game_definitions/face_tags/skip_tag.tres" id="4_bggx7"]
 [ext_resource type="Resource" uid="uid://duthk5xwly5wd" path="res://qodot_resources/home_fgd.tres" id="5_77iu1"]
-[ext_resource type="Texture2D" uid="uid://ch2i2516pei8a" path="res://icon/Icon.png" id="6_lvmeo"]
+[ext_resource type="Texture2D" uid="uid://ch2i2516pei8a" path="res://game/Icon.png" id="6_lvmeo"]
 [ext_resource type="Script" path="res://addons/qodot/src/resources/game-definitions/trenchbroom_game_config.gd" id="7_kpkiq"]
 
 [resource]
