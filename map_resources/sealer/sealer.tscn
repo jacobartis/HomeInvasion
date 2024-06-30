@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd6jyafcjkebk"]
+
+[ext_resource type="Script" path="res://map_resources/sealer/sealer.gd" id="1_ytuhr"]
+[ext_resource type="Script" path="res://interaction_handler/interaction_handler.gd" id="2_xmkd4"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_er05v"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 4.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cttg7"]
+height = 4.0
+radius = 1.0
+
+[node name="Sealer" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_ytuhr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_er05v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_cttg7")
+
+[node name="Gem1" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+visible = false
+light_color = Color(0, 1, 0, 1)
+light_energy = 3.0
+
+[node name="Gem2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+visible = false
+light_color = Color(0, 0, 1, 1)
+light_energy = 5.0
+
+[node name="Gem3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+visible = false
+light_color = Color(1, 0, 0, 1)
+light_energy = 5.0
+
+[node name="InteractionHandler" type="Node" parent="."]
+script = ExtResource("2_xmkd4")
+duration = 0.0
+can_be_exited = false
+
+[connection signal="interaction_start" from="InteractionHandler" to="." method="interact"]
