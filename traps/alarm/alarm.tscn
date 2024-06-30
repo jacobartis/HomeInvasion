@@ -2,16 +2,13 @@
 
 [ext_resource type="Script" path="res://traps/trap.gd" id="1_yq4di"]
 [ext_resource type="ArrayMesh" uid="uid://hcdprsf3x3bc" path="res://traps/alarm/alarm.res" id="2_oi6v4"]
+[ext_resource type="Material" uid="uid://c6t4wxrwaks6g" path="res://traps/placement_guide_mat.tres" id="3_8ir22"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nig73"]
 size = Vector3(1, 0.5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdss8"]
 size = Vector3(0.3, 0.5, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dowoj"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.247059)
 
 [node name="Alarm" type="StaticBody3D" node_paths=PackedStringArray("placement_guide", "place_area", "model")]
 collision_layer = 0
@@ -20,7 +17,6 @@ script = ExtResource("1_yq4di")
 placement_guide = NodePath("PlacementGuide")
 place_area = NodePath("PlaceArea")
 model = NodePath("Model")
-place_offset = Vector3(0, 0.3, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_nig73")
@@ -31,8 +27,8 @@ shape = SubResource("BoxShape3D_nig73")
 shape = SubResource("BoxShape3D_cdss8")
 
 [node name="PlaceArea" type="Area3D" parent="."]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 16
+collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlaceArea"]
 shape = SubResource("BoxShape3D_cdss8")
@@ -43,7 +39,7 @@ mesh = ExtResource("2_oi6v4")
 skeleton = NodePath("../PlacementGuide")
 
 [node name="PlacementGuide" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_dowoj")
+material_override = ExtResource("3_8ir22")
 mesh = ExtResource("2_oi6v4")
 
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrapData" load_steps=4 format=3 uid="uid://csynh7caayoj6"]
+
+[ext_resource type="Texture2D" uid="uid://ty7ooxgubft6" path="res://icon.svg" id="1_1ee01"]
+[ext_resource type="Script" path="res://traps/trap_data.gd" id="1_vxq8s"]
+[ext_resource type="PackedScene" uid="uid://dtah6764cxetq" path="res://traps/bear_trap/bear_trap.tscn" id="3_vayfc"]
+
+[resource]
+script = ExtResource("1_vxq8s")
+title = "Bear Trap"
+trap_scene = ExtResource("3_vayfc")
+icon = ExtResource("1_1ee01")
