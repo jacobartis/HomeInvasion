@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://bohik0vlrcr3w"]
+
+[ext_resource type="Script" path="res://map_resources/key_item/key_item.gd" id="1_2n04j"]
+[ext_resource type="Texture2D" uid="uid://y5w5axme67ws" path="res://map_resources/key_item/key_item_sprites.png" id="2_q71kk"]
+[ext_resource type="AudioStream" uid="uid://yvjo4dp202so" path="res://map_resources/key_item/key_pickup.mp3" id="3_rwig5"]
+[ext_resource type="Script" path="res://audio_players/settings_based_audio_stream_player_3d.gd" id="4_kk332"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vn6ip"]
+radius = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65udd"]
+atlas = ExtResource("2_q71kk")
+region = Rect2(0, 0, 48, 48)
+
+[node name="KeyItem" type="Node3D"]
+script = ExtResource("1_2n04j")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_vn6ip")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = SubResource("AtlasTexture_65udd")
+
+[node name="PickupSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_rwig5")
+script = ExtResource("4_kk332")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
