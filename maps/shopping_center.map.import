@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://cseklwdnh6gif"
+path="res://.godot/imported/shopping_center.map-c5b364cfec1fa182529d5615ca0264b2.tres"
+
+[deps]
+
+source_file="res://maps/shopping_center.map"
+dest_files=["res://.godot/imported/shopping_center.map-c5b364cfec1fa182529d5615ca0264b2.tres"]
+
+[params]
+
