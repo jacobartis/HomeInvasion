@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://4wcfqfyj4mhy"]
+
+[ext_resource type="Script" path="res://compass/compass.gd" id="1_dgnok"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_307hu"]
+albedo_color = Color(1, 0.866667, 0.862745, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_16rno"]
+material = SubResource("StandardMaterial3D_307hu")
+size = Vector3(0.1, 0.1, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4jpx1"]
+height = 0.1
+
+[node name="Compass" type="Node3D" groups=["compass"]]
+script = ExtResource("1_dgnok")
+
+[node name="DialHinge" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11073, 0)
+
+[node name="Dial" type="MeshInstance3D" parent="DialHinge"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15)
+mesh = SubResource("BoxMesh_16rno")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_4jpx1")
+
+[node name="AngleGetter" type="Node3D" parent="."]
