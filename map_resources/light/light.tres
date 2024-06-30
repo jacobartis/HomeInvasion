@@ -12,9 +12,14 @@ description = "Test light"
 qodot_internal = false
 base_classes = Array[Resource]([])
 class_properties = {
+"attenuation": 1.0,
 "color": Color(0, 0, 0, 1),
 "energy": 1.0,
-"range": 5.0
+"inverted_power": "",
+"power_resistant": "",
+"range": 5.0,
+"size": 0.0,
+"specular": 0.5
 }
 class_property_descriptions = {}
 meta_properties = {
